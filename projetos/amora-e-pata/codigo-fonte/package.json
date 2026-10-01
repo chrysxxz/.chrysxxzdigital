@@ -1,0 +1,16 @@
+{
+  "name": "amora-e-pata",
+  "version": "1.0.0",
+  "description": "Amora & Pata — site demonstrativo de pet shop (banho e tosa). Projeto de portfólio da Chrysxxz Digital.",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "serve . -l 3000",
+    "build": "node scripts/build.mjs",
+    "preview": "npm run build && serve dist -l 4000"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
+  },
+  "engines": { "node": ">=18" }
+}

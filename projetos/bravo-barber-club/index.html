@@ -1,0 +1,2005 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>BRAVO Barber Club · Barbearia clássica com agenda online</title>
+<meta name="description" content="BRAVO Barber Club: cortes clássicos, barba na navalha e agendamento online com acompanhamento do atendimento em tempo real. Projeto conceitual Chrysxxz Digital.">
+<meta name="theme-color" content="#0f0e0c">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..700;1,6..96,400..600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230f0e0c%22%2F%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%2221%22%20fill%3D%22none%22%20stroke%3D%22%23c29a5b%22%20stroke-width%3D%222%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2242%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2Cserif%22%20font-weight%3D%22700%22%20font-size%3D%2228%22%20fill%3D%22%23c29a5b%22%3EB%3C%2Ftext%3E%3C%2Fsvg%3E">
+<style>
+/* ============ TOKENS ============ */
+:root {
+  --bg: #0f0e0c; --bg-2: #15130f; --panel: #1b1814; --panel-2: #221e19;
+  --line: rgba(239, 231, 218, .1); --line-2: rgba(239, 231, 218, .18);
+  --cream: #efe7da; --cream-2: #e3d8c5; --ink: #15120e; --ink-2: #5b5046;
+  --brown: #2a1f18; --brass: #c29a5b; --brass-2: #dcbb85; --muted: rgba(239, 231, 218, .62); --muted-2: rgba(239, 231, 218, .42);
+  --st-agendado: #9aa4b0; --st-confirmado: #c9a063; --st-chegou: #7fb3bb; --st-atendimento: #e3894d; --st-finalizado: #8db27d; --st-cancelado: #c7665c;
+  --f-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-ui: "Archivo", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --gut: clamp(18px, 4.5vw, 56px); --maxw: 1240px; --hdr: 72px; --demo: 38px;
+  --r: 14px; --r-lg: 22px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  color-scheme: dark;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { color-scheme: dark; } }
+:root[data-theme="dark"] { color-scheme: dark; }
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--bg); scroll-behavior: smooth; scroll-padding-top: calc(var(--hdr) + var(--demo) + 10px); -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--cream); font-family: var(--f-ui); font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+@supports (overflow: clip) { body { overflow-x: clip; } }
+a { color: inherit; } img { max-width: 100%; display: block; }
+button, input, select { font: inherit; color: inherit; }
+h1, h2, h3, h4, p { margin: 0; }
+:focus-visible { outline: 2px solid var(--brass-2); outline-offset: 3px; border-radius: 6px; }
+.wrap { width: min(var(--maxw), 100% - 2 * var(--gut)); margin-inline: auto; position: relative; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.muted { color: var(--muted); } .pad { padding: 18px 20px; }
+.ic { width: 1.15em; height: 1.15em; flex: none; }
+.kicker { font-size: .74rem; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); }
+.kicker--ink { color: #8a6a3e; }
+.h2 { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1.02; letter-spacing: -.02em; }
+.h3 { font-family: var(--f-display); font-weight: 500; font-size: 1.6rem; }
+.fine { font-size: .82rem; color: var(--muted-2); text-align: center; }
+.fine a { color: var(--brass-2); }
+
+/* ============ BOTÕES ============ */
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: .6em; min-height: 48px; padding: .75em 1.4em; border-radius: 10px; border: 1px solid transparent; text-decoration: none; font-weight: 600; font-size: .92rem; letter-spacing: .02em; cursor: pointer; white-space: nowrap; transition: transform .3s var(--ease), background .3s, border-color .3s, color .3s, box-shadow .3s; background: none; }
+.btn .ic { transition: transform .35s var(--ease); }
+.btn:hover .ic { transform: translateX(3px); }
+.btn:active { transform: scale(.98); }
+.btn[disabled] { opacity: .4; cursor: not-allowed; }
+.btn--brass { background: var(--brass); color: #17120b; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25); }
+.btn--brass:hover:not([disabled]) { background: var(--brass-2); box-shadow: 0 12px 30px -14px rgba(194, 154, 91, .7), inset 0 1px 0 rgba(255, 255, 255, .3); }
+.btn--line { border-color: var(--line-2); color: var(--cream); }
+.btn--line:hover { border-color: var(--cream); background: rgba(239, 231, 218, .04); }
+.btn--ink { background: var(--ink); color: var(--cream); }
+.btn--ink:hover { background: #000; }
+.btn--sm { min-height: 40px; padding: .5em 1em; font-size: .84rem; }
+.btn--lg { min-height: 56px; padding: .9em 1.7em; font-size: .98rem; }
+.btn--block { width: 100%; }
+.btn.is-warn { border-color: var(--st-cancelado); color: #f1b3aa; }
+.linkbtn { background: none; border: 0; padding: 4px 0; color: var(--brass-2); cursor: pointer; font-size: .85rem; display: inline-flex; gap: 6px; align-items: center; text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(220, 187, 133, .4); }
+.iconbtn { width: 42px; height: 42px; border-radius: 50%; border: 1px solid var(--line-2); background: none; display: grid; place-items: center; cursor: pointer; color: var(--cream); }
+.chip { display: inline-flex; align-items: center; gap: 6px; font-size: .78rem; padding: 4px 10px; border-radius: 999px; border: 1px solid currentColor; opacity: .8; }
+.chip .ic { width: 14px; height: 14px; }
+.tag { font-style: normal; font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--brass); border: 1px solid rgba(194, 154, 91, .5); padding: 2px 7px; border-radius: 999px; margin-left: 6px; vertical-align: middle; font-weight: 600; }
+
+/* ============ LOGO ============ */
+.logo { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; }
+.logo__mark { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--brass); display: grid; place-items: center; font-family: var(--f-display); font-size: 1.25rem; font-weight: 600; color: var(--brass); position: relative; }
+.logo__mark::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; border: 1px solid rgba(194, 154, 91, .35); }
+.logo__txt { display: flex; flex-direction: column; line-height: 1; }
+.logo__txt b { font-family: var(--f-display); font-weight: 600; font-size: 1.35rem; letter-spacing: .14em; }
+.logo__txt small { font-size: .56rem; letter-spacing: .42em; text-transform: uppercase; color: var(--muted); margin-top: 5px; }
+
+/* ============ STATUS ============ */
+.badge { display: inline-flex; align-items: center; gap: 7px; font-size: .74rem; font-weight: 600; letter-spacing: .02em; padding: 5px 10px 5px 9px; border-radius: 999px; white-space: nowrap; color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 35%, transparent); }
+.badge i { width: 7px; height: 7px; border-radius: 50%; background: var(--c); }
+.badge--atendimento i, .badge--chegou i { animation: pulse 1.6s ease-in-out infinite; }
+@keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in srgb, var(--c) 60%, transparent); } 50% { box-shadow: 0 0 0 5px transparent; } }
+.badge--agendado, .blk--agendado, .legend--agendado, .stbtn--agendado, .sel--agendado { --c: var(--st-agendado); }
+.badge--confirmado, .blk--confirmado, .legend--confirmado, .stbtn--confirmado, .sel--confirmado { --c: var(--st-confirmado); }
+.badge--chegou, .blk--chegou, .legend--chegou, .stbtn--chegou, .sel--chegou { --c: var(--st-chegou); }
+.badge--atendimento, .blk--atendimento, .legend--atendimento, .stbtn--atendimento, .sel--atendimento { --c: var(--st-atendimento); }
+.badge--finalizado, .blk--finalizado, .legend--finalizado, .stbtn--finalizado, .sel--finalizado { --c: var(--st-finalizado); }
+.badge--cancelado, .blk--cancelado, .legend--cancelado, .stbtn--cancelado, .sel--cancelado { --c: var(--st-cancelado); }
+
+.track { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(5, 1fr); position: relative; }
+.track__step { position: relative; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; }
+.track__step::before { content: ""; position: absolute; top: 13px; left: -50%; right: 50%; height: 2px; background: var(--line-2); }
+.track__step:first-child::before { display: none; }
+.track__step.is-done::before, .track__step.is-now::before { background: var(--brass); }
+.track__dot { position: relative; z-index: 1; width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: var(--panel); border: 2px solid var(--line-2); color: #17120b; transition: all .5s var(--ease); }
+.track__dot .ic { width: 14px; height: 14px; }
+.track__step.is-done .track__dot { background: var(--brass); border-color: var(--brass); }
+.track__step.is-now .track__dot { border-color: var(--brass); background: var(--bg); box-shadow: 0 0 0 5px rgba(194, 154, 91, .15); }
+.track__step.is-now .track__dot::after { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--brass); animation: pulse 1.6s infinite; --c: var(--brass); }
+.track__lbl { font-size: .74rem; color: var(--muted-2); line-height: 1.25; }
+.track__step.is-done .track__lbl { color: var(--muted); }
+.track__step.is-now .track__lbl { color: var(--cream); font-weight: 600; }
+.track--compact .track__lbl { font-size: .66rem; }
+.track--cancel { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--r); background: rgba(199, 102, 92, .08); color: var(--muted); font-size: .9rem; }
+
+/* ============ FORM ============ */
+.field { display: flex; flex-direction: column; gap: 8px; font-size: .84rem; color: var(--muted); }
+.field input { min-height: 52px; padding: 0 16px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--bg-2); color: var(--cream); font-size: 1rem; transition: border-color .3s, box-shadow .3s; width: 100%; }
+.field input::placeholder { color: var(--muted-2); }
+.field input:focus { outline: none; border-color: var(--brass); box-shadow: 0 0 0 3px rgba(194, 154, 91, .18); }
+.alert { padding: 12px 16px; border-radius: 10px; background: rgba(199, 102, 92, .12); color: #f1b3aa; font-size: .9rem; margin: 0 0 16px; }
+
+/* ============ AVATAR ============ */
+.avatar { --tone: #4a3b2e; width: 46px; height: 46px; border-radius: 50%; display: inline-grid; place-items: center; flex: none; font-family: var(--f-display); font-weight: 600; font-size: 1rem; letter-spacing: .04em; color: var(--cream); background: radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--tone) 100%, #fff 12%), var(--tone) 60%, color-mix(in srgb, var(--tone) 70%, #000)); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .1); }
+.avatar--xs { width: 22px; height: 22px; font-size: .56rem; }
+.avatar--sm { width: 32px; height: 32px; font-size: .72rem; }
+.avatar--lg { width: 58px; height: 58px; font-size: 1.2rem; }
+.avatar--any { background: var(--panel-2); color: var(--brass); }
+.avatar--any .ic { width: 22px; height: 22px; }
+
+/* ============ FOTO (espaço de fotografia) ============ */
+.photo { margin: 0; position: relative; overflow: hidden; border-radius: var(--r); isolation: isolate;
+  background: radial-gradient(120% 80% at 20% 0%, #3a2c21 0%, #211a14 45%, #14110d 100%); }
+.photo::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: .35; mix-blend-mode: overlay; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); }
+.photo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(10, 8, 6, .55)); }
+.photo__crop { position: absolute; inset: 14px; border: 1px solid transparent; background:
+  linear-gradient(var(--brass), var(--brass)) top left / 16px 1px no-repeat, linear-gradient(var(--brass), var(--brass)) top left / 1px 16px no-repeat,
+  linear-gradient(var(--brass), var(--brass)) top right / 16px 1px no-repeat, linear-gradient(var(--brass), var(--brass)) top right / 1px 16px no-repeat,
+  linear-gradient(var(--brass), var(--brass)) bottom left / 16px 1px no-repeat, linear-gradient(var(--brass), var(--brass)) bottom left / 1px 16px no-repeat,
+  linear-gradient(var(--brass), var(--brass)) bottom right / 16px 1px no-repeat, linear-gradient(var(--brass), var(--brass)) bottom right / 1px 16px no-repeat; opacity: .55; }
+.photo__ic { position: absolute; inset: 0; display: grid; place-items: center; color: var(--brass); opacity: .5; }
+.photo__ic .ic { width: clamp(44px, 22%, 96px); height: auto; aspect-ratio: 1; stroke-width: 1; }
+.photo__big { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--f-display); font-size: clamp(3rem, 9vw, 6rem); color: rgba(194, 154, 91, .55); letter-spacing: .04em; font-weight: 500; }
+.photo figcaption { position: absolute; left: 24px; bottom: 20px; right: 24px; z-index: 1; font-size: .66rem; letter-spacing: .18em; text-transform: uppercase; color: rgba(239, 231, 218, .6); }
+
+/* ============ TOASTS ============ */
+.toasts { position: fixed; z-index: 200; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); transform: translateX(-50%); display: grid; gap: 10px; width: min(440px, calc(100% - 24px)); pointer-events: none; }
+.toast { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: 12px; background: #221e19; border: 1px solid var(--line-2); box-shadow: 0 20px 40px -16px rgba(0, 0, 0, .7); font-size: .9rem; color: var(--cream); opacity: 0; transform: translateY(12px) scale(.98); transition: opacity .35s var(--ease), transform .45s var(--ease); }
+.toast.is-in { opacity: 1; transform: none; }
+.toast b { color: var(--brass-2); }
+.toast__ic { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: rgba(194, 154, 91, .15); color: var(--brass-2); flex: none; }
+.toast.ok .toast__ic { background: rgba(141, 178, 125, .16); color: var(--st-finalizado); }
+
+/* ============ DEMO BAR ============ */
+.demobar { position: fixed; top: env(safe-area-inset-top, 0px); left: 0; right: 0; height: var(--demo); z-index: 80; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 var(--gut); background: #080706; border-bottom: 1px solid var(--line); font-size: .74rem; }
+.demobar__lbl { display: flex; align-items: center; gap: 8px; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); white-space: nowrap; }
+.demobar__lbl i { width: 6px; height: 6px; border-radius: 50%; background: var(--brass); }
+.demobar__seg { display: flex; gap: 2px; padding: 3px; border-radius: 999px; background: #15130f; border: 1px solid var(--line); }
+.demobar__seg a { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; text-decoration: none; color: var(--muted); font-weight: 500; transition: background .3s, color .3s; }
+.demobar__seg a .ic { width: 14px; height: 14px; }
+.demobar__seg a.is-on { background: var(--brass); color: #17120b; }
+.demobar__seg a:not(.is-on):hover { color: var(--cream); }
+.demobar__by { color: var(--muted-2); letter-spacing: .08em; white-space: nowrap; }
+
+.live { display: inline-flex; align-items: center; gap: 8px; font-size: .78rem; color: var(--muted); }
+.live-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--st-finalizado); --c: var(--st-finalizado); animation: pulse 2s infinite; }
+.empty { display: grid; justify-items: center; gap: 12px; text-align: center; padding: 40px 20px; border: 1px dashed var(--line-2); border-radius: var(--r-lg); color: var(--muted); }
+.empty .ic { width: 34px; height: 34px; color: var(--brass); }
+.empty--big { padding: 60px 20px; }
+.empty--big h2 { font-family: var(--f-display); font-weight: 500; font-size: 1.8rem; color: var(--cream); }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; } }
+
+/* ============ HEADER DO SITE ============ */
+.hdr { position: fixed; top: calc(var(--demo) + env(safe-area-inset-top, 0px)); left: 0; right: 0; z-index: 60; transition: background .4s, box-shadow .4s; }
+.hdr.is-solid, [data-view="client"] .hdr { background: rgba(15, 14, 12, .88); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line); }
+.hdr__in { height: var(--hdr); display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.hdr__logo { text-decoration: none; }
+.hdr__nav { display: flex; gap: clamp(16px, 2.2vw, 32px); }
+.hdr__nav a { text-decoration: none; font-size: .88rem; color: var(--muted); position: relative; padding: 6px 0; transition: color .3s; }
+.hdr__nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--brass); transition: right .4s var(--ease); }
+.hdr__nav a:hover { color: var(--cream); } .hdr__nav a:hover::after { right: 0; }
+.hdr__act { display: flex; align-items: center; gap: 14px; }
+.hdr__me { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--muted); text-decoration: none; transition: color .3s; }
+.hdr__me:hover, .hdr__me.is-on { color: var(--brass-2); }
+.burger { display: none; width: 44px; height: 44px; border-radius: 10px; border: 1px solid var(--line-2); background: none; position: relative; cursor: pointer; }
+.burger span { position: absolute; left: 12px; right: 12px; height: 1.5px; background: var(--cream); transition: transform .4s var(--ease), top .4s var(--ease); }
+.burger span:first-child { top: 17px; } .burger span:last-child { top: 25px; }
+.menu-open .burger span:first-child { top: 21px; transform: rotate(45deg); }
+.menu-open .burger span:last-child { top: 21px; transform: rotate(-45deg); }
+.mnav { position: fixed; inset: 0; z-index: 55; background: var(--bg); padding: calc(var(--demo) + var(--hdr) + 30px + env(safe-area-inset-top, 0px)) var(--gut) calc(28px + env(safe-area-inset-bottom, 0px)); display: flex; flex-direction: column; justify-content: space-between; opacity: 0; visibility: hidden; transition: opacity .35s, visibility .35s; }
+.menu-open .mnav { opacity: 1; visibility: visible; }
+.mnav nav { display: flex; flex-direction: column; }
+.mnav nav a { font-family: var(--f-display); font-size: clamp(2rem, 9vw, 2.8rem); text-decoration: none; padding: 10px 0; border-bottom: 1px solid var(--line); transform: translateY(12px); opacity: 0; transition: transform .5s var(--ease), opacity .5s; transition-delay: calc(.05s * var(--i) + .08s); }
+.menu-open .mnav nav a { transform: none; opacity: 1; }
+
+/* ============ REVEAL ============ */
+.reveal { opacity: 0; transform: translate3d(0, 22px, 0); transition: opacity .9s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0s); }
+.reveal.in, .is-ready .hero .reveal { opacity: 1; transform: none; }
+
+/* ============ HERO ============ */
+.hero { position: relative; min-height: 100svh; padding-top: calc(var(--demo) + var(--hdr) + env(safe-area-inset-top, 0px)); display: flex; flex-direction: column; overflow: hidden;
+  background: radial-gradient(90% 70% at 85% 30%, rgba(90, 64, 42, .35), transparent 60%), var(--bg); }
+.hero__bg { position: absolute; inset: auto 0 -3vw 0; pointer-events: none; text-align: center; }
+.hero__bg span { font-family: var(--f-display); font-weight: 700; font-size: 27vw; line-height: .8; letter-spacing: -.02em; color: transparent; -webkit-text-stroke: 1px rgba(194, 154, 91, .09); }
+.hero__grid { flex: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(30px, 5vw, 80px); align-items: center; padding-block: clamp(30px, 5vw, 60px); }
+.hero__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.9rem, 6.4vw, 6.2rem); line-height: .98; letter-spacing: -.025em; margin-top: 22px; }
+.hero__title .ln { display: block; overflow: hidden; padding-bottom: .06em; }
+.hero__title .ln > * { display: block; transform: translateY(105%); transition: transform 1.1s var(--ease); }
+.hero__title .ln:nth-child(2) > * { transition-delay: .12s; }
+.is-ready .hero__title .ln > * { transform: none; }
+.hero__title em { font-style: italic; color: var(--brass-2); }
+.hero__sub { margin-top: 26px; color: var(--muted); font-size: clamp(1rem, 1.3vw, 1.15rem); max-width: 32em; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+.nextfree { margin-top: 30px; display: inline-flex; align-items: center; gap: 14px; padding: 12px 16px 12px 14px; border-radius: 12px; border: 1px solid var(--line-2); background: rgba(27, 24, 20, .7); text-decoration: none; transition: border-color .3s, background .3s; }
+.nextfree:hover { border-color: var(--brass); }
+.nextfree small { display: block; font-size: .68rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted-2); }
+.nextfree b { font-weight: 600; color: var(--brass-2); }
+.nextfree > span:nth-child(2) { font-size: .92rem; color: var(--muted); }
+.nextfree .ic { color: var(--brass); }
+.nextfree__pulse { width: 9px; height: 9px; border-radius: 50%; background: var(--st-finalizado); --c: var(--st-finalizado); animation: pulse 2s infinite; flex: none; }
+.hero__media { position: relative; }
+.hero__photo { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
+.hero__photo figcaption { top: 22px; bottom: auto; left: 30px; }
+.hero__card { position: absolute; left: -24px; bottom: 32px; display: flex; align-items: center; gap: 12px; padding: 12px 18px 12px 12px; border-radius: 12px; background: var(--cream); color: var(--ink); box-shadow: 0 24px 48px -20px rgba(0, 0, 0, .7); }
+.hero__card-ic { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: var(--brass-2); display: grid; place-items: center; }
+.hero__card b { display: block; font-size: .9rem; } .hero__card small { font-size: .78rem; color: var(--ink-2); }
+.hero__strip { list-style: none; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; padding: 22px 0 !important; margin: 0 auto; border-top: 1px solid var(--line); font-size: .84rem; color: var(--muted); }
+.hero__strip li { display: inline-flex; align-items: center; gap: 10px; }
+.hero__strip .ic { color: var(--brass); }
+
+/* ============ SEÇÕES ============ */
+.sec { padding-block: clamp(84px, 11vw, 150px); position: relative; }
+.sec--cream { background: var(--cream); color: var(--ink); }
+.sec--brown { background: linear-gradient(180deg, #1a1511, #221a14); }
+.shead { max-width: 660px; margin-bottom: clamp(40px, 5vw, 64px); }
+.shead .h2 { margin-top: 16px; }
+.shead__txt { margin-top: 18px; color: var(--muted); font-size: 1.05rem; max-width: 30em; }
+.sec--cream .shead__txt { color: var(--ink-2); }
+.shead--split { max-width: none; display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+.shead--split .shead__txt { margin: 0; }
+
+/* Serviços: "carta" */
+.menu { list-style: none; padding: 0; margin: 0; border-top: 1px solid rgba(21, 18, 14, .16); }
+.menu__item { border-bottom: 1px solid rgba(21, 18, 14, .16); }
+.menu__link { display: grid; grid-template-columns: 56px 1fr auto; gap: 24px; align-items: center; padding: 26px 8px; text-decoration: none; color: var(--ink); transition: background .4s, padding .4s var(--ease); border-radius: 8px; }
+.menu__link:hover { background: rgba(21, 18, 14, .04); padding-inline: 18px; }
+.menu__ic { width: 52px; height: 52px; border-radius: 50%; border: 1px solid rgba(21, 18, 14, .2); display: grid; place-items: center; color: #8a6a3e; }
+.menu__ic .ic { width: 24px; height: 24px; }
+.menu__row { display: flex; align-items: baseline; gap: 12px; }
+.menu__name { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+.menu__tag { font-style: normal; font-size: .64rem; letter-spacing: .14em; text-transform: uppercase; background: var(--ink); color: var(--brass-2); padding: 3px 8px; border-radius: 999px; font-weight: 600; white-space: nowrap; }
+.menu__dots { flex: 1; border-bottom: 1px dotted rgba(21, 18, 14, .35); transform: translateY(-6px); min-width: 20px; }
+.menu__price { font-family: var(--f-display); font-weight: 500; font-size: clamp(1.3rem, 2vw, 1.7rem); }
+.menu__desc { display: block; margin-top: 6px; color: var(--ink-2); font-size: .95rem; max-width: 46em; }
+.menu__meta { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; color: var(--ink-2); }
+.menu__go { display: inline-flex; align-items: center; gap: 6px; font-size: .84rem; font-weight: 600; color: var(--ink); }
+.menu__link:hover .menu__go .ic { transform: translateX(4px); }
+.menu__go .ic { transition: transform .35s var(--ease); }
+.menu__item.is-feat .menu__ic { background: var(--ink); color: var(--brass-2); border-color: var(--ink); }
+
+/* Barbeiros */
+.barbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(16px, 2vw, 28px); }
+.barber { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; display: flex; flex-direction: column; transition: transform .5s var(--ease), border-color .4s; }
+.barber:hover { transform: translateY(-4px); border-color: rgba(194, 154, 91, .4); }
+.barber__photo { aspect-ratio: 4 / 3.6; border-radius: 0; }
+.barber__body { padding: 24px; display: flex; flex-direction: column; gap: 6px; flex: 1; }
+.barber__role { font-size: .7rem; letter-spacing: .18em; text-transform: uppercase; color: var(--brass); }
+.barber__name { font-family: var(--f-display); font-weight: 500; font-size: 1.75rem; line-height: 1.1; }
+.barber__spec { color: var(--cream); font-weight: 500; }
+.barber__bio { color: var(--muted); font-size: .92rem; margin-top: 4px; }
+.barber__days { display: flex; gap: 4px; margin: 14px 0 18px; }
+.barber__days span { flex: 1; text-align: center; font-size: .7rem; padding: 5px 0; border-radius: 6px; color: var(--muted-2); background: rgba(239, 231, 218, .03); }
+.barber__days span.on { color: var(--cream); background: rgba(194, 154, 91, .12); }
+.barber__days span.today { box-shadow: inset 0 0 0 1px var(--brass); }
+.barber .btn { margin-top: auto; }
+
+/* Galeria */
+.gal { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(140px, 15vw, 210px); gap: 14px; }
+.gal__it .photo { height: 100%; }
+.g1 { grid-column: span 2; grid-row: span 2; } .g2 { grid-row: span 2; } .g4 { grid-column: span 2; } .g6 { grid-column: span 1; }
+
+/* Sobre */
+.about { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: start; }
+.about blockquote { margin: 22px 0 0; font-family: var(--f-display); font-style: italic; font-size: clamp(1.8rem, 3.2vw, 2.8rem); line-height: 1.15; letter-spacing: -.01em; }
+.about__txt p { color: var(--ink-2); font-size: 1.04rem; margin-bottom: 16px; }
+.pillars { list-style: none; padding: 0; margin: 30px 0 0; display: grid; gap: 0; }
+.pillars li { display: grid; grid-template-columns: 170px 1fr; gap: 16px; padding: 16px 0; border-top: 1px solid rgba(21, 18, 14, .15); }
+.pillars b { font-family: var(--f-display); font-weight: 500; font-size: 1.2rem; }
+.pillars span { color: var(--ink-2); font-size: .95rem; }
+
+/* Localização */
+.loc { display: grid; grid-template-columns: 1.4fr 1fr; gap: 20px; }
+.map { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 400px; border: 1px solid var(--line); }
+.map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.map__card { position: absolute; left: 18px; bottom: 18px; right: 18px; max-width: 320px; display: grid; gap: 2px; padding: 16px 18px; border-radius: 12px; background: var(--cream); color: var(--ink-2); font-size: .86rem; }
+.map__card b { font-family: var(--f-display); font-size: 1.3rem; font-weight: 500; color: var(--ink); }
+.map__demo { position: absolute; top: 14px; right: 14px; font-size: .68rem; letter-spacing: .08em; color: var(--muted); background: rgba(15, 14, 12, .8); padding: 5px 10px; border-radius: 999px; }
+.loc__info { display: grid; gap: 16px; align-content: start; }
+.box { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 24px; }
+.box h3 { display: flex; align-items: center; gap: 10px; font-family: var(--f-display); font-weight: 500; font-size: 1.4rem; margin-bottom: 14px; }
+.box h3 .ic { color: var(--brass); }
+.box p { color: var(--muted); }
+.box__links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.hours { margin: 0; display: grid; gap: 10px; }
+.hours div { display: flex; justify-content: space-between; gap: 12px; padding-bottom: 10px; border-bottom: 1px dotted var(--line-2); }
+.hours div:last-child { border: 0; padding: 0; }
+.hours dt { color: var(--muted); } .hours dd { margin: 0; font-weight: 600; }
+
+/* CTA */
+.cta { background: var(--brass); color: var(--ink); padding-block: clamp(70px, 9vw, 120px); position: relative; overflow: hidden; }
+.cta::before { content: "BRAVO"; position: absolute; right: -2vw; bottom: -6vw; font-family: var(--f-display); font-weight: 700; font-size: 22vw; line-height: 1; color: rgba(21, 18, 14, .07); pointer-events: none; }
+.cta__in { display: flex; flex-direction: column; align-items: flex-start; gap: 24px; }
+.cta__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.6rem, 6.4vw, 5.6rem); line-height: .98; letter-spacing: -.02em; }
+.cta__title em { font-style: italic; }
+.cta .kicker--ink { color: rgba(21, 18, 14, .7); }
+
+/* Footer */
+.ftr { background: #0a0908; padding: clamp(60px, 7vw, 90px) 0 calc(28px + env(safe-area-inset-bottom, 0px)); border-top: 1px solid var(--line); }
+.ftr__top { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 36px; }
+.ftr__tag { margin-top: 18px; color: var(--muted); max-width: 18em; }
+.ftr h4 { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted-2); margin: 0 0 14px; font-weight: 600; }
+.ftr nav { display: flex; flex-direction: column; gap: 8px; }
+.ftr nav a { text-decoration: none; color: var(--muted); font-size: .92rem; } .ftr nav a:hover { color: var(--brass-2); }
+.ftr p { color: var(--muted); font-size: .92rem; margin-bottom: 6px; }
+.ftr__bot { margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 10px 30px; font-size: .78rem; color: var(--muted-2); }
+.ftr__bot b { color: var(--muted); font-weight: 500; }
+
+.stickycta { display: none; }
+
+/* ============ RESPONSIVO SITE ============ */
+@media (max-width: 1060px) {
+  .hdr__nav { display: none; } .burger { display: block; }
+  .barbers { grid-template-columns: 1fr 1fr; } .barber:last-child { grid-column: 1 / -1; flex-direction: row; } .barber:last-child .barber__photo { width: 42%; aspect-ratio: auto; }
+  .ftr__top { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 860px) {
+  .hero__grid { grid-template-columns: 1fr; }
+  .hero__media { max-width: 520px; }
+  .hero__photo { aspect-ratio: 4 / 3.4; }
+  .hero__card { left: 12px; bottom: 12px; }
+  .shead--split { flex-direction: column; align-items: flex-start; }
+  .about, .loc { grid-template-columns: 1fr; }
+  .map { min-height: 320px; }
+}
+@media (max-width: 640px) {
+  :root { --hdr: 64px; }
+  .hdr__me span, .hdr__cta { display: none; }
+  .hdr__me { width: 44px; height: 44px; justify-content: center; border: 1px solid var(--line-2); border-radius: 10px; }
+  .hero { min-height: 0; }
+  .hero__title { font-size: clamp(2.6rem, 12vw, 3.4rem); }
+  .hero__ctas { flex-direction: column; } .hero__ctas .btn { width: 100%; }
+  .nextfree { width: 100%; }
+  .nextfree > span:nth-child(2) { flex: 1; }
+  .hero__strip { display: grid; grid-template-columns: 1fr 1fr; font-size: .78rem; }
+  .menu__link { grid-template-columns: 1fr; gap: 12px; padding: 22px 0; }
+  .menu__link:hover { padding-inline: 0; background: none; }
+  .menu__ic { display: none; }
+  .menu__row { flex-wrap: wrap; row-gap: 6px; }
+  .menu__meta { flex-direction: row; justify-content: space-between; align-items: center; }
+  .barbers { grid-template-columns: 1fr; }
+  .barber:last-child { flex-direction: column; } .barber:last-child .barber__photo { width: auto; aspect-ratio: 4 / 3; }
+  .barber__photo { aspect-ratio: 4 / 3; }
+  .gal { grid-template-columns: 1fr 1fr; grid-auto-rows: 150px; gap: 10px; }
+  .g1 { grid-column: span 2; } .g2 { grid-row: span 2; } .g4 { grid-column: span 1; }
+  .pillars li { grid-template-columns: 1fr; gap: 4px; }
+  .ftr__top { grid-template-columns: 1fr 1fr; gap: 28px 18px; }
+  .ftr__top > div:first-child { grid-column: 1 / -1; }
+  .ftr { padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px)); }
+  .stickycta { display: flex; position: fixed; z-index: 50; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); min-height: 54px; align-items: center; justify-content: center; gap: 10px; border-radius: 12px; background: var(--brass); color: #17120b; font-weight: 700; text-decoration: none; box-shadow: 0 18px 40px -12px rgba(0, 0, 0, .8); transform: translateY(150%); transition: transform .45s var(--ease); }
+  .stickycta.is-on { transform: none; }
+  .menu-open .stickycta { transform: translateY(150%); }
+}
+
+/* ============ AGENDAMENTO ============ */
+.bk { min-height: 100svh; padding-top: calc(var(--demo) + env(safe-area-inset-top, 0px)); background: radial-gradient(70% 40% at 80% 0%, rgba(90, 64, 42, .25), transparent 70%), var(--bg); }
+.bk__top { border-bottom: 1px solid var(--line); }
+.bk__topin { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.bk__back, .bk__me { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--muted); text-decoration: none; min-width: 110px; }
+.bk__me { justify-content: flex-end; }
+.bk__back:hover, .bk__me:hover { color: var(--brass-2); }
+.bk__logo { text-decoration: none; } .bk__logo .logo__mark { width: 32px; height: 32px; font-size: 1.05rem; }
+.bk__grid { display: grid; grid-template-columns: 1fr 340px; gap: 28px 48px; padding-block: 28px 80px; align-items: start; }
+.steps { grid-column: 1 / -1; list-style: none; margin: 0; padding: 0; display: flex; gap: 8px; }
+.steps li { flex: 1; }
+.steps li > * { width: 100%; display: flex; align-items: center; gap: 10px; background: none; border: 0; padding: 10px 0 0; border-top: 2px solid var(--line-2); color: var(--muted-2); font-size: .82rem; text-align: left; cursor: default; }
+.steps button { cursor: pointer; } .steps button:hover { color: var(--cream); }
+.steps i { font-style: normal; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: .72rem; border: 1px solid var(--line-2); flex: none; }
+.steps i .ic { width: 13px; height: 13px; }
+.steps em { font-style: normal; }
+.steps .is-done > * { border-color: var(--brass); color: var(--muted); } .steps .is-done i { background: var(--brass); border-color: var(--brass); color: #17120b; }
+.steps .is-now > * { border-color: var(--brass); color: var(--cream); font-weight: 600; } .steps .is-now i { border-color: var(--brass); color: var(--brass-2); }
+.bk__main { opacity: 0; transform: translateY(10px); transition: opacity .5s var(--ease), transform .6s var(--ease); min-width: 0; }
+.bk__main.is-in { opacity: 1; transform: none; }
+.bk__head { margin-bottom: 26px; }
+.bk__head .linkbtn { margin-bottom: 14px; }
+.bk__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -.015em; }
+.bk__sub { margin-top: 10px; color: var(--muted); }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; align-items: center; text-align: left; padding: 18px 20px; border-radius: var(--r); border: 1px solid var(--line); background: var(--panel); cursor: pointer; transition: border-color .3s, background .3s, transform .3s var(--ease); width: 100%; }
+.opt:hover { border-color: rgba(194, 154, 91, .55); background: var(--panel-2); transform: translateX(3px); }
+.opt.is-sel { border-color: var(--brass); background: linear-gradient(90deg, rgba(194, 154, 91, .1), transparent 70%), var(--panel-2); }
+.opt__ic { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-2); color: var(--brass); border: 1px solid var(--line); }
+.opt__ic .ic { width: 22px; height: 22px; }
+.opt__main b { display: block; font-size: 1.05rem; font-weight: 600; }
+.opt__main small { display: block; color: var(--muted); font-size: .86rem; margin-top: 3px; line-height: 1.4; }
+.opt__side { text-align: right; color: var(--brass); }
+.opt__side b { display: block; font-family: var(--f-display); font-size: 1.3rem; font-weight: 500; color: var(--cream); }
+.opt__side small { color: var(--muted); font-size: .8rem; white-space: nowrap; }
+.days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; }
+.day { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 12px 4px; border-radius: 12px; border: 1px solid var(--line); background: var(--panel); cursor: pointer; transition: all .3s var(--ease); }
+.day small { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); }
+.day b { font-family: var(--f-display); font-size: 1.6rem; font-weight: 500; line-height: 1.1; }
+.day em { font-style: normal; font-size: .64rem; color: var(--st-finalizado); margin-top: 4px; white-space: nowrap; }
+.day.is-few em { color: var(--st-atendimento); }
+.day:hover:not([disabled]) { border-color: var(--brass); transform: translateY(-2px); }
+.day.is-sel { background: var(--brass); color: #17120b; border-color: var(--brass); } .day.is-sel small, .day.is-sel em { color: rgba(23, 18, 11, .75); }
+.day[disabled] { opacity: .35; cursor: not-allowed; } .day[disabled] em { color: var(--muted-2); }
+.slots { margin-bottom: 26px; }
+.slots h3 { font-size: .74rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: 12px; }
+.slots__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(88px, 1fr)); gap: 8px; }
+.slot { min-height: 48px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--panel); font-weight: 600; font-variant-numeric: tabular-nums; cursor: pointer; transition: all .25s var(--ease); }
+.slot:hover { border-color: var(--brass); color: var(--brass-2); }
+.slot.is-sel { background: var(--brass); color: #17120b; border-color: var(--brass); }
+.confirm { display: grid; gap: 18px; max-width: 620px; }
+.confirm__card { border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--panel); overflow: hidden; }
+.confirm__when { padding: 22px 24px; background: linear-gradient(135deg, rgba(194, 154, 91, .16), transparent 70%); display: grid; gap: 2px; border-bottom: 1px solid var(--line); }
+.confirm__when span { color: var(--muted); font-size: .9rem; }
+.confirm__when b { font-family: var(--f-display); font-size: 3rem; font-weight: 500; line-height: 1; }
+.confirm__when small { color: var(--muted); }
+.confirm__list { margin: 0; padding: 8px 24px 16px; }
+.confirm__list div { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dotted var(--line-2); }
+.confirm__list dt { color: var(--muted); } .confirm__list dd { margin: 0; font-weight: 600; }
+.confirm__list .is-total { border: 0; } .confirm__list .is-total dd { font-family: var(--f-display); font-size: 1.5rem; font-weight: 500; color: var(--brass-2); }
+.fields { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sum { position: sticky; top: calc(var(--demo) + 20px); background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); padding: 22px; display: grid; gap: 4px; }
+.sum__title { font-size: .72rem; letter-spacing: .18em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; font-weight: 600; }
+.sum__row { display: grid; grid-template-columns: 34px 1fr auto; gap: 12px; align-items: center; padding: 10px 0; border-bottom: 1px solid var(--line); }
+.sum__row small { display: block; font-size: .72rem; color: var(--muted-2); }
+.sum__row b { font-weight: 600; font-size: .92rem; }
+.sum__row.is-empty b { color: var(--muted-2); font-weight: 400; }
+.sum__ic { width: 34px; height: 34px; border-radius: 50%; background: var(--bg-2); color: var(--brass); display: grid; place-items: center; }
+.sum__ic .ic { width: 16px; height: 16px; }
+.sum__total { display: flex; justify-content: space-between; align-items: baseline; padding: 16px 0 12px; }
+.sum__total span { color: var(--muted); } .sum__total b { font-family: var(--f-display); font-size: 1.8rem; font-weight: 500; }
+.done { grid-column: 1 / -1; max-width: 640px; margin: 20px auto 0; text-align: center; display: grid; justify-items: center; gap: 14px; opacity: 0; transform: translateY(12px); transition: all .7s var(--ease); }
+.done.is-in { opacity: 1; transform: none; }
+.done__mark svg { width: 76px; height: 76px; fill: none; stroke: var(--brass); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.done__mark circle { stroke-dasharray: 151; stroke-dashoffset: 151; animation: dash .8s var(--ease) forwards; }
+.done__mark path { stroke-dasharray: 40; stroke-dashoffset: 40; animation: dash .5s var(--ease) .6s forwards; }
+@keyframes dash { to { stroke-dashoffset: 0; } }
+.done__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.2rem, 5vw, 3.4rem); line-height: 1.05; }
+.done__sub { color: var(--muted); max-width: 30em; }
+.done__card { width: 100%; margin-top: 10px; border: 1px solid var(--line); border-radius: var(--r-lg); background: var(--panel); text-align: left; display: grid; grid-template-columns: auto 1fr; overflow: hidden; }
+.done__when { padding: 22px; background: var(--brass); color: #17120b; display: grid; align-content: center; gap: 2px; min-width: 150px; }
+.done__when b { font-family: var(--f-display); font-size: 2.6rem; font-weight: 500; line-height: 1; }
+.done__when span { font-size: .84rem; }
+.done__card dl { margin: 0; padding: 12px 22px; display: grid; }
+.done__card dl div { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 9px 0; border-bottom: 1px dotted var(--line-2); font-size: .92rem; }
+.done__card dl div:last-child { border: 0; } .done__card dt { color: var(--muted); } .done__card dd { margin: 0; font-weight: 600; }
+.done__ctas { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 10px; }
+
+/* ============ ÁREA DO CLIENTE ============ */
+.cl { padding: calc(var(--demo) + var(--hdr) + 40px + env(safe-area-inset-top, 0px)) 0 90px; min-height: 80svh; }
+.cl__head { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 28px; }
+.cl__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.02; margin-top: 12px; letter-spacing: -.015em; }
+.cl__live { display: inline-flex; align-items: center; gap: 10px; font-size: .84rem; color: var(--muted); }
+.next { border: 1px solid var(--line); border-radius: var(--r-lg); background: linear-gradient(160deg, rgba(194, 154, 91, .08), transparent 40%), var(--panel); padding: clamp(22px, 3vw, 36px); display: grid; gap: 30px; }
+.next.is-changed { animation: flash 1.2s var(--ease); }
+@keyframes flash { 0% { box-shadow: 0 0 0 0 rgba(194, 154, 91, .6); border-color: var(--brass); } 100% { box-shadow: 0 0 0 18px rgba(194, 154, 91, 0); } }
+.next__top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.next__cd { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--brass); font-weight: 600; }
+.next__time { font-family: var(--f-display); font-weight: 500; font-size: clamp(3.6rem, 9vw, 6rem); line-height: 1; letter-spacing: -.02em; margin-top: 6px; }
+.next__date { color: var(--muted); margin-top: 4px; }
+.next__status { max-width: 320px; display: grid; gap: 10px; align-content: start; justify-items: start; }
+.next__status .badge { font-size: .86rem; padding: 7px 14px 7px 12px; }
+.next__status p { color: var(--muted); font-size: .95rem; }
+.next__info { margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border-radius: var(--r); overflow: hidden; }
+.next__info div { background: var(--bg-2); padding: 16px; }
+.next__info dt { display: flex; align-items: center; gap: 8px; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); }
+.next__info dt .ic { color: var(--brass); width: 15px; height: 15px; }
+.next__info dd { margin: 8px 0 0; font-weight: 600; } .next__info dd small { display: block; font-weight: 400; color: var(--muted); font-size: .82rem; }
+.next__acts { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.next__code { margin-left: auto; font-size: .8rem; color: var(--muted-2); letter-spacing: .08em; }
+.cl__sec { margin-top: 44px; } .cl__sec .h3 { margin-bottom: 14px; }
+.rows { border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.row { display: grid; grid-template-columns: 170px 1fr auto; gap: 16px; align-items: center; padding: 16px 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+.row:last-child { border: 0; }
+.row__time b { display: block; font-family: var(--f-display); font-size: 1.4rem; font-weight: 500; } .row__time small, .row__main small { color: var(--muted); font-size: .84rem; }
+.row__main b { display: block; }
+.cl__fine { margin-top: 40px; }
+.login { max-width: 560px; margin: 20px auto 0; text-align: center; display: grid; justify-items: center; gap: 14px; }
+.login__txt { color: var(--muted); }
+.login__form { width: 100%; display: grid; gap: 12px; margin-top: 12px; text-align: left; }
+.login__err { color: #f1b3aa; font-size: .88rem; min-height: 1.2em; }
+.login__alt { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; padding-top: 18px; border-top: 1px solid var(--line); width: 100%; }
+
+/* ============ PAINEL ============ */
+[data-view="admin"] body { background: #0c0b09; }
+.adm { display: grid; grid-template-columns: 240px 1fr; min-height: 100svh; padding-top: calc(var(--demo) + env(safe-area-inset-top, 0px)); }
+.adm__side { position: sticky; top: calc(var(--demo) + env(safe-area-inset-top, 0px)); height: calc(100svh - var(--demo)); display: flex; flex-direction: column; gap: 28px; padding: 24px 16px; border-right: 1px solid var(--line); background: #0a0908; }
+.adm__brand { display: flex; align-items: center; gap: 10px; text-decoration: none; padding: 0 8px; }
+.adm__brand > span:last-child { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; color: var(--brass); border: 1px solid rgba(194, 154, 91, .4); padding: 3px 7px; border-radius: 999px; }
+.adm__brand .logo__mark { width: 32px; height: 32px; font-size: 1rem; } .adm__brand .logo__txt b { font-size: 1.1rem; }
+.adm__nav { display: grid; gap: 4px; }
+.adm__nav a, .adm__sidefoot a, .adm__sidefoot button { display: flex; align-items: center; gap: 12px; padding: 10px 12px; border-radius: 10px; text-decoration: none; color: var(--muted); font-size: .9rem; background: none; border: 0; cursor: pointer; text-align: left; transition: background .3s, color .3s; }
+.adm__nav a:hover, .adm__sidefoot a:hover, .adm__sidefoot button:hover { background: rgba(239, 231, 218, .04); color: var(--cream); }
+.adm__nav a.is-on { background: var(--panel-2); color: var(--cream); box-shadow: inset 2px 0 0 var(--brass); }
+.adm__nav .ic { color: var(--brass); }
+.adm__sidefoot { margin-top: auto; display: grid; gap: 2px; border-top: 1px solid var(--line); padding-top: 14px; }
+.adm__main { padding: 28px clamp(18px, 3vw, 40px) 60px; min-width: 0; }
+.adm__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 20px; flex-wrap: wrap; margin-bottom: 24px; }
+.adm__title { font-family: var(--f-display); font-weight: 500; font-size: clamp(2rem, 3.4vw, 2.8rem); line-height: 1.05; margin-top: 8px; }
+.adm__topact { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+.datenav { display: flex; align-items: center; border: 1px solid var(--line-2); border-radius: 10px; overflow: hidden; }
+.datenav button { background: none; border: 0; min-height: 40px; padding: 0 12px; cursor: pointer; color: var(--cream); display: grid; place-items: center; }
+.datenav button:hover { background: rgba(239, 231, 218, .05); }
+.datenav__today { border-inline: 1px solid var(--line-2) !important; font-size: .86rem; font-weight: 600; min-width: 170px; }
+.kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 18px; }
+.kpi { position: relative; padding: 18px 20px; border-radius: var(--r); background: var(--panel); border: 1px solid var(--line); }
+.kpi__ic { position: absolute; top: 16px; right: 16px; color: var(--brass); opacity: .8; }
+.kpi__l { font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+.kpi__v { font-family: var(--f-display); font-size: 2.2rem; font-weight: 500; line-height: 1.1; margin-top: 8px; font-variant-numeric: lining-nums; }
+.kpi__s { font-size: .8rem; color: var(--muted-2); margin-top: 4px; }
+.filters { display: flex; gap: 6px; margin-bottom: 16px; overflow-x: auto; scrollbar-width: none; }
+.filters::-webkit-scrollbar { display: none; }
+.filters button { display: inline-flex; align-items: center; gap: 8px; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2); background: none; cursor: pointer; font-size: .84rem; color: var(--muted); white-space: nowrap; transition: all .3s; }
+.filters button.is-on { background: var(--cream); color: var(--ink); border-color: var(--cream); }
+.today { display: grid; grid-template-columns: 1fr 360px; gap: 16px; align-items: start; }
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; }
+.card__head { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; padding: 16px 20px; border-bottom: 1px solid var(--line); }
+.card__head h2 { font-size: .95rem; font-weight: 600; }
+.count { font-size: .76rem; padding: 2px 9px; border-radius: 999px; background: var(--bg-2); color: var(--muted); }
+.legend { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.legend__i { display: inline-flex; align-items: center; gap: 6px; font-size: .7rem; color: var(--muted); }
+.legend__i i { width: 8px; height: 8px; border-radius: 2px; background: var(--c); }
+.tl__scroll { max-height: 640px; overflow: auto; position: relative; overscroll-behavior: contain; }
+.tl__grid { min-width: calc(64px + var(--cols) * 170px); }
+.tl__heads { position: sticky; top: 0; z-index: 3; display: grid; grid-template-columns: 64px repeat(var(--cols), 1fr); background: var(--panel); border-bottom: 1px solid var(--line); }
+.tl__head { display: grid; grid-template-columns: auto 1fr; column-gap: 10px; align-items: center; padding: 12px; border-left: 1px solid var(--line); }
+.tl__head b { font-size: .9rem; } .tl__head small { grid-column: 2; font-size: .72rem; color: var(--muted-2); }
+.tl__head .avatar { grid-row: span 2; }
+.tl__body { position: relative; display: grid; grid-template-columns: 64px repeat(var(--cols), 1fr); height: calc(var(--h) + 24px); padding-top: 12px; }
+.tl__gutter { position: relative; }
+.tl__gutter span { position: absolute; right: 10px; transform: translateY(-50%); font-size: .72rem; color: var(--muted-2); font-variant-numeric: tabular-nums; }
+.tl__col { position: relative; border-left: 1px solid var(--line); }
+.tl__line { position: absolute; left: 0; right: 0; height: 1px; background: var(--line); }
+.blk { position: absolute; left: 6px; right: 6px; text-align: left; border: 0; border-radius: 8px; padding: 6px 10px; cursor: pointer; overflow: hidden; color: var(--cream); background: color-mix(in srgb, var(--c) 16%, #1b1814); box-shadow: inset 3px 0 0 var(--c); transition: transform .25s var(--ease), background .3s, box-shadow .3s; display: flex; flex-direction: column; gap: 1px; }
+.blk:hover { transform: translateX(2px); background: color-mix(in srgb, var(--c) 26%, #1b1814); z-index: 2; }
+.blk__t { font-size: .7rem; color: var(--c); font-weight: 700; font-variant-numeric: tabular-nums; }
+.blk__t em { font-style: normal; background: var(--brass); color: #17120b; padding: 0 5px; border-radius: 4px; margin-left: 4px; font-size: .62rem; letter-spacing: .06em; }
+.blk b { font-size: .82rem; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.blk small { font-size: .7rem; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.blk.is-short { flex-direction: row; align-items: center; gap: 8px; padding-block: 2px; }
+.blk.is-short small { display: none; }
+.blk--cancelado { opacity: .55; } .blk--cancelado b { text-decoration: line-through; }
+.blk--finalizado { opacity: .75; }
+.blk.is-new { animation: newglow 2s ease-in-out 3; }
+@keyframes newglow { 50% { box-shadow: inset 3px 0 0 var(--c), 0 0 0 2px var(--brass); } }
+.tl__now { position: absolute; left: 58px; right: 0; height: 2px; background: var(--st-cancelado); z-index: 2; pointer-events: none; margin-top: 12px; }
+.tl__now::before { content: ""; position: absolute; left: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--st-cancelado); }
+.tl__now span { position: absolute; left: -56px; top: -9px; font-size: .68rem; font-weight: 700; color: #fff; background: var(--st-cancelado); padding: 1px 5px; border-radius: 4px; }
+.up__list { max-height: 640px; overflow: auto; }
+.up__row { display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.up__row.is-new { background: rgba(194, 154, 91, .07); }
+.up__main { display: flex; align-items: center; gap: 12px; background: none; border: 0; text-align: left; cursor: pointer; padding: 0; min-width: 0; }
+.up__main b { display: block; font-size: .9rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; } .up__main small { font-size: .76rem; color: var(--muted); }
+.up__time { font-family: var(--f-display); font-size: 1.15rem; font-weight: 500; min-width: 50px; }
+.up__side { display: flex; flex-direction: column; align-items: flex-end; gap: 6px; flex: none; }
+.adv { display: inline-flex; align-items: center; gap: 4px; font-size: .72rem; background: none; border: 1px solid var(--line-2); border-radius: 999px; padding: 4px 9px; color: var(--muted); cursor: pointer; transition: all .25s; white-space: nowrap; }
+.adv .ic { width: 12px; height: 12px; }
+.adv:hover { border-color: var(--brass); color: var(--brass-2); }
+.daylist { margin-top: 16px; }
+.dl__row { display: grid; grid-template-columns: 1fr 180px; gap: 12px; align-items: center; padding: 10px 16px; border-bottom: 1px solid var(--line); }
+.dl__row:last-child { border: 0; }
+.dl__row.is-new { background: rgba(194, 154, 91, .07); }
+.dl__main { display: grid; grid-template-columns: 60px 1.6fr 1fr 80px; gap: 12px; align-items: center; background: none; border: 0; text-align: left; cursor: pointer; padding: 4px 0; min-width: 0; }
+.dl__time { font-family: var(--f-display); font-size: 1.15rem; font-weight: 500; }
+.dl__who b { display: block; font-size: .92rem; } .dl__who small { color: var(--muted); font-size: .78rem; }
+.dl__barber { display: inline-flex; align-items: center; gap: 8px; font-size: .86rem; color: var(--muted); }
+.dl__price { text-align: right; font-weight: 600; font-variant-numeric: tabular-nums; }
+.sel select { width: 100%; min-height: 40px; border-radius: 10px; padding: 0 34px 0 30px; border: 1px solid color-mix(in srgb, var(--c) 45%, transparent); background: color-mix(in srgb, var(--c) 12%, #15130f) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%23efe7da' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 12px center; color: var(--cream); font-size: .84rem; font-weight: 600; -webkit-appearance: none; appearance: none; cursor: pointer; position: relative; }
+.sel { position: relative; }
+.sel::before { content: ""; position: absolute; left: 12px; top: 50%; width: 8px; height: 8px; margin-top: -4px; border-radius: 50%; background: var(--c); z-index: 1; pointer-events: none; }
+.sel:has(.sel--agendado) { --c: var(--st-agendado); } .sel:has(.sel--confirmado) { --c: var(--st-confirmado); } .sel:has(.sel--chegou) { --c: var(--st-chegou); }
+.sel:has(.sel--atendimento) { --c: var(--st-atendimento); } .sel:has(.sel--finalizado) { --c: var(--st-finalizado); } .sel:has(.sel--cancelado) { --c: var(--st-cancelado); }
+.sel option { background: #1b1814; color: var(--cream); }
+
+/* drawer */
+.drawer { position: fixed; inset: 0; z-index: 120; visibility: hidden; }
+.drawer.is-open { visibility: visible; }
+.drawer__bg { position: absolute; inset: 0; background: rgba(0, 0, 0, .55); opacity: 0; transition: opacity .35s; }
+.drawer.is-open .drawer__bg { opacity: 1; }
+.drawer__panel { position: absolute; top: 0; right: 0; bottom: 0; width: min(440px, 100%); background: #16130f; border-left: 1px solid var(--line-2); padding: calc(24px + env(safe-area-inset-top, 0px)) 24px calc(24px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; display: grid; gap: 18px; align-content: start; transform: translateX(100%); transition: transform .45s var(--ease); }
+.drawer.is-open .drawer__panel { transform: none; }
+.dr__head { display: flex; justify-content: space-between; gap: 12px; }
+.dr__head h2 { font-family: var(--f-display); font-weight: 500; font-size: 2rem; line-height: 1.1; margin: 6px 0 4px; }
+.dr__head .muted { font-size: .86rem; }
+.dr__when { padding: 16px 18px; border-radius: var(--r); background: linear-gradient(135deg, rgba(194, 154, 91, .15), transparent 70%); border: 1px solid var(--line); }
+.dr__when b { display: block; font-family: var(--f-display); font-size: 1.8rem; font-weight: 500; } .dr__when span { color: var(--muted); font-size: .9rem; }
+.dr__info { margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.dr__info div { padding: 12px; border-radius: 10px; background: var(--panel); } .dr__info dt { font-size: .7rem; color: var(--muted-2); text-transform: uppercase; letter-spacing: .08em; } .dr__info dd { margin: 4px 0 0; font-weight: 600; font-size: .9rem; }
+.dr__lbl { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); font-weight: 600; margin-bottom: -6px; }
+.stbtns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.stbtn { display: flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 12px; border-radius: 10px; border: 1px solid var(--line-2); background: var(--panel); cursor: pointer; font-size: .86rem; font-weight: 500; transition: all .25s; text-align: left; }
+.stbtn i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); flex: none; }
+.stbtn:hover { border-color: var(--c); }
+.stbtn.is-on { background: color-mix(in srgb, var(--c) 18%, #16130f); border-color: var(--c); color: #fff; font-weight: 700; }
+.hist { list-style: none; margin: 0; padding: 0 0 0 16px; border-left: 1px solid var(--line-2); display: grid; gap: 12px; }
+.hist li { position: relative; } .hist li::before { content: ""; position: absolute; left: -20px; top: 6px; width: 7px; height: 7px; border-radius: 50%; background: var(--brass); }
+.hist b { display: block; font-size: .88rem; } .hist small { color: var(--muted); font-size: .78rem; }
+
+/* tabelas e cards de barbeiro */
+.table__h, .table__r { display: grid; grid-template-columns: 1.6fr 1fr 1.4fr .6fr .8fr; gap: 12px; align-items: center; padding: 12px 20px; }
+.table__h { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--muted-2); border-bottom: 1px solid var(--line); }
+.table__r { border-bottom: 1px solid var(--line); font-size: .9rem; }
+.table__r:last-child { border: 0; }
+.t-name { display: flex; align-items: center; gap: 12px; } .t-name b { font-weight: 600; }
+.svcic { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: var(--bg-2); color: var(--brass); }
+.bcards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.bcard { padding: 22px; display: grid; gap: 14px; }
+.bcard__top { display: flex; gap: 14px; align-items: center; } .bcard h2 { font-family: var(--f-display); font-weight: 500; font-size: 1.4rem; }
+.meter { height: 6px; border-radius: 999px; background: var(--bg-2); overflow: hidden; } .meter span { display: block; height: 100%; background: linear-gradient(90deg, var(--brass), var(--brass-2)); border-radius: inherit; transition: width .8s var(--ease); }
+.meter__l { font-size: .84rem; color: var(--muted); margin-top: -6px; } .meter__l b { color: var(--cream); }
+.bcard__dl { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.bcard__dl div { background: var(--bg-2); border-radius: 10px; padding: 12px; } .bcard__dl dt { font-size: .7rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted-2); } .bcard__dl dd { margin: 4px 0 0; font-family: var(--f-display); font-size: 1.4rem; }
+.bcard__now { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; font-size: .88rem; }
+
+/* ============ RESPONSIVO APP ============ */
+@media (max-width: 1100px) {
+  .today { grid-template-columns: 1fr; }
+  .up__list { max-height: none; }
+  .kpis { grid-template-columns: repeat(2, 1fr); }
+  .bcards { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 900px) {
+  .bk__grid { grid-template-columns: 1fr; padding-bottom: 150px; }
+  .sum { position: fixed; top: auto; left: 0; right: 0; bottom: 0; z-index: 40; border-radius: 18px 18px 0 0; border-width: 1px 0 0; padding: 14px var(--gut) calc(14px + env(safe-area-inset-bottom, 0px)); grid-template-columns: 1fr auto; align-items: center; gap: 4px 16px; box-shadow: 0 -20px 40px -20px rgba(0, 0, 0, .8); }
+  .sum__title, .sum__row { display: none; }
+  .sum__total { padding: 0; flex-direction: column; align-items: flex-start; gap: 0; } .sum__total span { font-size: .72rem; } .sum__total b { font-size: 1.5rem; }
+  .sum__next { width: auto; }
+  .next__info { grid-template-columns: 1fr 1fr; }
+  .adm { grid-template-columns: 1fr; }
+  .adm__side { position: sticky; top: calc(var(--demo) + env(safe-area-inset-top, 0px)); z-index: 30; height: auto; flex-direction: row; align-items: center; gap: 10px; padding: 10px var(--gut); border-right: 0; border-bottom: 1px solid var(--line); overflow-x: auto; scrollbar-width: none; }
+  .adm__side::-webkit-scrollbar { display: none; }
+  .adm__brand > span:last-child, .adm__brand .logo__txt { display: none; }
+  .adm__nav { display: flex; gap: 4px; }
+  .adm__nav a { white-space: nowrap; padding: 8px 12px; }
+  .adm__nav a.is-on { box-shadow: inset 0 -2px 0 var(--brass); }
+  .adm__sidefoot { display: none; }
+  .tl { display: none; }
+  .table__h { display: none; }
+  .table__r { grid-template-columns: 1fr auto; row-gap: 4px; }
+  .table__r > span:nth-child(2) { grid-column: 1; grid-row: 2; font-size: .8rem; }
+  .table__r > span:nth-child(3) { grid-column: 1 / -1; font-size: .82rem; color: var(--muted); }
+  .table__r > span:nth-child(4) { display: none; }
+  .table__r > span:nth-child(5) { grid-column: 2; grid-row: 1; font-weight: 700; }
+  .table--svc .table__r > span:nth-child(3) { grid-column: 1; }
+}
+@media (max-width: 640px) {
+  :root { --demo: 44px; }
+  .demobar { padding: 0 10px; }
+  .demobar__long, .demobar__by { display: none; }
+  .demobar__seg a { padding: 6px 10px; }
+  .steps em { display: none; } .steps li > * { justify-content: center; }
+  .steps .is-now em { display: inline; }
+  .bk__back span, .bk__me span { display: none; } .bk__back, .bk__me { min-width: 44px; }
+  .opt { grid-template-columns: auto 1fr; padding: 16px; }
+  .opt__side { grid-column: 2; text-align: left; display: flex; gap: 10px; align-items: baseline; }
+  .opt__side b { font-size: 1.1rem; }
+  .opts--barbers .opt__side { display: none; }
+  .opt__ic { width: 40px; height: 40px; }
+  .days { grid-template-columns: repeat(4, 1fr); }
+  .fields { grid-template-columns: 1fr; }
+  .done__card { grid-template-columns: 1fr; } .done__when { grid-template-columns: auto 1fr; align-items: baseline; gap: 12px; }
+  .done__ctas .btn { width: 100%; }
+  .next__info { grid-template-columns: 1fr 1fr; }
+  .next__info div:last-child { grid-column: 1 / -1; }
+  .next__info div { padding: 14px; }
+  .next__code { margin-left: 0; width: 100%; }
+  .next__acts .btn { flex: 1 1 auto; }
+  .track__lbl { font-size: .64rem; }
+  .row { grid-template-columns: 1fr auto; } .row__main { grid-column: 1 / -1; grid-row: 2; }
+  .adm__main { padding: 20px var(--gut) 60px; }
+  .adm__top { align-items: stretch; flex-direction: column; } .adm__topact { justify-content: space-between; }
+  .datenav { width: 100%; } .datenav__today { flex: 1; min-width: 0; }
+  .kpi { padding: 14px; } .kpi__v { font-size: 1.6rem; } .kpi__ic { display: none; }
+  .dl__row { grid-template-columns: 1fr; gap: 8px; }
+  .dl__main { grid-template-columns: 52px 1fr auto; } .dl__barber { display: none; }
+  .bcards { grid-template-columns: 1fr; }
+  .dr__info { grid-template-columns: 1fr 1fr; } .dr__info div:last-child { grid-column: 1 / -1; }
+  .drawer__panel { top: auto; width: 100%; max-height: 88svh; border-left: 0; border-top: 1px solid var(--line-2); border-radius: 20px 20px 0 0; transform: translateY(100%); }
+}
+
+</style>
+</head>
+<body>
+<div id="app"></div>
+<noscript><p style="padding:24px">Ative o JavaScript para usar o BRAVO Barber Club.</p></noscript>
+<script>
+(function () {
+"use strict";
+const __m = {};
+__m["src/core/router.js"] = (function () {
+/**
+ * Roteador por hash. Rotas:
+ *   #/                 site      (#/servicos, #/barbeiros … rolam até a seção)
+ *   #/agendar?...      agendamento
+ *   #/cliente          área do cliente
+ *   #/painel[/aba]     painel da barbearia
+ */
+function parseRoute() {
+  const raw = location.hash.replace(/^#\/?/, '');
+  const [path, qs = ''] = raw.split('?');
+  const parts = path.split('/').filter(Boolean);
+  const params = Object.fromEntries(new URLSearchParams(qs));
+  const top = parts[0] || '';
+  if (top === 'agendar') return { view: 'booking', params };
+  if (top === 'cliente') return { view: 'client', params };
+  if (top === 'painel') return { view: 'admin', tab: parts[1] || 'hoje', params };
+  return { view: 'site', section: top || null, params };
+}
+const go = (hash) => { if (location.hash === hash) window.dispatchEvent(new HashChangeEvent('hashchange')); else location.hash = hash; };
+
+return { parseRoute, go };
+})();
+
+__m["src/data/business.js"] = (function () {
+/**
+ * DADOS DA BARBEARIA (fictícios — projeto conceitual)
+ * Centralize aqui nome, contato, endereço e horários.
+ */
+const BUSINESS = {
+  name: 'BRAVO Barber Club',
+  short: 'BRAVO',
+  tagline: 'Barber Club',
+  city: 'Curitiba',
+  state: 'PR',
+  address: 'Rua dos Alfaiates, 000 · Centro',   // endereço fictício
+  zip: '80000-000',
+  whatsapp: '5541900000000',                       // número fictício
+  whatsappDisplay: '(41) 90000-0000',
+  instagram: '@bravobarberclub.demo',
+  mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Curitiba%2C+PR',
+  // 0 = domingo … 6 = sábado. null = fechado. Horários em minutos desde 00:00.
+  hours: {
+    0: null,
+    1: [9 * 60, 20 * 60], 2: [9 * 60, 20 * 60], 3: [9 * 60, 20 * 60],
+    4: [9 * 60, 20 * 60], 5: [9 * 60, 20 * 60],
+    6: [9 * 60, 18 * 60],
+  },
+  hoursLabel: [
+    { days: 'Segunda a sexta', time: '09h às 20h' },
+    { days: 'Sábado', time: '09h às 18h' },
+    { days: 'Domingo', time: 'Fechado' },
+  ],
+  slotStep: 15,          // intervalo da grade de horários (min)
+  minNotice: 20,         // antecedência mínima para agendar hoje (min)
+  bookingWindowDays: 14, // quantos dias à frente aparecem no agendamento
+};
+
+return { BUSINESS };
+})();
+
+__m["src/data/catalog.js"] = (function () {
+/** SERVIÇOS E BARBEIROS — fonte única para site, agendamento e painel. */
+const SERVICES = [
+  { id: 'corte', name: 'Corte Masculino', price: 45, duration: 45, icon: 'scissors', desc: 'Corte na tesoura ou máquina, lavagem e finalização com pomada.' },
+  { id: 'barba', name: 'Barba', price: 35, duration: 30, icon: 'razor', desc: 'Toalha quente, navalha e hidratação com óleo de barba.' },
+  { id: 'corte-barba', name: 'Corte + Barba', price: 75, duration: 75, icon: 'combo', desc: 'O ritual completo da casa, com toalha quente e acabamento na navalha.', featured: true },
+  { id: 'degrade', name: 'Degradê', price: 50, duration: 45, icon: 'fade', desc: 'Transição precisa na máquina, do zero ao comprimento que você escolher.' },
+  { id: 'pezinho', name: 'Acabamento', price: 20, duration: 15, icon: 'line', desc: 'Pezinho, contorno e manutenção entre um corte e outro.' },
+  { id: 'sobrancelha', name: 'Sobrancelha', price: 15, duration: 15, icon: 'brow', desc: 'Alinhamento discreto na navalha ou pinça.' },
+];
+
+const BARBERS = [
+  {
+    id: 'rafael', name: 'Rafael Moura', initials: 'RM', role: 'Barbeiro master',
+    specialty: 'Cortes clássicos e tesoura', bio: 'Referência da casa em cortes sociais, risca lateral e acabamento na tesoura.',
+    days: [1, 2, 3, 4, 5, 6], tone: '#8a6a45',
+  },
+  {
+    id: 'matheus', name: 'Matheus Lima', initials: 'ML', role: 'Barbeiro',
+    specialty: 'Barba e navalha', bio: 'Barba desenhada, toalha quente e o ritual completo da navalha.',
+    days: [1, 2, 3, 4, 5, 6], tone: '#6e5a48',
+  },
+  {
+    id: 'diego', name: 'Diego Costa', initials: 'DC', role: 'Barbeiro',
+    specialty: 'Degradê e cortes modernos', bio: 'Degradês precisos, texturas e cortes com personalidade.',
+    days: [2, 3, 4, 5, 6], tone: '#5a4a3c',
+  },
+];
+
+/** Status do atendimento: ordem do fluxo + metadados visuais. */
+const STATUSES = [
+  { id: 'agendado', label: 'Agendado', hint: 'Recebemos seu pedido de horário.' },
+  { id: 'confirmado', label: 'Confirmado', hint: 'Seu horário está garantido.' },
+  { id: 'chegou', label: 'Cliente chegou', hint: 'Check-in feito. Seu barbeiro já sabe que você está aqui.' },
+  { id: 'atendimento', label: 'Em atendimento', hint: 'Relaxe, você está na cadeira.' },
+  { id: 'finalizado', label: 'Finalizado', hint: 'Atendimento concluído. Até a próxima!' },
+  { id: 'cancelado', label: 'Cancelado', hint: 'Este horário foi cancelado.' },
+];
+const STATUS_FLOW = ['agendado', 'confirmado', 'chegou', 'atendimento', 'finalizado'];
+
+const findService = (id) => SERVICES.find((s) => s.id === id);
+const findBarber = (id) => BARBERS.find((b) => b.id === id);
+const findStatus = (id) => STATUSES.find((s) => s.id === id);
+
+return { SERVICES, BARBERS, STATUSES, STATUS_FLOW, findService, findBarber, findStatus };
+})();
+
+__m["src/ui/icons.js"] = (function () {
+/** Ícones de linha fina (herdam currentColor). */
+const I = (d, sw = 1.5) => `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${d}</svg>`;
+const ICONS = {
+  arrow: I('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+  back: I('<path d="M19 12H5M11 6l-6 6 6 6"/>'),
+  check: I('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+  x: I('<path d="M6 6l12 12M18 6L6 18"/>'),
+  chevL: I('<path d="M15 5l-7 7 7 7"/>'),
+  chevR: I('<path d="M9 5l7 7-7 7"/>'),
+  clock: I('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
+  cal: I('<rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/>'),
+  user: I('<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/>'),
+  users: I('<circle cx="9" cy="8.5" r="3"/><path d="M3.5 19c.9-3 3-4.5 5.5-4.5s4.6 1.5 5.5 4.5"/><path d="M15.5 5.8a3 3 0 0 1 0 5.4M17 14.7c1.7.5 2.9 1.9 3.5 4.3"/>'),
+  pin: I('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/>'),
+  phone: I('<path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/>'),
+  cash: I('<rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6.5 9.5v5M17.5 9.5v5"/>'),
+  grid: I('<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>'),
+  list: I('<path d="M9 6h11M9 12h11M9 18h11"/><circle cx="4.5" cy="6" r=".8" fill="currentColor"/><circle cx="4.5" cy="12" r=".8" fill="currentColor"/><circle cx="4.5" cy="18" r=".8" fill="currentColor"/>'),
+  refresh: I('<path d="M20 11a8 8 0 0 0-14.3-4.3L4 9M4 4v5h5M4 13a8 8 0 0 0 14.3 4.3L20 15M20 20v-5h-5"/>'),
+  bell: I('<path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/>'),
+  store: I('<path d="M4 9l1.5-4.5h13L20 9"/><path d="M4 9h16v2a2.7 2.7 0 0 1-5.3 0 2.7 2.7 0 0 1-5.4 0A2.7 2.7 0 0 1 4 11z"/><path d="M5.5 13.5V20h13v-6.5"/>'),
+  globe: I('<circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.5 3.5 5.5 3.5 8.5s-1 6-3.5 8.5c-2.5-2.5-3.5-5.5-3.5-8.5s1-6 3.5-8.5z"/>'),
+  scissors: I('<circle cx="6" cy="7" r="2.6"/><circle cx="6" cy="17" r="2.6"/><path d="M8.2 8.4L20 17M8.2 15.6L20 7"/>'),
+  razor: I('<path d="M3 15.5l10.5-10.5 3 3L6 18.5z"/><path d="M13.5 5l2-2 5.5 5.5-2 2"/><path d="M6 18.5L4 21"/>'),
+  combo: I('<circle cx="6" cy="7" r="2.3"/><circle cx="6" cy="17" r="2.3"/><path d="M8 8.3l6 4.3M8 15.7l6-4.3"/><path d="M15 16l4-4 2 2-4 4z"/>'),
+  fade: I('<path d="M4 18h16"/><path d="M4 14h16" opacity=".75"/><path d="M4 10h16" opacity=".5"/><path d="M4 6h16" opacity=".25"/>'),
+  line: I('<path d="M5 18c3-1 4-5 7-5s4 4 7 5"/><path d="M12 13V5"/>'),
+  brow: I('<path d="M4 13c3-4 9-5 16-2"/><path d="M6 16c3-2 7-2.5 12-1" opacity=".5"/>'),
+  whatsapp: '<svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>',
+  instagram: I('<rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="currentColor"/>'),
+};
+
+return { ICONS };
+})();
+
+__m["src/core/utils.js"] = (function () {
+/** Utilidades: datas, moeda, HTML. */
+const ESC_MAP = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = (s = '') => String(s).replace(/[&<>"']/g, (c) => ESC_MAP[c]);
+const brl = (n) => n.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 0, maximumFractionDigits: 0 });
+const pad2 = (n) => String(n).padStart(2, '0');
+
+const dateKey = (d) => `${d.getFullYear()}-${pad2(d.getMonth() + 1)}-${pad2(d.getDate())}`;
+const parseKey = (k) => { const [y, m, d] = k.split('-').map(Number); return new Date(y, m - 1, d); };
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x; };
+const todayKey = () => dateKey(new Date());
+const nowMin = () => { const d = new Date(); return d.getHours() * 60 + d.getMinutes(); };
+const fmtTime = (m) => `${pad2(Math.floor(m / 60))}:${pad2(m % 60)}`;
+const fmtDur = (m) => (m >= 60 ? `${Math.floor(m / 60)}h${m % 60 ? pad2(m % 60) : ''}` : `${m} min`);
+
+const WD = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+const WD_SHORT = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+const MON = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'];
+const wdShort = (d) => WD_SHORT[d.getDay()];
+const monShort = (d) => MON[d.getMonth()];
+function fmtDateLong(k) {
+  const d = parseKey(k), t = todayKey(), tm = dateKey(addDays(new Date(), 1));
+  const base = `${WD[d.getDay()]}, ${d.getDate()} de ${MON[d.getMonth()]}`;
+  if (k === t) return `Hoje, ${d.getDate()} de ${MON[d.getMonth()]}`;
+  if (k === tm) return `Amanhã, ${d.getDate()} de ${MON[d.getMonth()]}`;
+  return base.charAt(0).toUpperCase() + base.slice(1);
+}
+const uid = () => Math.random().toString(36).slice(2, 8).toUpperCase();
+const firstName = (n = '') => n.trim().split(/\s+/)[0] || '';
+const onlyDigits = (s = '') => s.replace(/\D/g, '');
+function fmtPhone(s = '') {
+  const d = onlyDigits(s).slice(0, 11);
+  if (d.length <= 2) return d.length ? `(${d}` : '';
+  if (d.length <= 7) return `(${d.slice(0, 2)}) ${d.slice(2)}`;
+  return `(${d.slice(0, 2)}) ${d.slice(2, d.length - 4)}-${d.slice(-4)}`;
+}
+
+return { esc, brl, pad2, dateKey, parseKey, addDays, todayKey, nowMin, fmtTime, fmtDur, wdShort, monShort, fmtDateLong, uid, firstName, onlyDigits, fmtPhone };
+})();
+
+__m["src/ui/components.js"] = (function () {
+/** Componentes de interface compartilhados pelo site, cliente e painel. */
+const { ICONS } = __m["src/ui/icons.js"];
+const { findStatus, STATUS_FLOW } = __m["src/data/catalog.js"];
+const { esc } = __m["src/core/utils.js"];
+
+const Logo = ({ sub = true, cls = '' } = {}) =>
+  `<span class="logo ${cls}"><span class="logo__mark">B</span><span class="logo__txt"><b>BRAVO</b>${sub ? '<small>Barber Club</small>' : ''}</span></span>`;
+
+const StatusBadge = (id) => { const s = findStatus(id); return `<span class="badge badge--${id}"><i></i>${esc(s ? s.label : id)}</span>`; };
+
+/** Linha do tempo do status (usada na área do cliente e no painel). */
+function StatusTrack(status, { compact = false } = {}) {
+  if (status === 'cancelado') return `<div class="track track--cancel">${StatusBadge('cancelado')}<span>${esc(findStatus('cancelado').hint)}</span></div>`;
+  const idx = STATUS_FLOW.indexOf(status);
+  return `<ol class="track ${compact ? 'track--compact' : ''}">${STATUS_FLOW.map((id, i) =>
+    `<li class="track__step ${i < idx ? 'is-done' : ''} ${i === idx ? 'is-now' : ''}"><span class="track__dot">${i < idx ? ICONS.check : ''}</span><span class="track__lbl">${esc(findStatus(id).label)}</span></li>`).join('')}</ol>`;
+}
+
+/**
+ * Espaço de fotografia com direção de arte.
+ * As páginas publicadas não carregam imagens externas; aqui entram as fotos reais
+ * da barbearia (troque por <img src="..."> quando houver o material).
+ */
+const PhotoSlot = ({ label, icon = 'scissors', cls = '', big = '' }) =>
+  `<figure class="photo ${cls}"><span class="photo__crop" aria-hidden="true"></span>${big ? `<span class="photo__big">${esc(big)}</span>` : `<span class="photo__ic">${ICONS[icon] || ''}</span>`}<figcaption>${esc(label)}</figcaption></figure>`;
+
+/* ---------- Toasts ---------- */
+let toastBox;
+function toast(msg, { icon = 'bell', tone = '' } = {}) {
+  if (!toastBox) { toastBox = document.createElement('div'); toastBox.className = 'toasts'; toastBox.setAttribute('aria-live', 'polite'); document.body.appendChild(toastBox); }
+  const t = document.createElement('div');
+  t.className = `toast ${tone}`; t.innerHTML = `<span class="toast__ic">${ICONS[icon] || ''}</span><span>${msg}</span>`;
+  toastBox.appendChild(t);
+  requestAnimationFrame(() => t.classList.add('is-in'));
+  setTimeout(() => { t.classList.remove('is-in'); setTimeout(() => t.remove(), 400); }, 4200);
+}
+
+return { Logo, StatusBadge, StatusTrack, PhotoSlot, toast };
+})();
+
+__m["src/services/storage.js"] = (function () {
+/**
+ * Adaptador de persistência.
+ * Hoje: localStorage (com fallback em memória).
+ * Amanhã: troque por chamadas HTTP sem mexer nas telas.
+ */
+const MEM = {};
+const storage = {
+  get(key, fallback = null) {
+    try { const v = localStorage.getItem(key); return v ? JSON.parse(v) : fallback; }
+    catch (e) { return key in MEM ? MEM[key] : fallback; }
+  },
+  set(key, value) {
+    try { localStorage.setItem(key, JSON.stringify(value)); }
+    catch (e) { MEM[key] = value; }
+  },
+  remove(key) { try { localStorage.removeItem(key); } catch (e) { delete MEM[key]; } },
+};
+
+return { storage };
+})();
+
+__m["src/services/seed.js"] = (function () {
+const { BUSINESS } = __m["src/data/business.js"];
+const { SERVICES, BARBERS, findService } = __m["src/data/catalog.js"];
+const { dateKey, addDays, todayKey, nowMin, uid, parseKey } = __m["src/core/utils.js"];
+
+/**
+ * Próximo dia de funcionamento a partir de `from`.
+ * Hoje só conta se ainda faltar pelo menos 1h para fechar (demo sempre "viva").
+ */
+function nextOpenDay(from = new Date()) {
+  const base = dateKey(from) === todayKey() ? new Date() : from;
+  for (let i = 0; i < 8; i++) {
+    const d = addDays(base, i), h = BUSINESS.hours[d.getDay()];
+    if (!h) continue;
+    if (i === 0 && dateKey(d) === todayKey() && nowMin() > h[1] - 60) continue;
+    return dateKey(d);
+  }
+  return dateKey(from);
+}
+
+const NAMES = ['João Silva', 'Lucas Andrade', 'Pedro Rocha', 'Gabriel Nunes', 'Thiago Martins', 'André Souza', 'Bruno Carvalho', 'Felipe Araújo', 'Rodrigo Pires', 'Caio Mendes', 'Vinícius Lopes', 'Eduardo Reis', 'Marcelo Tavares', 'Henrique Dias'];
+const PLAN = [ // [barbeiro, serviço, horário em minutos]
+  ['rafael', 'corte', 9 * 60], ['rafael', 'corte-barba', 10 * 60], ['rafael', 'corte', 11 * 60 + 30], ['rafael', 'corte', 14 * 60], ['rafael', 'corte-barba', 15 * 60 + 30], ['rafael', 'corte', 17 * 60 + 15],
+  ['matheus', 'barba', 9 * 60 + 30], ['matheus', 'corte-barba', 10 * 60 + 15], ['matheus', 'barba', 14 * 60 + 45], ['matheus', 'sobrancelha', 15 * 60 + 30], ['matheus', 'corte', 16 * 60 + 30], ['matheus', 'barba', 18 * 60],
+  ['diego', 'degrade', 10 * 60], ['diego', 'degrade', 13 * 60 + 30], ['diego', 'pezinho', 14 * 60 + 30], ['diego', 'corte', 16 * 60], ['diego', 'degrade', 17 * 60 + 30],
+];
+
+function phoneFor(i) { return `4199${String(1000000 + i * 7919).slice(-7)}`; }
+
+/** Gera agendamentos demonstrativos relativos ao horário atual. */
+function buildSeed() {
+  const day = nextOpenDay();
+  const isToday = day === todayKey();
+  const now = nowMin();
+  const [, close] = BUSINESS.hours[parseKey(day).getDay()];
+  const bookings = [];
+  PLAN.forEach(([barberId, serviceId, start], i) => {
+    const barber = BARBERS.find((b) => b.id === barberId);
+    if (!barber.days.includes(parseKey(day).getDay())) return;
+    const svc = findService(serviceId);
+    if (start + svc.duration > close) return;
+    let status;
+    if (!isToday) status = i % 3 === 0 ? 'agendado' : 'confirmado';
+    else if (start + svc.duration <= now) status = 'finalizado';
+    else if (start <= now) status = 'atendimento';
+    else if (start - now <= 30) status = 'chegou';
+    else status = i % 4 === 0 ? 'agendado' : 'confirmado';
+    if (i === 11) status = 'cancelado';
+    bookings.push(makeBooking({ i, day, barberId, serviceId, start, status }));
+  });
+  // alguns horários no dia seguinte aberto
+  const next = nextOpenDay(addDays(parseKey(day), 1));
+  [['rafael', 'corte', 10 * 60], ['diego', 'degrade', 11 * 60], ['matheus', 'corte-barba', 15 * 60]].forEach(([barberId, serviceId, start], j) => {
+    if (BARBERS.find((b) => b.id === barberId).days.includes(parseKey(next).getDay()))
+      bookings.push(makeBooking({ i: 20 + j, day: next, barberId, serviceId, start, status: j === 1 ? 'agendado' : 'confirmado' }));
+  });
+  return bookings;
+}
+
+function makeBooking({ i, day, barberId, serviceId, start, status }) {
+  const svc = findService(serviceId);
+  const at = Date.now() - (30 - i) * 3600e3;
+  return {
+    id: 'b_' + uid() + i, code: 'BRV-' + (1100 + i * 37),
+    serviceId, barberId, date: day, start, duration: svc.duration, price: svc.price,
+    client: { name: NAMES[i % NAMES.length], phone: phoneFor(i) },
+    status, source: 'seed', createdAt: at, updatedAt: at,
+    history: [{ status, at }],
+  };
+}
+
+return { nextOpenDay, buildSeed };
+})();
+
+__m["src/services/bookingService.js"] = (function () {
+/**
+ * SERVIÇO DE AGENDAMENTOS — camada de "API".
+ * Todas as telas falam SOMENTE com este módulo. Para conectar um backend real,
+ * reimplemente estas funções com fetch() mantendo as mesmas assinaturas.
+ *
+ *   GET    /bookings?date=YYYY-MM-DD      → listBookings({ date })
+ *   GET    /availability?...               → getAvailability(...)
+ *   POST   /bookings                       → createBooking(data)
+ *   PATCH  /bookings/:id/status            → updateStatus(id, status)
+ */
+const { storage } = __m["src/services/storage.js"];
+const { buildSeed } = __m["src/services/seed.js"];
+const { BUSINESS } = __m["src/data/business.js"];
+const { BARBERS, findService, STATUS_FLOW } = __m["src/data/catalog.js"];
+const { parseKey, todayKey, nowMin, uid, onlyDigits } = __m["src/core/utils.js"];
+
+const KEY = 'bravo.bookings.v1';
+const ME_KEY = 'bravo.client.v1';
+const bus = new EventTarget();
+
+function load() {
+  let data = storage.get(KEY);
+  if (!data || !Array.isArray(data.bookings)) { data = { seededAt: Date.now(), bookings: buildSeed() }; storage.set(KEY, data); }
+  return data;
+}
+function save(data, detail) { storage.set(KEY, data); bus.dispatchEvent(new CustomEvent('change', { detail })); }
+
+// Sincroniza entre abas (cliente numa aba, painel em outra)
+try {
+  addEventListener('storage', (e) => {
+    if (e.key === KEY) bus.dispatchEvent(new CustomEvent('change', { detail: { type: 'external' } }));
+    if (e.key === ME_KEY) bus.dispatchEvent(new CustomEvent('me', {}));
+  });
+} catch (e) { /* ambiente sem window */ }
+
+const onBookingsChange = (fn) => { const h = (e) => fn(e.detail || {}); bus.addEventListener('change', h); return () => bus.removeEventListener('change', h); };
+
+function listBookings({ date, phone } = {}) {
+  let list = load().bookings;
+  if (date) list = list.filter((b) => b.date === date);
+  if (phone) list = list.filter((b) => onlyDigits(b.client.phone) === onlyDigits(phone));
+  return list.slice().sort((a, b) => (a.date === b.date ? a.start - b.start : a.date < b.date ? -1 : 1));
+}
+const getBooking = (id) => load().bookings.find((b) => b.id === id) || null;
+
+/** Horários livres de um barbeiro num dia, para um serviço. */
+function freeSlotsFor(barber, date, duration, bookings) {
+  const d = parseKey(date), wd = d.getDay(), hours = BUSINESS.hours[wd];
+  if (!hours || !barber.days.includes(wd)) return [];
+  const busy = bookings.filter((b) => b.barberId === barber.id && b.date === date && b.status !== 'cancelado');
+  const isToday = date === todayKey(), min = isToday ? nowMin() + BUSINESS.minNotice : 0;
+  const out = [];
+  for (let t = hours[0]; t + duration <= hours[1]; t += BUSINESS.slotStep) {
+    if (t < min) continue;
+    if (busy.some((b) => t < b.start + b.duration && b.start < t + duration)) continue;
+    out.push(t);
+  }
+  return out;
+}
+
+/** Disponibilidade: [{ start, barbers: [ids] }]. barberId = 'any' para "sem preferência". */
+function getAvailability({ date, serviceId, barberId = 'any' }) {
+  const svc = findService(serviceId); if (!svc) return [];
+  const bookings = load().bookings;
+  const pool = barberId === 'any' ? BARBERS : BARBERS.filter((b) => b.id === barberId);
+  const map = new Map();
+  pool.forEach((b) => freeSlotsFor(b, date, svc.duration, bookings).forEach((t) => { if (!map.has(t)) map.set(t, []); map.get(t).push(b.id); }));
+  return [...map.entries()].sort((a, b) => a[0] - b[0]).map(([start, barbers]) => ({ start, barbers }));
+}
+const isDayOpen = (date, barberId = 'any') => {
+  const wd = parseKey(date).getDay();
+  if (!BUSINESS.hours[wd]) return false;
+  return barberId === 'any' ? BARBERS.some((b) => b.days.includes(wd)) : BARBERS.find((b) => b.id === barberId).days.includes(wd);
+};
+
+function createBooking({ serviceId, barberId, date, start, client }) {
+  const svc = findService(serviceId);
+  const slot = getAvailability({ date, serviceId, barberId }).find((s) => s.start === start);
+  if (!slot) throw new Error('Esse horário acabou de ser ocupado. Escolha outro, por favor.');
+  const chosen = barberId === 'any' ? slot.barbers[Math.floor(Math.random() * slot.barbers.length)] : barberId;
+  const at = Date.now();
+  const booking = {
+    id: 'b_' + uid() + at.toString(36), code: 'BRV-' + String(at).slice(-4),
+    serviceId, barberId: chosen, date, start, duration: svc.duration, price: svc.price,
+    client: { name: client.name.trim(), phone: onlyDigits(client.phone) },
+    status: 'agendado', source: 'site', createdAt: at, updatedAt: at, history: [{ status: 'agendado', at }],
+  };
+  const data = load(); data.bookings.push(booking); save(data, { type: 'created', id: booking.id });
+  setCurrentClient(booking.client);
+  return booking;
+}
+
+function updateStatus(id, status, by = 'painel') {
+  const data = load(); const b = data.bookings.find((x) => x.id === id); if (!b || b.status === status) return b;
+  b.status = status; b.updatedAt = Date.now(); b.history.push({ status, at: b.updatedAt, by });
+  save(data, { type: 'status', id, status, by });
+  return b;
+}
+const nextStatus = (status) => { const i = STATUS_FLOW.indexOf(status); return i >= 0 && i < STATUS_FLOW.length - 1 ? STATUS_FLOW[i + 1] : null; };
+
+function resetDemo() { storage.set(KEY, { seededAt: Date.now(), bookings: buildSeed() }); storage.remove(ME_KEY); bus.dispatchEvent(new CustomEvent('change', { detail: { type: 'reset' } })); }
+
+/* ---------- "Sessão" do cliente (demo: identificado pelo telefone) ---------- */
+const getCurrentClient = () => storage.get(ME_KEY);
+function setCurrentClient(client) { storage.set(ME_KEY, client); bus.dispatchEvent(new CustomEvent('me', {})); }
+function clearCurrentClient() { storage.remove(ME_KEY); bus.dispatchEvent(new CustomEvent('me', {})); }
+const onClientChange = (fn) => { bus.addEventListener('me', fn); return () => bus.removeEventListener('me', fn); };
+
+/** Cliente demonstrativo: o próximo atendimento em aberto da agenda. */
+function demoClient() {
+  const open = listBookings().filter((b) => ['agendado', 'confirmado', 'chegou'].includes(b.status) && b.source === 'seed');
+  const today = todayKey(), now = nowMin();
+  const pick = open.find((b) => b.date > today || b.start > now) || open[0];
+  return pick ? pick.client : null;
+}
+
+return { onBookingsChange, listBookings, getBooking, getAvailability, isDayOpen, createBooking, updateStatus, nextStatus, resetDemo, getCurrentClient, setCurrentClient, clearCurrentClient, onClientChange, demoClient };
+})();
+
+__m["src/views/site.js"] = (function () {
+/** SITE PÚBLICO */
+const { BUSINESS } = __m["src/data/business.js"];
+const { SERVICES, BARBERS } = __m["src/data/catalog.js"];
+const { ICONS } = __m["src/ui/icons.js"];
+const { Logo, PhotoSlot } = __m["src/ui/components.js"];
+const { getAvailability } = __m["src/services/bookingService.js"];
+const { nextOpenDay } = __m["src/services/seed.js"];
+const { esc, brl, fmtDur, fmtTime, fmtDateLong, todayKey, addDays, dateKey } = __m["src/core/utils.js"];
+
+const NAV = [['servicos', 'Serviços'], ['barbeiros', 'Barbeiros'], ['galeria', 'Galeria'], ['sobre', 'Sobre'], ['local', 'Localização']];
+const DAYS = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+
+function SiteHeader(active = 'site') {
+  return `<header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a href="#/" class="hdr__logo" aria-label="${esc(BUSINESS.name)}, início">${Logo()}</a>
+      <nav class="hdr__nav" aria-label="Principal">${NAV.map(([id, l]) => `<a href="#/${id}">${l}</a>`).join('')}</nav>
+      <div class="hdr__act">
+        <a href="#/cliente" class="hdr__me ${active === 'client' ? 'is-on' : ''}">${ICONS.user}<span>Minha agenda</span></a>
+        <a href="#/agendar" class="btn btn--brass btn--sm hdr__cta">Agendar horário</a>
+        <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false"><span></span><span></span></button>
+      </div>
+    </div>
+  </header>
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav>${NAV.map(([id, l], i) => `<a href="#/${id}" style="--i:${i}">${l}</a>`).join('')}<a href="#/cliente" style="--i:5">Minha agenda</a></nav>
+    <a href="#/agendar" class="btn btn--brass btn--lg btn--block">Agendar horário ${ICONS.arrow}</a>
+  </div>`;
+}
+
+/** Próximo horário livre (conecta o site à agenda real da barbearia). */
+function nextFree() {
+  for (let i = 0; i < 7; i++) {
+    const k = dateKey(addDays(new Date(), i));
+    const slots = getAvailability({ date: k, serviceId: 'corte', barberId: 'any' });
+    if (slots.length) { const s = slots[0]; return { date: k, start: s.start, barber: BARBERS.find((b) => b.id === s.barbers[0]) }; }
+  }
+  return null;
+}
+
+function SiteView() {
+  const nf = nextFree();
+  const today = new Date().getDay();
+  return `${SiteHeader()}
+  <main id="main">
+    <section class="hero" id="inicio">
+      <div class="hero__bg" aria-hidden="true"><span>BRAVO</span></div>
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="kicker reveal">Barbearia clássica · ${esc(BUSINESS.city)}</p>
+          <h1 class="hero__title">
+            <span class="ln"><span>O corte clássico,</span></span>
+            <span class="ln"><em>feito sem pressa.</em></span>
+          </h1>
+          <p class="hero__sub reveal" style="--d:.35s">Tesoura, navalha e toalha quente. Escolha o serviço, o barbeiro e o horário em menos de um minuto, e acompanhe seu atendimento pelo celular.</p>
+          <div class="hero__ctas reveal" style="--d:.45s">
+            <a href="#/agendar" class="btn btn--brass btn--lg">Agendar horário ${ICONS.arrow}</a>
+            <a href="#/servicos" class="btn btn--line btn--lg">Ver serviços</a>
+          </div>
+          ${nf ? `<a class="nextfree reveal" style="--d:.6s" href="#/agendar?servico=corte&data=${nf.date}">
+            <span class="nextfree__pulse" aria-hidden="true"></span>
+            <span><small>Próximo horário livre</small><b>${esc(fmtDateLong(nf.date))} · ${fmtTime(nf.start)}</b> com ${esc(nf.barber.name.split(' ')[0])}</span>
+            ${ICONS.arrow}
+          </a>` : ''}
+        </div>
+        <div class="hero__media reveal" style="--d:.2s">
+          ${PhotoSlot({ label: 'Foto · Cadeira e bancada da casa', icon: 'razor', cls: 'hero__photo' })}
+          <div class="hero__card">
+            <span class="hero__card-ic">${ICONS.clock}</span>
+            <span><b>${esc(BUSINESS.hoursLabel[0].days)}</b><small>${esc(BUSINESS.hoursLabel[0].time)} · Sáb ${esc(BUSINESS.hoursLabel[1].time)}</small></span>
+          </div>
+        </div>
+      </div>
+      <ul class="hero__strip wrap" aria-label="Destaques">
+        <li>${ICONS.cal}Agenda online 24h</li><li>${ICONS.bell}Status do atendimento em tempo real</li><li>${ICONS.razor}Toalha quente e navalha</li><li>${ICONS.pin}${esc(BUSINESS.city)} · ${esc(BUSINESS.state)}</li>
+      </ul>
+    </section>
+
+    <section class="sec sec--cream" id="servicos">
+      <div class="wrap svc">
+        <header class="shead reveal">
+          <p class="kicker kicker--ink">01 · Serviços</p>
+          <h2 class="h2">A carta da casa.</h2>
+          <p class="shead__txt">Preços fixos, duração honesta. Todo serviço inclui lavagem e finalização.</p>
+        </header>
+        <ul class="menu">
+          ${SERVICES.map((s, i) => `<li class="menu__item reveal ${s.featured ? 'is-feat' : ''}" style="--d:${i * 0.05}s">
+            <a href="#/agendar?servico=${s.id}" class="menu__link">
+              <span class="menu__ic">${ICONS[s.icon]}</span>
+              <span class="menu__main">
+                <span class="menu__row"><b class="menu__name">${esc(s.name)}</b>${s.featured ? '<em class="menu__tag">Mais pedido</em>' : ''}<span class="menu__dots" aria-hidden="true"></span><b class="menu__price">${brl(s.price)}</b></span>
+                <span class="menu__desc">${esc(s.desc)}</span>
+              </span>
+              <span class="menu__meta"><span class="chip">${ICONS.clock}${fmtDur(s.duration)}</span><span class="menu__go">Agendar ${ICONS.arrow}</span></span>
+            </a>
+          </li>`).join('')}
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec" id="barbeiros">
+      <div class="wrap">
+        <header class="shead shead--split reveal">
+          <div><p class="kicker">02 · Barbeiros</p><h2 class="h2">Mãos que conhecem o ofício.</h2></div>
+          <p class="shead__txt">Escolha quem vai cuidar do seu corte ou deixe a agenda sugerir o primeiro horário livre.</p>
+        </header>
+        <div class="barbers">
+          ${BARBERS.map((b, i) => `<article class="barber reveal" style="--d:${i * 0.08}s">
+            ${PhotoSlot({ label: `Retrato · ${b.name}`, big: b.initials, cls: 'barber__photo' })}
+            <div class="barber__body">
+              <p class="barber__role">${esc(b.role)}</p>
+              <h3 class="barber__name">${esc(b.name)}</h3>
+              <p class="barber__spec">${esc(b.specialty)}</p>
+              <p class="barber__bio">${esc(b.bio)}</p>
+              <p class="barber__days">${DAYS.map((d, wd) => `<span class="${b.days.includes(wd) && BUSINESS.hours[wd] ? 'on' : ''} ${wd === today ? 'today' : ''}">${d}</span>`).join('')}</p>
+              <a class="btn btn--line btn--block" href="#/agendar?barbeiro=${b.id}">Agendar com ${esc(b.name.split(' ')[0])} ${ICONS.arrow}</a>
+            </div>
+          </article>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--brown" id="galeria">
+      <div class="wrap">
+        <header class="shead shead--split reveal">
+          <div><p class="kicker">03 · Galeria</p><h2 class="h2">Trabalho que fala por si.</h2></div>
+          <p class="shead__txt">Espaço reservado para o portfólio fotográfico da casa: cortes, barbas e o ambiente.</p>
+        </header>
+        <div class="gal">
+          ${[['Degradê navalhado', 'fade', 'g1'], ['Barba com toalha quente', 'razor', 'g2'], ['Risca lateral clássica', 'scissors', 'g3'], ['Ambiente da casa', 'store', 'g4'], ['Acabamento na navalha', 'line', 'g5'], ['Corte + barba', 'combo', 'g6']]
+            .map(([l, ic, c], i) => `<div class="gal__it ${c} reveal" style="--d:${i * 0.05}s">${PhotoSlot({ label: `Foto · ${l}`, icon: ic })}</div>`).join('')}
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--cream" id="sobre">
+      <div class="wrap about">
+        <div class="about__quote reveal">
+          <p class="kicker kicker--ink">04 · Sobre</p>
+          <blockquote>“Barbearia boa é aquela em que você esquece do relógio, porque alguém já cuidou dele por você.”</blockquote>
+        </div>
+        <div class="about__txt reveal" style="--d:.1s">
+          <p>O BRAVO nasceu da vontade de juntar o que a barbearia tradicional tem de melhor, o ritual, a conversa e o acabamento na navalha, com uma agenda que respeita o seu tempo.</p>
+          <p>Aqui cada horário é reservado para uma pessoa só. Sem fila, sem espera no sofá: você marca pelo site, acompanha o status pelo celular e senta na cadeira na hora combinada.</p>
+          <ul class="pillars">
+            <li><b>Hora marcada</b><span>Cada cadeira com a sua agenda, sem encaixes.</span></li>
+            <li><b>Ritual completo</b><span>Toalha quente, navalha e finalização sem pressa.</span></li>
+            <li><b>Status ao vivo</b><span>Você sabe quando é a sua vez, direto no celular.</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" id="local">
+      <div class="wrap">
+        <header class="shead reveal"><p class="kicker">05 · Localização</p><h2 class="h2">No centro, a poucos passos.</h2></header>
+        <div class="loc">
+          <div class="map reveal">
+            <svg viewBox="0 0 600 420" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+              <rect width="600" height="420" fill="#1b1814"/>
+              <g stroke="#2c2721" stroke-linecap="round" fill="none"><path d="M0 190H600" stroke-width="16"/><path d="M270 0V420" stroke-width="16"/><path d="M0 90L600 50" stroke-width="7"/><path d="M430 0L380 420" stroke-width="7"/><path d="M0 360L250 190" stroke-width="7"/><path d="M120 0V420M0 280H600M530 0V420" stroke-width="3"/></g>
+              <rect x="60" y="230" width="140" height="90" rx="10" fill="#211e19"/><circle cx="480" cy="330" r="50" fill="#211e19"/>
+              <g transform="translate(300 170)"><circle r="30" fill="#c29a5b" opacity=".12"/><circle r="15" fill="#c29a5b" opacity=".25"/><circle r="6" fill="#c29a5b"/></g>
+            </svg>
+            <div class="map__card"><b>${esc(BUSINESS.name)}</b><span>${esc(BUSINESS.address)}</span><span>${esc(BUSINESS.city)}, ${esc(BUSINESS.state)} · ${esc(BUSINESS.zip)}</span></div>
+            <span class="map__demo">Mapa ilustrativo · endereço fictício</span>
+          </div>
+          <div class="loc__info">
+            <div class="box reveal"><h3>${ICONS.clock}Horários</h3><dl class="hours">${BUSINESS.hoursLabel.map((h) => `<div><dt>${esc(h.days)}</dt><dd>${esc(h.time)}</dd></div>`).join('')}</dl></div>
+            <div class="box reveal"><h3>${ICONS.pin}Endereço</h3><p>${esc(BUSINESS.address)}<br>${esc(BUSINESS.city)}, ${esc(BUSINESS.state)}</p>
+              <div class="box__links"><a class="btn btn--line btn--sm" href="${BUSINESS.mapsUrl}" target="_blank" rel="noopener">Abrir no Maps</a><a class="btn btn--line btn--sm" href="https://wa.me/${BUSINESS.whatsapp}" target="_blank" rel="noopener">${ICONS.whatsapp}WhatsApp</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="wrap cta__in reveal">
+        <p class="kicker kicker--ink">Agenda aberta</p>
+        <h2 class="cta__title">Sua cadeira<br><em>está esperando.</em></h2>
+        <a href="#/agendar" class="btn btn--ink btn--lg">Agendar horário ${ICONS.arrow}</a>
+      </div>
+    </section>
+  </main>
+  ${SiteFooter()}
+  <a href="#/agendar" class="stickycta" id="stickycta">Agendar horário ${ICONS.arrow}</a>`;
+}
+
+function SiteFooter() {
+  return `<footer class="ftr">
+    <div class="wrap">
+      <div class="ftr__top">
+        <div>${Logo()}<p class="ftr__tag">Barbearia clássica com agenda online.</p></div>
+        <nav aria-label="Rodapé"><h4>Site</h4>${NAV.map(([id, l]) => `<a href="#/${id}">${l}</a>`).join('')}</nav>
+        <nav aria-label="Produto"><h4>Agenda</h4><a href="#/agendar">Agendar horário</a><a href="#/cliente">Minha agenda</a><a href="#/painel">Painel da barbearia</a></nav>
+        <div><h4>Contato</h4><p>${esc(BUSINESS.whatsappDisplay)}</p><p>${esc(BUSINESS.instagram)}</p><p>${esc(BUSINESS.city)}, ${esc(BUSINESS.state)}</p></div>
+      </div>
+      <div class="ftr__bot"><span>© ${new Date().getFullYear()} ${esc(BUSINESS.name)}</span><span>Projeto conceitual · marca, contatos e agendamentos fictícios · Desenvolvido por <b>Chrysxxz Digital</b></span></div>
+    </div>
+  </footer>`;
+}
+
+return { SiteHeader, SiteView, SiteFooter };
+})();
+
+__m["src/views/booking.js"] = (function () {
+/** FLUXO DE AGENDAMENTO: serviço → barbeiro → data → horário → confirmação */
+const { BUSINESS } = __m["src/data/business.js"];
+const { SERVICES, BARBERS, findService, findBarber } = __m["src/data/catalog.js"];
+const { ICONS } = __m["src/ui/icons.js"];
+const { Logo, StatusBadge, toast } = __m["src/ui/components.js"];
+const { getAvailability, isDayOpen, createBooking, getCurrentClient } = __m["src/services/bookingService.js"];
+const { esc, brl, fmtDur, fmtTime, fmtDateLong, dateKey, addDays, parseKey, wdShort, monShort, todayKey, fmtPhone, onlyDigits, firstName } = __m["src/core/utils.js"];
+
+const STEPS = ['Serviço', 'Barbeiro', 'Data', 'Horário', 'Confirmar'];
+let S = null; // estado do fluxo
+
+function BookingView(params) {
+  const me = getCurrentClient() || {};
+  S = { step: 0, serviceId: null, barberId: null, date: null, start: null, name: me.name || '', phone: me.phone ? fmtPhone(me.phone) : '', done: null, error: '' };
+  if (params.servico && findService(params.servico)) { S.serviceId = params.servico; S.step = 1; }
+  if (params.barbeiro && findBarber(params.barbeiro)) { S.barberId = params.barbeiro; if (!S.serviceId) S.step = 0; }
+  if (S.serviceId && S.barberId) S.step = 2;
+  if (params.data && S.serviceId) { S.date = params.data; S.barberId = S.barberId || 'any'; S.step = 3; }
+  return `<div class="bk" id="bk">
+    <header class="bk__top">
+      <div class="wrap bk__topin">
+        <a href="#/" class="bk__back" aria-label="Voltar ao site">${ICONS.back}<span>Site</span></a>
+        <a href="#/" class="bk__logo">${Logo({ sub: false })}</a>
+        <a href="#/cliente" class="bk__me">${ICONS.user}<span>Minha agenda</span></a>
+      </div>
+    </header>
+    <div class="wrap bk__grid" id="bkBody"></div>
+  </div>`;
+}
+
+function mountBooking() {
+  const body = document.getElementById('bkBody');
+  if (!body) return;
+  render();
+
+  body.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-act]'); if (!t) return;
+    const { act, v } = t.dataset;
+    if (act === 'service') { S.serviceId = v; S.start = null; next(); }
+    if (act === 'barber') { S.barberId = v; S.start = null; next(); }
+    if (act === 'date') { S.date = v; S.start = null; next(); }
+    if (act === 'slot') { S.start = +v; next(); }
+    if (act === 'goto') { S.step = +v; S.error = ''; render(true); }
+    if (act === 'back') { S.step = Math.max(0, S.step - 1); S.error = ''; render(true); }
+    if (act === 'next') next();
+    if (act === 'again') { S = { ...S, step: 0, serviceId: null, barberId: null, date: null, start: null, done: null }; render(true); }
+  });
+  body.addEventListener('input', (e) => {
+    if (e.target.name === 'phone') { const pos = e.target.value.length; e.target.value = fmtPhone(e.target.value); if (pos) e.target.setSelectionRange(e.target.value.length, e.target.value.length); }
+    if (e.target.name === 'name' || e.target.name === 'phone') { S[e.target.name] = e.target.value; const btn = body.querySelector('button[type="submit"]'); if (btn) btn.disabled = !valid(); }
+  });
+  body.addEventListener('submit', (e) => { e.preventDefault(); confirm(); });
+}
+
+const valid = () => S.name.trim().length >= 2 && onlyDigits(S.phone).length >= 10;
+function next() { S.error = ''; if (S.step < 4) S.step++; render(true); }
+
+function confirm() {
+  if (!valid()) { S.error = 'Informe seu nome e um telefone com DDD.'; render(); return; }
+  try {
+    const b = createBooking({ serviceId: S.serviceId, barberId: S.barberId, date: S.date, start: S.start, client: { name: S.name, phone: S.phone } });
+    S.done = b; render(true);
+    toast(`Agendamento <b>${esc(b.code)}</b> criado. A barbearia já recebeu.`, { icon: 'check', tone: 'ok' });
+  } catch (err) { S.error = err.message; S.step = 3; S.start = null; render(true); }
+}
+
+function render(scroll) {
+  const body = document.getElementById('bkBody'); if (!body) return;
+  body.innerHTML = S.done ? Done(S.done) : `${Steps()}<section class="bk__main" aria-live="polite">${Step()}</section>${Summary()}`;
+  body.querySelector('.bk__main, .done')?.classList.add('is-in');
+  if (scroll) scrollTo({ top: 0, behavior: 'smooth' });
+  const f = body.querySelector('input[name="name"]'); if (f && !S.name) f.focus({ preventScroll: true });
+}
+
+function Steps() {
+  return `<ol class="steps" aria-label="Etapas">${STEPS.map((l, i) => {
+    const can = i < S.step;
+    return `<li class="${i === S.step ? 'is-now' : ''} ${i < S.step ? 'is-done' : ''}">${can ? `<button type="button" data-act="goto" data-v="${i}">` : '<span>'}<i>${i < S.step ? ICONS.check : i + 1}</i><em>${l}</em>${can ? '</button>' : '</span>'}</li>`;
+  }).join('')}</ol>`;
+}
+
+const Head = (title, sub) => `<div class="bk__head">${S.step > 0 ? `<button class="linkbtn" type="button" data-act="back">${ICONS.back} Voltar</button>` : ''}<h1 class="bk__title">${title}</h1>${sub ? `<p class="bk__sub">${sub}</p>` : ''}</div>`;
+
+function Step() {
+  const svc = findService(S.serviceId);
+  if (S.step === 0) return `${Head('Qual serviço você quer?', 'Preço fixo e duração estimada. Você paga na barbearia.')}
+    <div class="opts">${SERVICES.map((s) => `<button type="button" class="opt ${S.serviceId === s.id ? 'is-sel' : ''}" data-act="service" data-v="${s.id}">
+      <span class="opt__ic">${ICONS[s.icon]}</span>
+      <span class="opt__main"><b>${esc(s.name)}${s.featured ? ' <em class="tag">Mais pedido</em>' : ''}</b><small>${esc(s.desc)}</small></span>
+      <span class="opt__side"><b>${brl(s.price)}</b><small>${fmtDur(s.duration)}</small></span>
+    </button>`).join('')}</div>`;
+
+  if (S.step === 1) return `${Head('Com quem você quer cortar?', `${esc(svc.name)} · ${fmtDur(svc.duration)}`)}
+    <div class="opts opts--barbers">
+      <button type="button" class="opt opt--any ${S.barberId === 'any' ? 'is-sel' : ''}" data-act="barber" data-v="any">
+        <span class="avatar avatar--any">${ICONS.users}</span>
+        <span class="opt__main"><b>Sem preferência</b><small>Mostramos o primeiro barbeiro livre em cada horário.</small></span>
+        <span class="opt__side">${ICONS.arrow}</span>
+      </button>
+      ${BARBERS.map((b) => `<button type="button" class="opt ${S.barberId === b.id ? 'is-sel' : ''}" data-act="barber" data-v="${b.id}">
+        <span class="avatar" style="--tone:${b.tone}">${b.initials}</span>
+        <span class="opt__main"><b>${esc(b.name)}</b><small>${esc(b.specialty)}</small></span>
+        <span class="opt__side">${ICONS.arrow}</span>
+      </button>`).join('')}
+    </div>`;
+
+  if (S.step === 2) {
+    const days = Array.from({ length: BUSINESS.bookingWindowDays }, (_, i) => dateKey(addDays(new Date(), i)));
+    return `${Head('Escolha o dia', S.barberId === 'any' ? 'Qualquer barbeiro' : `Agenda de ${esc(findBarber(S.barberId).name)}`)}
+      <div class="days">${days.map((k) => {
+        const d = parseKey(k); const open = isDayOpen(k, S.barberId);
+        const n = open ? getAvailability({ date: k, serviceId: S.serviceId, barberId: S.barberId }).length : 0;
+        const state = !open ? 'Fechado' : n === 0 ? 'Lotado' : n <= 6 ? `${n} horários` : 'Disponível';
+        return `<button type="button" class="day ${S.date === k ? 'is-sel' : ''} ${n <= 6 && n > 0 ? 'is-few' : ''}" data-act="date" data-v="${k}" ${n ? '' : 'disabled'}>
+          <small>${k === todayKey() ? 'Hoje' : wdShort(d)}</small><b>${d.getDate()}</b><small>${monShort(d)}</small><em>${state}</em></button>`;
+      }).join('')}</div>`;
+  }
+
+  if (S.step === 3) {
+    const slots = getAvailability({ date: S.date, serviceId: S.serviceId, barberId: S.barberId });
+    const groups = [['Manhã', 0, 720], ['Tarde', 720, 1080], ['Noite', 1080, 1440]].map(([l, a, z]) => [l, slots.filter((s) => s.start >= a && s.start < z)]).filter(([, l]) => l.length);
+    return `${Head('Escolha o horário', `${esc(fmtDateLong(S.date))} · horários com tempo livre para o serviço completo`)}
+      ${S.error ? `<p class="alert">${esc(S.error)}</p>` : ''}
+      ${groups.length ? groups.map(([l, list]) => `<div class="slots"><h3>${l}</h3><div class="slots__grid">${list.map((s) =>
+        `<button type="button" class="slot ${S.start === s.start ? 'is-sel' : ''}" data-act="slot" data-v="${s.start}">${fmtTime(s.start)}</button>`).join('')}</div></div>`).join('')
+      : `<div class="empty">${ICONS.cal}<p>Não há mais horários livres neste dia.</p><button class="btn btn--line btn--sm" type="button" data-act="back">Escolher outro dia</button></div>`}`;
+  }
+
+  // Confirmar
+  const b = S.barberId === 'any' ? null : findBarber(S.barberId);
+  return `${Head('Confirme seu horário', 'Falta pouco. Usamos seu telefone para você acompanhar o atendimento.')}
+    <form class="confirm" novalidate>
+      <div class="confirm__card">
+        <div class="confirm__when"><span>${esc(fmtDateLong(S.date))}</span><b>${fmtTime(S.start)}</b><small>até ${fmtTime(S.start + svc.duration)}</small></div>
+        <dl class="confirm__list">
+          <div><dt>Serviço</dt><dd>${esc(svc.name)}</dd></div>
+          <div><dt>Barbeiro</dt><dd>${b ? esc(b.name) : 'Primeiro disponível'}</dd></div>
+          <div><dt>Duração</dt><dd>${fmtDur(svc.duration)}</dd></div>
+          <div class="is-total"><dt>Total</dt><dd>${brl(svc.price)}</dd></div>
+        </dl>
+      </div>
+      <div class="fields">
+        <label class="field"><span>Seu nome</span><input name="name" autocomplete="name" value="${esc(S.name)}" placeholder="Como devemos te chamar?" maxlength="60"></label>
+        <label class="field"><span>Telefone (WhatsApp)</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" value="${esc(S.phone)}" placeholder="(41) 90000-0000"></label>
+      </div>
+      ${S.error ? `<p class="alert">${esc(S.error)}</p>` : ''}
+      <button class="btn btn--brass btn--lg btn--block" type="submit" ${valid() ? '' : 'disabled'}>Confirmar agendamento ${ICONS.check}</button>
+      <p class="fine">Pagamento na barbearia. Você pode cancelar pela sua agenda até o horário marcado.</p>
+    </form>`;
+}
+
+function Summary() {
+  const svc = findService(S.serviceId), b = S.barberId && S.barberId !== 'any' ? findBarber(S.barberId) : null;
+  const row = (ic, l, v, step) => `<div class="sum__row ${v ? '' : 'is-empty'}"><span class="sum__ic">${ICONS[ic]}</span><span><small>${l}</small><b>${v || '—'}</b></span>${v && step < S.step ? `<button type="button" class="linkbtn" data-act="goto" data-v="${step}">Alterar</button>` : ''}</div>`;
+  const canNext = [S.serviceId, S.barberId, S.date, S.start !== null ? 1 : null][S.step];
+  return `<aside class="sum" aria-label="Resumo">
+    <p class="sum__title">Seu agendamento</p>
+    ${row('scissors', 'Serviço', svc && `${esc(svc.name)} · ${fmtDur(svc.duration)}`, 0)}
+    ${row('user', 'Barbeiro', S.barberId && (b ? esc(b.name) : 'Sem preferência'), 1)}
+    ${row('cal', 'Data', S.date && esc(fmtDateLong(S.date)), 2)}
+    ${row('clock', 'Horário', S.start !== null && S.start !== undefined ? fmtTime(S.start) : '', 3)}
+    <div class="sum__total"><span>Total</span><b>${svc ? brl(svc.price) : 'R$ 0'}</b></div>
+    ${S.step < 4 ? `<button class="btn btn--brass btn--block sum__next" type="button" data-act="next" ${canNext ? '' : 'disabled'}>Continuar ${ICONS.arrow}</button>` : ''}
+  </aside>`;
+}
+
+function Done(b) {
+  const svc = findService(b.serviceId), barber = findBarber(b.barberId);
+  return `<section class="done">
+    <div class="done__mark" aria-hidden="true"><svg viewBox="0 0 52 52"><circle cx="26" cy="26" r="24"/><path d="M15 27l7 7 15-16"/></svg></div>
+    <p class="kicker">Agendamento ${esc(b.code)}</p>
+    <h1 class="done__title">Tudo certo, ${esc(firstName(b.client.name))}.</h1>
+    <p class="done__sub">Seu pedido chegou à barbearia. Assim que ${esc(firstName(barber.name))} confirmar, o status muda na sua agenda.</p>
+    <div class="done__card">
+      <div class="done__when"><b>${fmtTime(b.start)}</b><span>${esc(fmtDateLong(b.date))}</span></div>
+      <dl><div><dt>Serviço</dt><dd>${esc(svc.name)}</dd></div><div><dt>Barbeiro</dt><dd>${esc(barber.name)}</dd></div><div><dt>Valor</dt><dd>${brl(b.price)}</dd></div><div><dt>Status</dt><dd>${StatusBadge(b.status)}</dd></div></dl>
+    </div>
+    <div class="done__ctas">
+      <a class="btn btn--brass btn--lg" href="#/cliente">Acompanhar na minha agenda ${ICONS.arrow}</a>
+      <a class="btn btn--line btn--lg" href="#/painel">Ver no painel da barbearia</a>
+    </div>
+    <p class="fine">Demonstração: abra o painel para confirmar este horário e veja o status mudar na área do cliente.</p>
+  </section>`;
+}
+
+return { BookingView, mountBooking };
+})();
+
+__m["src/views/client.js"] = (function () {
+/** ÁREA DO CLIENTE: próximo agendamento + status ao vivo */
+const { findService, findBarber, findStatus } = __m["src/data/catalog.js"];
+const { BUSINESS } = __m["src/data/business.js"];
+const { ICONS } = __m["src/ui/icons.js"];
+const { StatusBadge, StatusTrack, toast } = __m["src/ui/components.js"];
+const { SiteHeader, SiteFooter } = __m["src/views/site.js"];
+const { listBookings, getCurrentClient, setCurrentClient, clearCurrentClient, demoClient, updateStatus, onBookingsChange, onClientChange } = __m["src/services/bookingService.js"];
+const { esc, brl, fmtDur, fmtTime, fmtDateLong, todayKey, nowMin, firstName, fmtPhone, onlyDigits } = __m["src/core/utils.js"];
+
+const OPEN = ['agendado', 'confirmado', 'chegou', 'atendimento'];
+let lastStatus = {};
+
+function ClientView() {
+  return `${SiteHeader('client')}<main class="cl"><div class="wrap" id="clBody"></div></main>${SiteFooter()}`;
+}
+
+function mountClient() {
+  const body = document.getElementById('clBody'); if (!body) return () => {};
+  lastStatus = {};
+  render();
+  const off1 = onBookingsChange((d) => {
+    const me = getCurrentClient();
+    if (me && d.id) {
+      const b = listBookings({ phone: me.phone }).find((x) => x.id === d.id);
+      if (b && d.type === 'status' && d.by !== 'cliente') toast(`Seu atendimento agora está <b>${esc(findStatus(b.status).label)}</b>.`, { icon: 'bell' });
+    }
+    render(true);
+  });
+  const off2 = onClientChange(() => render());
+  // relógio: atualiza contagem regressiva a cada 30s
+  const timer = setInterval(() => { const el = document.getElementById('clCountdown'); if (el) el.textContent = countdown(el.dataset.date, +el.dataset.start); }, 30000);
+
+  body.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-act]'); if (!t) return;
+    if (t.dataset.act === 'demo') { const c = demoClient(); if (c) setCurrentClient(c); }
+    if (t.dataset.act === 'logout') clearCurrentClient();
+    if (t.dataset.act === 'cancel') {
+      if (t.dataset.confirm !== '1') { t.dataset.confirm = '1'; t.innerHTML = 'Toque de novo para cancelar'; t.classList.add('is-warn'); setTimeout(() => { if (t.isConnected) { t.dataset.confirm = ''; t.innerHTML = 'Cancelar horário'; t.classList.remove('is-warn'); } }, 3500); return; }
+      updateStatus(t.dataset.id, 'cancelado', 'cliente'); toast('Horário cancelado. A barbearia foi avisada.', { icon: 'x' });
+    }
+    if (t.dataset.act === 'checkin') { updateStatus(t.dataset.id, 'chegou', 'cliente'); toast('Check-in feito. Seu barbeiro já sabe que você chegou.', { icon: 'check', tone: 'ok' }); }
+  });
+  body.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const phone = onlyDigits(new FormData(e.target).get('phone') || '');
+    const found = listBookings({ phone })[0];
+    if (!found) { const p = body.querySelector('.login__err'); p.textContent = 'Não encontramos agendamentos para este telefone.'; return; }
+    setCurrentClient(found.client);
+  });
+  body.addEventListener('input', (e) => { if (e.target.name === 'phone') e.target.value = fmtPhone(e.target.value); });
+  return () => { off1(); off2(); clearInterval(timer); };
+}
+
+function countdown(date, start) {
+  const t = todayKey();
+  if (date !== t) return 'Seu próximo horário';
+  const diff = start - nowMin();
+  if (diff <= 0) return 'Agora';
+  if (diff < 60) return `Em ${diff} min`;
+  return `Em ${Math.floor(diff / 60)}h${diff % 60 ? String(diff % 60).padStart(2, '0') : ''}`;
+}
+
+function render(fromChange) {
+  const body = document.getElementById('clBody'); if (!body) return;
+  const me = getCurrentClient();
+  if (!me) { body.innerHTML = Login(); return; }
+  const all = listBookings({ phone: me.phone });
+  const today = todayKey(), now = nowMin();
+  const upcoming = all.filter((b) => OPEN.includes(b.status) && (b.date > today || (b.date === today && b.start + b.duration >= now - 30) || ['chegou', 'atendimento'].includes(b.status)));
+  const next = upcoming[0];
+  const others = upcoming.slice(1);
+  const past = all.filter((b) => !upcoming.includes(b)).reverse();
+  body.innerHTML = `
+    <header class="cl__head">
+      <div><p class="kicker">Área do cliente</p><h1 class="cl__title">Olá, ${esc(firstName(me.name))}.</h1></div>
+      <div class="cl__live"><span class="live-dot"></span>Sincronizado com a barbearia <button class="linkbtn" data-act="logout" type="button">Sair</button></div>
+    </header>
+    ${next ? NextCard(next, fromChange && lastStatus[next.id] && lastStatus[next.id] !== next.status) : `<div class="empty empty--big">${ICONS.cal}<h2>Nenhum horário marcado</h2><p>Que tal reservar sua próxima cadeira?</p><a class="btn btn--brass btn--lg" href="#/agendar">Agendar horário ${ICONS.arrow}</a></div>`}
+    ${others.length ? `<section class="cl__sec"><h2 class="h3">Próximos horários</h2><div class="rows">${others.map(Row).join('')}</div></section>` : ''}
+    ${past.length ? `<section class="cl__sec"><h2 class="h3">Histórico</h2><div class="rows">${past.map(Row).join('')}</div></section>` : ''}
+    <p class="fine cl__fine">Demonstração: altere o status deste atendimento no <a href="#/painel">painel da barbearia</a> e acompanhe a mudança aqui.</p>`;
+  all.forEach((b) => { lastStatus[b.id] = b.status; });
+}
+
+function NextCard(b, changed) {
+  const svc = findService(b.serviceId), barber = findBarber(b.barberId), st = findStatus(b.status);
+  const canCancel = ['agendado', 'confirmado'].includes(b.status);
+  const canCheckin = b.status === 'confirmado' && b.date === todayKey() && b.start - nowMin() <= 60;
+  return `<article class="next ${changed ? 'is-changed' : ''}">
+    <div class="next__top">
+      <div class="next__when">
+        <p class="next__cd" id="clCountdown" data-date="${b.date}" data-start="${b.start}">${esc(countdown(b.date, b.start))}</p>
+        <p class="next__time">${fmtTime(b.start)}</p>
+        <p class="next__date">${esc(fmtDateLong(b.date))}</p>
+      </div>
+      <div class="next__status">${StatusBadge(b.status)}<p>${esc(st.hint)}</p></div>
+    </div>
+    ${StatusTrack(b.status)}
+    <dl class="next__info">
+      <div><dt>${ICONS.scissors}Serviço</dt><dd>${esc(svc.name)} <small>${fmtDur(svc.duration)}</small></dd></div>
+      <div><dt>${ICONS.user}Barbeiro</dt><dd>${esc(barber.name)}</dd></div>
+      <div><dt>${ICONS.cash}Valor</dt><dd>${brl(b.price)} <small>na barbearia</small></dd></div>
+      <div><dt>${ICONS.pin}Local</dt><dd>${esc(BUSINESS.address)}</dd></div>
+    </dl>
+    <div class="next__acts">
+      ${canCheckin ? `<button class="btn btn--brass" type="button" data-act="checkin" data-id="${b.id}">${ICONS.check} Cheguei na barbearia</button>` : ''}
+      ${canCancel ? `<button class="btn btn--line" type="button" data-act="cancel" data-id="${b.id}">Cancelar horário</button>` : ''}
+      <a class="btn btn--line" href="#/agendar?servico=${b.serviceId}&barbeiro=${b.barberId}">Agendar outro</a>
+      <span class="next__code">Código ${esc(b.code)}</span>
+    </div>
+  </article>`;
+}
+
+const Row = (b) => {
+  const svc = findService(b.serviceId), barber = findBarber(b.barberId);
+  return `<div class="row"><span class="row__time"><b>${fmtTime(b.start)}</b><small>${esc(fmtDateLong(b.date))}</small></span><span class="row__main"><b>${esc(svc.name)}</b><small>com ${esc(barber.name)} · ${brl(b.price)}</small></span>${StatusBadge(b.status)}</div>`;
+};
+
+function Login() {
+  return `<section class="login">
+    <p class="kicker">Área do cliente</p>
+    <h1 class="cl__title">Acompanhe seu horário.</h1>
+    <p class="login__txt">Veja seu próximo agendamento e o status do atendimento em tempo real: da confirmação até a hora em que você senta na cadeira.</p>
+    <form class="login__form" novalidate>
+      <label class="field"><span>Telefone usado no agendamento</span><input name="phone" type="tel" inputmode="tel" placeholder="(41) 90000-0000" autocomplete="tel"></label>
+      <button class="btn btn--brass btn--lg" type="submit">Ver minha agenda ${ICONS.arrow}</button>
+      <p class="login__err" role="alert"></p>
+    </form>
+    <div class="login__alt">
+      <button class="btn btn--line" type="button" data-act="demo">${ICONS.user} Entrar como cliente demonstrativo</button>
+      <a class="btn btn--line" href="#/agendar">Fazer um agendamento</a>
+    </div>
+  </section>`;
+}
+
+return { ClientView, mountClient };
+})();
+
+__m["src/views/admin.js"] = (function () {
+/** PAINEL DA BARBEARIA (demonstrativo) */
+const { BUSINESS } = __m["src/data/business.js"];
+const { SERVICES, BARBERS, STATUSES, findService, findBarber, findStatus } = __m["src/data/catalog.js"];
+const { ICONS } = __m["src/ui/icons.js"];
+const { Logo, StatusBadge, StatusTrack, toast } = __m["src/ui/components.js"];
+const { listBookings, updateStatus, nextStatus, onBookingsChange, resetDemo, getBooking } = __m["src/services/bookingService.js"];
+const { nextOpenDay } = __m["src/services/seed.js"];
+const { esc, brl, fmtDur, fmtTime, fmtDateLong, todayKey, nowMin, parseKey, addDays, dateKey, fmtPhone, firstName, onlyDigits } = __m["src/core/utils.js"];
+
+const TABS = [['hoje', 'Agenda do dia', 'cal'], ['clientes', 'Clientes', 'users'], ['barbeiros', 'Barbeiros', 'scissors'], ['servicos', 'Serviços', 'list']];
+const A = { tab: 'hoje', date: null, barber: 'all', open: null, known: null, fresh: new Set() };
+
+function AdminView(tab) {
+  A.tab = TABS.some((t) => t[0] === tab) ? tab : 'hoje';
+  if (!A.date) A.date = nextOpenDay();
+  return `<div class="adm">
+    <aside class="adm__side">
+      <a href="#/painel" class="adm__brand">${Logo({ sub: false })}<span>Painel</span></a>
+      <nav class="adm__nav" aria-label="Painel">${TABS.map(([id, l, ic]) => `<a href="#/painel/${id}" class="${A.tab === id ? 'is-on' : ''}">${ICONS[ic]}<span>${l}</span></a>`).join('')}</nav>
+      <div class="adm__sidefoot">
+        <a href="#/">${ICONS.globe}<span>Ver site</span></a>
+        <a href="#/cliente">${ICONS.user}<span>Área do cliente</span></a>
+        <button type="button" data-act="reset">${ICONS.refresh}<span>Reiniciar demo</span></button>
+      </div>
+    </aside>
+    <main class="adm__main" id="admBody"></main>
+    <div class="drawer" id="drawer" aria-hidden="true"><div class="drawer__bg" data-act="close"></div><div class="drawer__panel" role="dialog" aria-modal="true" aria-label="Detalhes do atendimento" id="drawerPanel"></div></div>
+  </div>`;
+}
+
+function mountAdmin() {
+  const root = document.querySelector('.adm'); if (!root) return () => {};
+  A.known = new Set(listBookings().map((b) => b.id));
+  // novos agendamentos do site ainda não confirmados ficam destacados
+  listBookings().filter((b) => b.source === 'site' && b.status === 'agendado').forEach((b) => A.fresh.add(b.id));
+  render();
+  const off = onBookingsChange((d) => {
+    const all = listBookings();
+    all.forEach((b) => { if (!A.known.has(b.id)) { A.fresh.add(b.id); if (b.source === 'site') toast(`<b>Novo agendamento</b> · ${esc(firstName(b.client.name))}, ${esc(findService(b.serviceId).name)}, ${fmtTime(b.start)}`, { icon: 'bell' }); } });
+    A.known = new Set(all.map((b) => b.id));
+    if (d.type === 'status' && d.by === 'cliente') { const b = getBooking(d.id); if (b) toast(`${esc(firstName(b.client.name))} atualizou: <b>${esc(findStatus(b.status).label)}</b>`, { icon: 'user' }); }
+    render(); if (A.open) openDrawer(A.open);
+  });
+  const tick = setInterval(() => { const n = document.getElementById('nowLine'); if (n) placeNow(); }, 60000);
+
+  root.addEventListener('click', (e) => {
+    const t = e.target.closest('[data-act]'); if (!t) return;
+    const { act, v, id } = t.dataset;
+    if (act === 'day') { A.date = v === 'today' ? nextOpenDay() : dateKey(addDays(parseKey(A.date), +v)); render(); }
+    if (act === 'barber') { A.barber = v; render(); }
+    if (act === 'open') openDrawer(id);
+    if (act === 'close') closeDrawer();
+    if (act === 'status') { setStatus(id, v); }
+    if (act === 'reset') { if (t.dataset.confirm !== '1') { t.dataset.confirm = '1'; t.querySelector('span').textContent = 'Confirmar reinício'; setTimeout(() => { if (t.isConnected) { t.dataset.confirm = ''; t.querySelector('span').textContent = 'Reiniciar demo'; } }, 3000); return; } resetDemo(); A.date = nextOpenDay(); A.fresh.clear(); toast('Dados demonstrativos restaurados.', { icon: 'refresh' }); }
+  });
+  root.addEventListener('change', (e) => { if (e.target.matches('select[data-status]')) setStatus(e.target.dataset.status, e.target.value); });
+  const esc2 = (e) => { if (e.key === 'Escape') closeDrawer(); };
+  addEventListener('keydown', esc2);
+  return () => { off(); clearInterval(tick); removeEventListener('keydown', esc2); };
+}
+
+function setStatus(id, status) {
+  const b = updateStatus(id, status, 'painel'); A.fresh.delete(id);
+  toast(`${esc(firstName(b.client.name))} → <b>${esc(findStatus(status).label)}</b>. O cliente já vê a atualização.`, { icon: 'check', tone: 'ok' });
+}
+
+/* ---------------- render ---------------- */
+function render() {
+  const body = document.getElementById('admBody'); if (!body) return;
+  const sc = body.querySelector('.tl__scroll'); const keep = sc ? sc.scrollTop : null;
+  body.innerHTML = { hoje: Today, clientes: Clients, barbeiros: Barbers, servicos: Services }[A.tab]();
+  const sc2 = body.querySelector('.tl__scroll');
+  if (sc2) { if (keep !== null) sc2.scrollTop = keep; else autoScroll(sc2); placeNow(); }
+}
+
+const Top = (title, sub, extra = '') => `<header class="adm__top"><div><p class="kicker">${sub}</p><h1 class="adm__title">${title}</h1></div><div class="adm__topact">${extra}<span class="live"><span class="live-dot"></span>Ao vivo</span><a class="btn btn--brass btn--sm" href="#/agendar">+ Agendamento</a></div></header>`;
+
+function dayStats(list) {
+  const valid = list.filter((b) => b.status !== 'cancelado');
+  return {
+    total: valid.length,
+    inHouse: list.filter((b) => ['chegou', 'atendimento'].includes(b.status)).length,
+    done: list.filter((b) => b.status === 'finalizado'),
+    expected: valid.reduce((s, b) => s + b.price, 0),
+    cancel: list.length - valid.length,
+    pending: list.filter((b) => b.status === 'agendado').length,
+  };
+}
+
+function Today() {
+  const list = listBookings({ date: A.date });
+  const st = dayStats(list);
+  const realized = st.done.reduce((s, b) => s + b.price, 0);
+  const filtered = A.barber === 'all' ? list : list.filter((b) => b.barberId === A.barber);
+  const isToday = A.date === todayKey(), now = nowMin();
+  const upcoming = filtered.filter((b) => !['finalizado', 'cancelado'].includes(b.status) && (!isToday || b.start + b.duration > now || ['chegou', 'atendimento'].includes(b.status)));
+  const dateNav = `<div class="datenav"><button type="button" data-act="day" data-v="-1" aria-label="Dia anterior">${ICONS.chevL}</button><button type="button" class="datenav__today" data-act="day" data-v="today">${esc(fmtDateLong(A.date))}</button><button type="button" data-act="day" data-v="1" aria-label="Próximo dia">${ICONS.chevR}</button></div>`;
+  const open = BUSINESS.hours[parseKey(A.date).getDay()];
+  return `${Top('Agenda do dia', 'Painel da barbearia · dados demonstrativos', dateNav)}
+  <section class="kpis">
+    ${Kpi('Atendimentos', st.total, `${st.pending ? `${st.pending} aguardando confirmação` : 'todos confirmados'}`, 'cal')}
+    ${Kpi('Na casa agora', st.inHouse, 'chegaram ou estão na cadeira', 'users')}
+    ${Kpi('Faturamento realizado', brl(realized), `${st.done.length} finalizados`, 'cash')}
+    ${Kpi('Previsto no dia', brl(st.expected), `${st.cancel} cancelado${st.cancel === 1 ? '' : 's'}`, 'cash')}
+  </section>
+  <div class="filters" role="group" aria-label="Filtrar por barbeiro">
+    <button type="button" class="${A.barber === 'all' ? 'is-on' : ''}" data-act="barber" data-v="all">Todos</button>
+    ${BARBERS.map((b) => `<button type="button" class="${A.barber === b.id ? 'is-on' : ''}" data-act="barber" data-v="${b.id}"><span class="avatar avatar--xs" style="--tone:${b.tone}">${b.initials}</span>${esc(firstName(b.name))}</button>`).join('')}
+  </div>
+  ${!open ? `<div class="empty empty--big">${ICONS.cal}<h2>Barbearia fechada neste dia</h2><button class="btn btn--line" type="button" data-act="day" data-v="1">Ver próximo dia</button></div>` : `
+  <div class="today">
+    <section class="card tl" aria-label="Agenda visual">
+      <div class="card__head"><h2>Agenda visual</h2><div class="legend">${STATUSES.map((s) => `<span class="legend__i legend--${s.id}"><i></i>${s.label}</span>`).join('')}</div></div>
+      ${Timeline(filtered, open)}
+    </section>
+    <section class="card up" aria-label="Próximos horários">
+      <div class="card__head"><h2>Próximos horários</h2><span class="count">${upcoming.length}</span></div>
+      <div class="up__list">${upcoming.length ? upcoming.map(UpRow).join('') : `<p class="muted pad">Nenhum horário pendente.</p>`}</div>
+    </section>
+  </div>
+  <section class="card daylist" aria-label="Lista do dia">
+    <div class="card__head"><h2>Todos os horários do dia</h2><span class="count">${filtered.length}</span></div>
+    <div class="dl">${filtered.map(DayRow).join('') || '<p class="muted pad">Sem agendamentos.</p>'}</div>
+  </section>`}`;
+}
+
+const Kpi = (label, value, sub, ic) => `<div class="kpi"><span class="kpi__ic">${ICONS[ic]}</span><p class="kpi__l">${label}</p><p class="kpi__v">${value}</p><p class="kpi__s">${sub}</p></div>`;
+
+const PPM = 1.6; // pixels por minuto
+function Timeline(list, [open, close]) {
+  const cols = A.barber === 'all' ? BARBERS : BARBERS.filter((b) => b.id === A.barber);
+  const hours = []; for (let h = Math.floor(open / 60); h <= Math.ceil(close / 60); h++) hours.push(h);
+  const H = (close - open) * PPM;
+  return `<div class="tl__scroll" data-open="${open}">
+    <div class="tl__grid" style="--cols:${cols.length};--h:${H}px">
+      <div class="tl__heads"><span></span>${cols.map((b) => `<span class="tl__head"><span class="avatar avatar--sm" style="--tone:${b.tone}">${b.initials}</span><b>${esc(firstName(b.name))}</b><small>${list.filter((x) => x.barberId === b.id && x.status !== 'cancelado').length} horários</small></span>`).join('')}</div>
+      <div class="tl__body">
+        <div class="tl__gutter">${hours.map((h) => `<span style="top:${(h * 60 - open) * PPM}px">${String(h).padStart(2, '0')}:00</span>`).join('')}</div>
+        ${cols.map((b) => `<div class="tl__col">${hours.map((h) => `<i class="tl__line" style="top:${(h * 60 - open) * PPM}px"></i>`).join('')}
+          ${list.filter((x) => x.barberId === b.id).map((x) => {
+            const s = findService(x.serviceId);
+            return `<button type="button" class="blk blk--${x.status} ${x.duration <= 30 ? 'is-short' : ''} ${A.fresh.has(x.id) ? 'is-new' : ''}" style="top:${(x.start - open) * PPM}px;height:${Math.max(x.duration * PPM - 3, 22)}px" data-act="open" data-id="${x.id}">
+              <span class="blk__t">${fmtTime(x.start)}${A.fresh.has(x.id) ? ' <em>Novo</em>' : ''}</span><b>${esc(x.client.name)}</b><small>${esc(s.name)} · ${esc(findStatus(x.status).label)}</small></button>`;
+          }).join('')}
+        </div>`).join('')}
+        <div class="tl__now" id="nowLine" hidden><span></span></div>
+      </div>
+    </div>
+  </div>`;
+}
+function placeNow() {
+  const line = document.getElementById('nowLine'), sc = document.querySelector('.tl__scroll'); if (!line || !sc) return;
+  const open = +sc.dataset.open, m = nowMin();
+  const [o, c] = BUSINESS.hours[parseKey(A.date).getDay()] || [0, 0];
+  if (A.date !== todayKey() || m < o || m > c) { line.hidden = true; return; }
+  line.hidden = false; line.style.top = `${(m - open) * PPM}px`; line.querySelector('span').textContent = fmtTime(m);
+}
+function autoScroll(sc) { const open = +sc.dataset.open; const m = A.date === todayKey() ? nowMin() : open; sc.scrollTop = Math.max(0, (m - open) * PPM - 80); }
+
+const UpRow = (b) => {
+  const s = findService(b.serviceId), br = findBarber(b.barberId), nx = nextStatus(b.status);
+  return `<div class="up__row ${A.fresh.has(b.id) ? 'is-new' : ''}">
+    <button type="button" class="up__main" data-act="open" data-id="${b.id}"><span class="up__time">${fmtTime(b.start)}</span><span><b>${esc(b.client.name)}</b><small>${esc(s.name)} · ${esc(firstName(br.name))}</small></span></button>
+    <span class="up__side">${StatusBadge(b.status)}${nx ? `<button type="button" class="adv" data-act="status" data-id="${b.id}" data-v="${nx}" title="Avançar para ${esc(findStatus(nx).label)}">${esc(findStatus(nx).label)} ${ICONS.arrow}</button>` : ''}</span>
+  </div>`;
+};
+
+const DayRow = (b) => {
+  const s = findService(b.serviceId), br = findBarber(b.barberId);
+  return `<div class="dl__row ${A.fresh.has(b.id) ? 'is-new' : ''}">
+    <button type="button" class="dl__main" data-act="open" data-id="${b.id}">
+      <span class="dl__time">${fmtTime(b.start)}</span>
+      <span class="dl__who"><b>${esc(b.client.name)}</b><small>${esc(s.name)} · ${fmtDur(b.duration)}</small></span>
+      <span class="dl__barber"><span class="avatar avatar--xs" style="--tone:${br.tone}">${br.initials}</span>${esc(firstName(br.name))}</span>
+      <span class="dl__price">${brl(b.price)}</span>
+    </button>
+    <label class="sel"><span class="sr">Status de ${esc(b.client.name)}</span><select data-status="${b.id}" class="sel--${b.status}">${STATUSES.map((x) => `<option value="${x.id}" ${x.id === b.status ? 'selected' : ''}>${x.label}</option>`).join('')}</select></label>
+  </div>`;
+};
+
+/* ---------------- drawer ---------------- */
+function openDrawer(id) {
+  const b = getBooking(id); if (!b) return;
+  A.open = id;
+  const s = findService(b.serviceId), br = findBarber(b.barberId), nx = nextStatus(b.status);
+  const visits = listBookings({ phone: b.client.phone }).filter((x) => x.status === 'finalizado').length;
+  document.getElementById('drawerPanel').innerHTML = `
+    <div class="dr__head"><div><p class="kicker">${esc(b.code)} · ${b.source === 'site' ? 'Agendado pelo site' : 'Agenda'}</p><h2>${esc(b.client.name)}</h2><p class="muted">${fmtPhone(b.client.phone)} · ${visits} visita${visits === 1 ? '' : 's'} finalizada${visits === 1 ? '' : 's'}</p></div><button type="button" class="iconbtn" data-act="close" aria-label="Fechar">${ICONS.x}</button></div>
+    <div class="dr__when"><b>${fmtTime(b.start)}–${fmtTime(b.start + b.duration)}</b><span>${esc(fmtDateLong(b.date))}</span></div>
+    <dl class="dr__info"><div><dt>Serviço</dt><dd>${esc(s.name)}</dd></div><div><dt>Barbeiro</dt><dd>${esc(br.name)}</dd></div><div><dt>Valor</dt><dd>${brl(b.price)}</dd></div></dl>
+    ${StatusTrack(b.status, { compact: true })}
+    ${nx ? `<button type="button" class="btn btn--brass btn--lg btn--block" data-act="status" data-id="${b.id}" data-v="${nx}">Avançar para “${esc(findStatus(nx).label)}” ${ICONS.arrow}</button>` : ''}
+    <p class="dr__lbl">Alterar status</p>
+    <div class="stbtns">${STATUSES.map((x) => `<button type="button" class="stbtn stbtn--${x.id} ${x.id === b.status ? 'is-on' : ''}" data-act="status" data-id="${b.id}" data-v="${x.id}" aria-pressed="${x.id === b.status}"><i></i>${x.label}</button>`).join('')}</div>
+    <p class="dr__lbl">Histórico</p>
+    <ol class="hist">${b.history.slice().reverse().map((h) => `<li><b>${esc(findStatus(h.status).label)}</b><small>${new Date(h.at).toLocaleString('pt-BR', { day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' })}${h.by ? ` · ${h.by === 'cliente' ? 'pelo cliente' : 'pelo painel'}` : ''}</small></li>`).join('')}</ol>`;
+  const d = document.getElementById('drawer'); d.classList.add('is-open'); d.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeDrawer() {
+  A.open = null; const d = document.getElementById('drawer'); if (!d) return;
+  d.classList.remove('is-open'); d.setAttribute('aria-hidden', 'true'); document.body.style.overflow = '';
+}
+
+/* ---------------- outras abas ---------------- */
+function Clients() {
+  const map = new Map();
+  listBookings().forEach((b) => {
+    const k = onlyDigits(b.client.phone);
+    const c = map.get(k) || { name: b.client.name, phone: k, visits: 0, spent: 0, last: null, next: null };
+    if (b.status === 'finalizado') { c.visits++; c.spent += b.price; c.last = b; }
+    if (['agendado', 'confirmado', 'chegou', 'atendimento'].includes(b.status) && !c.next) c.next = b;
+    map.set(k, c);
+  });
+  const rows = [...map.values()].sort((a, b) => a.name.localeCompare(b.name));
+  return `${Top('Clientes', `${rows.length} clientes na base demonstrativa`)}
+    <section class="card"><div class="table" role="table">
+      <div class="table__h" role="row"><span>Cliente</span><span>Telefone</span><span>Próximo horário</span><span>Visitas</span><span>Total gasto</span></div>
+      ${rows.map((c) => `<div class="table__r" role="row"><span class="t-name"><span class="avatar avatar--sm">${esc(c.name.split(' ').map((p) => p[0]).slice(0, 2).join(''))}</span><b>${esc(c.name)}</b></span><span class="muted">${fmtPhone(c.phone)}</span><span>${c.next ? `${esc(fmtDateLong(c.next.date))} · ${fmtTime(c.next.start)}` : '<span class="muted">—</span>'}</span><span>${c.visits}</span><span>${brl(c.spent)}</span></div>`).join('')}
+    </div></section>`;
+}
+
+function Barbers() {
+  const day = A.date || nextOpenDay();
+  const list = listBookings({ date: day }).filter((b) => b.status !== 'cancelado');
+  const [o, c] = BUSINESS.hours[parseKey(day).getDay()] || [0, 1];
+  return `${Top('Barbeiros', `Ocupação em ${esc(fmtDateLong(day))}`)}
+    <div class="bcards">${BARBERS.map((b) => {
+      const mine = list.filter((x) => x.barberId === b.id);
+      const works = b.days.includes(parseKey(day).getDay());
+      const occ = works ? Math.min(100, Math.round((mine.reduce((s, x) => s + x.duration, 0) / (c - o)) * 100)) : 0;
+      const now = mine.find((x) => x.status === 'atendimento');
+      const nx = mine.find((x) => ['agendado', 'confirmado', 'chegou'].includes(x.status));
+      return `<article class="card bcard">
+        <div class="bcard__top"><span class="avatar avatar--lg" style="--tone:${b.tone}">${b.initials}</span><div><h2>${esc(b.name)}</h2><p class="muted">${esc(b.specialty)}</p></div></div>
+        <div class="meter"><span style="width:${occ}%"></span></div><p class="meter__l"><b>${works ? `${occ}%` : 'Folga'}</b> ${works ? 'da agenda ocupada' : 'neste dia'}</p>
+        <dl class="bcard__dl"><div><dt>Atendimentos</dt><dd>${mine.length}</dd></div><div><dt>Receita prevista</dt><dd>${brl(mine.reduce((s, x) => s + x.price, 0))}</dd></div></dl>
+        <p class="bcard__now">${now ? `${StatusBadge('atendimento')} ${esc(now.client.name)}` : nx ? `<span class="muted">Próximo:</span> ${fmtTime(nx.start)} · ${esc(nx.client.name)}` : '<span class="muted">Sem próximos horários</span>'}</p>
+      </article>`;
+    }).join('')}</div>`;
+}
+
+function Services() {
+  const day = A.date || nextOpenDay();
+  const list = listBookings({ date: day }).filter((b) => b.status !== 'cancelado');
+  return `${Top('Serviços', `Desempenho em ${esc(fmtDateLong(day))}`)}
+    <section class="card"><div class="table table--svc" role="table">
+      <div class="table__h" role="row"><span>Serviço</span><span>Preço</span><span>Duração</span><span>Agendados</span><span>Receita prevista</span></div>
+      ${SERVICES.map((s) => { const n = list.filter((b) => b.serviceId === s.id).length; return `<div class="table__r" role="row"><span class="t-name"><span class="svcic">${ICONS[s.icon]}</span><b>${esc(s.name)}</b></span><span>${brl(s.price)}</span><span class="muted">${fmtDur(s.duration)}</span><span>${n}</span><span>${brl(n * s.price)}</span></div>`; }).join('')}
+    </div></section>`;
+}
+
+return { AdminView, mountAdmin };
+})();
+
+__m["src/main.js"] = (function () {
+/** BRAVO Barber Club — aplicação (site + agendamento + cliente + painel) */
+const { parseRoute } = __m["src/core/router.js"];
+const { SiteView } = __m["src/views/site.js"];
+const { BookingView, mountBooking } = __m["src/views/booking.js"];
+const { ClientView, mountClient } = __m["src/views/client.js"];
+const { AdminView, mountAdmin } = __m["src/views/admin.js"];
+const { ICONS } = __m["src/ui/icons.js"];
+
+const root = document.getElementById('app');
+let cleanup = null;
+
+function DemoBar(view) {
+  const L = [['site', '#/', 'Site', 'globe'], ['client', '#/cliente', 'Cliente', 'user'], ['admin', '#/painel', 'Painel', 'grid']];
+  const on = view === 'booking' ? 'site' : view;
+  return `<div class="demobar" role="navigation" aria-label="Alternar experiência da demonstração">
+    <span class="demobar__lbl"><i></i>Demo<span class="demobar__long"> · Ecossistema BRAVO</span></span>
+    <div class="demobar__seg">${L.map(([id, href, l, ic]) => `<a href="${href}" class="${on === id ? 'is-on' : ''}">${ICONS[ic]}<span>${l}</span></a>`).join('')}</div>
+    <span class="demobar__by">Chrysxxz Digital</span>
+  </div>`;
+}
+
+function render() {
+  if (cleanup) { cleanup(); cleanup = null; }
+  const r = parseRoute();
+  document.documentElement.dataset.view = r.view;
+  document.body.style.overflow = '';
+  let html = '';
+  if (r.view === 'booking') html = BookingView(r.params);
+  else if (r.view === 'client') html = ClientView();
+  else if (r.view === 'admin') html = AdminView(r.tab);
+  else html = SiteView();
+  root.innerHTML = DemoBar(r.view) + html;
+
+  if (r.view === 'booking') mountBooking();
+  if (r.view === 'client') cleanup = mountClient();
+  if (r.view === 'admin') cleanup = mountAdmin();
+  const siteOff = r.view === 'site' || r.view === 'client' ? mountSiteChrome() : null;
+  if (siteOff) { const prev = cleanup; cleanup = () => { prev && prev(); siteOff(); }; }
+
+  if (r.view === 'site' && r.section) {
+    const el = document.getElementById(r.section);
+    requestAnimationFrame(() => el ? el.scrollIntoView({ behavior: 'smooth' }) : scrollTo(0, 0));
+  } else scrollTo(0, 0);
+  requestAnimationFrame(() => document.documentElement.classList.add('is-ready'));
+}
+
+/** Header, menu mobile, reveal e CTA fixo do site. */
+function mountSiteChrome() {
+  const hdr = document.getElementById('hdr'), burger = document.getElementById('burger');
+  const onScroll = () => { hdr && hdr.classList.toggle('is-solid', scrollY > 30); const s = document.getElementById('stickycta'); if (s) s.classList.toggle('is-on', scrollY > innerHeight * 0.7 && innerHeight + scrollY < document.body.scrollHeight - 260); };
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  const setMenu = (open) => { document.documentElement.classList.toggle('menu-open', open); burger && burger.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; };
+  burger && burger.addEventListener('click', () => setMenu(!document.documentElement.classList.contains('menu-open')));
+  document.querySelectorAll('#mnav a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  const els = [...document.querySelectorAll('.reveal')];
+  let io = null;
+  if ('IntersectionObserver' in window) {
+    io = new IntersectionObserver((ents) => ents.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -6% 0px', threshold: 0.05 });
+    els.forEach((e) => io.observe(e));
+  } else els.forEach((e) => e.classList.add('in'));
+  let t; const sweep = () => els.forEach((e) => { if (e.getBoundingClientRect().top < innerHeight) e.classList.add('in'); });
+  const onS = () => { clearTimeout(t); t = setTimeout(sweep, 150); };
+  addEventListener('scroll', onS, { passive: true });
+  return () => { removeEventListener('scroll', onScroll); removeEventListener('scroll', onS); io && io.disconnect(); setMenu(false); };
+}
+
+addEventListener('hashchange', render);
+render();
+
+return {  };
+})();
+})();
+</script>
+</body>
+</html>

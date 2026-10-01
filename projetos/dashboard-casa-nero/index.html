@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Casa Nero | Dashboard Executivo</title>
+<style>
+:root{--bg:#0b1110;--panel:#111b19;--panel2:#162320;--line:#263632;--text:#eef6f3;--muted:#91a6a0;--green:#35d0a0;--gold:#d8ad68;--red:#ef7d7d}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0,#17352f 0,transparent 30%),var(--bg);color:var(--text);font:14px Inter,system-ui,sans-serif}
+.app{display:grid;grid-template-columns:235px 1fr;min-height:100vh}.side{border-right:1px solid var(--line);padding:25px 18px;background:#09100f;position:sticky;top:0;height:100vh}
+.brand{font-weight:800;font-size:19px;letter-spacing:.3px;margin:8px 10px 34px}.brand span{color:var(--green)}
+.nav a{display:block;padding:12px 13px;margin:5px 0;color:var(--muted);text-decoration:none;border-radius:10px}.nav a.active,.nav a:hover{background:var(--panel2);color:var(--text)}
+.profile{position:absolute;bottom:22px;left:18px;right:18px;padding:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px}.avatar{width:32px;height:32px;border-radius:50%;background:var(--green);color:#06100d;display:inline-grid;place-items:center;font-weight:800;margin-right:8px}
+main{padding:28px 34px 50px;max-width:1500px;width:100%;margin:auto}.top{display:flex;justify-content:space-between;gap:20px;align-items:center;margin-bottom:26px}.eyebrow{color:var(--green);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.title{font-size:29px;margin:6px 0}.date{color:var(--muted)}button{background:var(--green);border:0;padding:11px 15px;border-radius:10px;font-weight:800;color:#06100d}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:15px}.card{background:linear-gradient(145deg,var(--panel),#0e1715);border:1px solid var(--line);border-radius:15px;padding:19px;box-shadow:0 15px 35px #0002}.label{color:var(--muted);font-size:12px}.value{font-size:27px;font-weight:800;margin:10px 0 7px}.up{color:var(--green);font-size:12px}.down{color:var(--red);font-size:12px}
+.grid{display:grid;grid-template-columns:1.7fr 1fr;gap:15px;margin-top:15px}.chart{height:300px;display:flex;flex-direction:column}.chart svg{width:100%;height:235px;margin-top:auto}.gridline{stroke:#263632;stroke-width:1}.curve{fill:none;stroke:var(--green);stroke-width:4;stroke-linecap:round;stroke-linejoin:round}.area{fill:url(#g);opacity:.25}.axis{fill:#71857f;font-size:11px}
+.bars{display:flex;align-items:end;height:225px;gap:13px;padding:20px 8px 0}.barwrap{height:100%;flex:1;display:flex;flex-direction:column;justify-content:end;gap:7px}.bar{background:linear-gradient(180deg,var(--green),#167e65);border-radius:6px 6px 2px 2px;min-height:8px}.barlabel{text-align:center;color:var(--muted);font-size:11px}
+.bottom{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px;margin-top:15px}.row{display:flex;justify-content:space-between;padding:13px 0;border-bottom:1px solid var(--line)}.row:last-child{border:0}.tag{padding:5px 8px;border-radius:7px;background:#173a32;color:var(--green);font-size:11px}.donut{width:155px;height:155px;border-radius:50%;background:conic-gradient(var(--green) 0 43%,var(--gold) 43% 71%,#60736e 71% 86%,#33443f 86%);position:relative;margin:12px auto}.donut:after{content:"";position:absolute;inset:32px;background:var(--panel);border-radius:50%}.center{position:absolute;z-index:2;inset:0;display:grid;place-items:center;font-weight:800;font-size:23px}
+@media(max-width:1000px){.app{grid-template-columns:75px 1fr}.brand{font-size:0;text-align:center}.brand span{font-size:20px}.nav a{font-size:0;text-align:center}.nav a:before{content:"•";font-size:20px}.profile{font-size:0;text-align:center}.profile .avatar{margin:0}.profile div:last-child{display:none}.kpis{grid-template-columns:repeat(2,1fr)}.bottom{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}}
+@media(max-width:650px){.app{display:block}.side{position:relative;height:auto;border:0;padding:13px;display:flex;align-items:center}.brand{margin:0;font-size:17px;text-align:left}.brand span{font-size:inherit}.nav{margin-left:auto;display:flex}.nav a{font-size:11px;padding:8px;margin:0}.nav a:before{display:none}.profile{display:none}main{padding:20px 14px}.top{align-items:flex-start}.top button{display:none}.title{font-size:23px}.kpis{grid-template-columns:1fr 1fr;gap:10px}.value{font-size:21px}.bottom{grid-template-columns:1fr}.card{padding:15px}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="side">
+<div class="brand">CASA <span>NERO</span></div>
+<nav class="nav"><a class="active" href="#">Visão geral</a><a href="#">Vendas</a><a href="#">Clientes</a><a href="#">Produtos</a><a href="#">Relatórios</a></nav>
+<div class="profile"><span class="avatar">CN</span><b>Gestão Casa Nero</b><div class="label">Painel administrativo</div></div>
+</aside>
+<main>
+<section class="top"><div><div class="eyebrow">Dashboard executivo</div><h1 class="title">Visão geral do negócio</h1><div class="date">Dados demonstrativos • Setembro 2026</div></div><button>Exportar relatório</button></section>
+<section class="kpis">
+<div class="card"><div class="label">Faturamento</div><div class="value">R$ 65.750</div><div class="up">↑ 12,4% vs. mês anterior</div></div>
+<div class="card"><div class="label">Pedidos</div><div class="value">428</div><div class="up">↑ 8,7% vs. mês anterior</div></div>
+<div class="card"><div class="label">Ticket médio</div><div class="value">R$ 153,62</div><div class="up">↑ 3,1% vs. mês anterior</div></div>
+<div class="card"><div class="label">Conversão</div><div class="value">4,8%</div><div class="up">↑ 0,6 p.p. no período</div></div>
+</section>
+<section class="grid">
+<div class="card chart"><div><b>Receita nos últimos 9 meses</b><div class="label">Evolução do faturamento</div></div>
+<svg viewBox="0 0 700 235" preserveAspectRatio="none"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#35d0a0"/><stop offset="1" stop-color="#35d0a0" stop-opacity="0"/></linearGradient></defs>
+<line class="gridline" x1="0" y1="45" x2="700" y2="45"/><line class="gridline" x1="0" y1="105" x2="700" y2="105"/><line class="gridline" x1="0" y1="165" x2="700" y2="165"/>
+<path class="area" d="M0,190 L85,175 L170,158 L255,150 L340,125 L425,113 L510,83 L595,70 L700,42 L700,235 L0,235 Z"/><path class="curve" d="M0,190 L85,175 L170,158 L255,150 L340,125 L425,113 L510,83 L595,70 L700,42"/>
+<text class="axis" x="0" y="230">Jan</text><text class="axis" x="85" y="230">Fev</text><text class="axis" x="170" y="230">Mar</text><text class="axis" x="255" y="230">Abr</text><text class="axis" x="340" y="230">Mai</text><text class="axis" x="425" y="230">Jun</text><text class="axis" x="510" y="230">Jul</text><text class="axis" x="595" y="230">Ago</text><text class="axis" x="680" y="230">Set</text></svg></div>
+<div class="card"><b>Receita por categoria</b><div class="label">Participação no faturamento</div><div class="donut"><div class="center">100%</div></div><div class="row"><span>Móveis</span><b>43%</b></div><div class="row"><span>Decoração</span><b>28%</b></div><div class="row"><span>Iluminação</span><b>15%</b></div><div class="row"><span>Outros</span><b>14%</b></div></div>
+</section>
+<section class="grid">
+<div class="card"><b>Performance mensal</b><div class="label">Meta x realizado</div><div class="bars">
+<div class="barwrap"><div class="bar" style="height:58%"></div><div class="barlabel">Jan</div></div><div class="barwrap"><div class="bar" style="height:65%"></div><div class="barlabel">Fev</div></div><div class="barwrap"><div class="bar" style="height:68%"></div><div class="barlabel">Mar</div></div><div class="barwrap"><div class="bar" style="height:73%"></div><div class="barlabel">Abr</div></div><div class="barwrap"><div class="bar" style="height:78%"></div><div class="barlabel">Mai</div></div><div class="barwrap"><div class="bar" style="height:84%"></div><div class="barlabel">Jun</div></div><div class="barwrap"><div class="bar" style="height:89%"></div><div class="barlabel">Jul</div></div><div class="barwrap"><div class="bar" style="height:94%"></div><div class="barlabel">Ago</div></div><div class="barwrap"><div class="bar" style="height:100%"></div><div class="barlabel">Set</div></div>
+</div></div>
+<div class="card"><b>Principais produtos</b><div class="label">Por receita no período</div><div class="row"><span>Mesa Nórdica</span><span class="tag">R$ 14.920</span></div><div class="row"><span>Poltrona Siena</span><span class="tag">R$ 11.610</span></div><div class="row"><span>Aparador Íris</span><span class="tag">R$ 9.685</span></div><div class="row"><span>Banqueta Nilo</span><span class="tag">R$ 6.900</span></div></div>
+</section>
+<section class="bottom">
+<div class="card"><b>Atividade recente</b><div class="row"><span>Novo pedido #1048</span><span class="label">há 8 min</span></div><div class="row"><span>Cliente cadastrado</span><span class="label">há 24 min</span></div><div class="row"><span>Meta mensal atualizada</span><span class="label">há 1 h</span></div><div class="row"><span>Estoque sincronizado</span><span class="label">há 2 h</span></div></div>
+<div class="card"><b>Clientes</b><div class="value">1.284</div><div class="up">↑ 9,2% no trimestre</div><div class="row"><span>Ativos</span><b>1.061</b></div><div class="row"><span>Novos no mês</span><b>86</b></div></div>
+<div class="card"><b>Saúde operacional</b><div class="row"><span>Estoque</span><span class="tag">92% OK</span></div><div class="row"><span>Pedidos</span><span class="tag">98% no prazo</span></div><div class="row"><span>Atendimento</span><span class="tag">94% resolvido</span></div><div class="row"><span>Dados</span><span class="tag">Atualizados</span></div></div>
+</section>
+<p class="label" style="text-align:center;margin-top:28px">Projeto demonstrativo criado pela Chrysxxz Digital. Todos os dados são fictícios.</p>
+</main>
+</div>
+</body>
+</html>

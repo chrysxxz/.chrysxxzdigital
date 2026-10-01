@@ -1,0 +1,17 @@
+BRAVO Barber Club - projeto conceitual (Chrysxxz Digital)
+
+COMO ABRIR
+Dê dois cliques em "index.html". O site abre direto no navegador,
+sem instalar nada. Funciona também offline (as fontes precisam de internet).
+
+NAVEGAÇÃO
+Use a barra "Demo" no topo para alternar entre Site, Cliente e Painel.
+
+PUBLICAR
+Envie apenas o "index.html" para qualquer hospedagem (Netlify Drop, Vercel,
+Hostinger...). É um arquivo único com tudo embutido.
+
+CÓDIGO-FONTE
+A pasta "codigo-fonte" tem o projeto organizado. Para gerar um novo
+index.html depois de editar: dentro dela, rode "npm run build" (Node 18+).
+O resultado sai em codigo-fonte/dist/index.html.

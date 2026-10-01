@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="performance-diagnostics">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#091114" />
+    <title>CX Digital CRM</title>
+    <link rel="icon" type="image/png" href="cx-digital-logo.png" />
+    <link rel="stylesheet" href="estilo.css" />
+  </head>
+  <body>
+    <div class="global-background" aria-hidden="true">
+      <svg class="liquid-scene" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid slice" focusable="false">
+        <defs>
+          <linearGradient id="chromatic-liquid" x1="0" y1="80" x2="0" y2="940" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#03090d" />
+            <stop offset="0.16" stop-color="#07525d" />
+            <stop offset="0.2" stop-color="#72f8ef" />
+            <stop offset="0.23" stop-color="#0a333c" />
+            <stop offset="0.42" stop-color="#061316" />
+            <stop offset="0.52" stop-color="#139b9d" />
+            <stop offset="0.55" stop-color="#d7fffc" />
+            <stop offset="0.58" stop-color="#07505a" />
+            <stop offset="0.76" stop-color="#041013" />
+            <stop offset="0.9" stop-color="#0c7476" />
+            <stop offset="1" stop-color="#02090c" />
+          </linearGradient>
+        </defs>
+        <path class="liquid-shape" opacity="0.28" fill="url(#chromatic-liquid)" d="M-150 280C80 100 320 600 560 430C790 280 850 190 1060 360C1280 540 1510 120 1750 290L1750 760C1520 900 1310 510 1080 610C860 710 760 850 520 750C280 650 80 850 -150 740Z" />
+      </svg>
+      <div class="background-overlay"></div>
+    </div>
+
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <img class="brand-logo" src="cx-digital-logo.png" alt="CX Digital logo" />
+          <div class="brand-text">
+            <span class="eyebrow">CRM</span>
+            <strong>CX DIGITAL</strong>
+          </div>
+        </div>
+
+        <nav class="menu" aria-label="Menu principal">
+          <button class="menu-item active" data-target="dashboard" type="button">
+            <span class="icon">◈</span>
+            Início
+          </button>
+          <button class="menu-item" data-target="empresas" type="button">
+            <span class="icon">◎</span>
+            Empresas
+          </button>
+          <button class="menu-item" data-target="pipeline" type="button">
+            <span class="icon">▣</span>
+            Pipeline
+          </button>
+          <button class="menu-item" data-target="followups" type="button">
+            <span class="icon">◍</span>
+            Follow-ups
+          </button>
+          <button class="menu-item" data-target="orcamentos" type="button">
+            <span class="icon">◫</span>
+            Vendas
+          </button>
+          <button class="menu-item" data-target="orcamentos" type="button">
+            <span class="icon">◐</span>
+            Propostas
+          </button>
+          <button class="menu-item" data-target="configuracoes" type="button">
+            <span class="icon">⚙</span>
+            Configurações
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="mini-card">
+            <span>Atividade</span>
+            <strong>0 itens</strong>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-panel">
+        <header class="topbar dashboard-topbar">
+          <div class="topbar-actions">
+            <button class="chip" type="button">Hoje</button>
+            <button class="icon-button" type="button" aria-label="Notificações">◔</button>
+            <button class="profile-pill" type="button">
+              <span class="profile-avatar">C</span>
+              <span>Perfil</span>
+            </button>
+            <button class="primary-btn dashboard-new-btn" type="button">+ Novo</button>
+          </div>
+        </header>
+
+        <section class="page-section active" id="dashboard">
+          <div class="dashboard-shell">
+            <div class="dashboard-hero">
+              <div>
+                <p class="topbar-kicker">Visão geral</p>
+                <h2>Bom dia, Chrystopher 👋</h2>
+                <p class="hero-subtitle">Aqui está o resumo da operação da Chrysxxz Digital.</p>
+              </div>
+            </div>
+
+            <div class="stats-grid dashboard-kpis">
+              <article class="stat-card dashboard-kpi-card">
+                <div class="stat-head">
+                  <span>Empresas cadastradas</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value">0</strong>
+                <small>atualizado hoje</small>
+              </article>
+
+              <article class="stat-card dashboard-kpi-card">
+                <div class="stat-head">
+                  <span>Novos contatos</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value" data-dashboard-stat="newRecords">0</strong>
+                <small>novos contatos</small>
+              </article>
+
+              <article class="stat-card dashboard-kpi-card">
+                <div class="stat-head">
+                  <span>Contatos realizados</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value">0</strong>
+                <small>últimos 30 dias</small>
+              </article>
+
+              <article class="stat-card dashboard-kpi-card">
+                <div class="stat-head">
+                  <span>Vendas</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value">0</strong>
+                <small>em andamento</small>
+              </article>
+
+              <article class="stat-card dashboard-kpi-card dashboard-kpi-hidden">
+                <div class="stat-head">
+                  <span>Taxa de conversão</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value">0%</strong>
+                <small>últimos 90 dias</small>
+              </article>
+
+              <article class="stat-card dashboard-kpi-card dashboard-kpi-hidden">
+                <div class="stat-head">
+                  <span>Produtividade</span>
+                  <span class="trend neutral">—</span>
+                </div>
+                <strong class="value">0%</strong>
+                <small>meta atual</small>
+              </article>
+            </div>
+
+            <div class="dashboard-main-grid">
+              <article class="panel dashboard-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow eyebrow-soft">Operação</p>
+                    <h3>Pipeline comercial</h3>
+                  </div>
+                  <span class="panel-badge muted">Hoje</span>
+                </div>
+
+                <div class="pipeline-inline">
+                  <div class="pipeline-stage">
+                    <span>Novos</span>
+                    <strong data-pipeline-display-stage="Novos">0</strong>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span>Contato</span>
+                    <strong data-pipeline-display-stage="Contato">0</strong>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span>Qualificado</span>
+                    <strong data-pipeline-display-stage="Qualificado">0</strong>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span>Proposta</span>
+                    <strong data-pipeline-display-stage="Proposta">0</strong>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span>Negociação</span>
+                    <strong data-pipeline-display-stage="Negociação">0</strong>
+                  </div>
+                  <div class="pipeline-stage">
+                    <span>Fechado</span>
+                    <strong data-pipeline-display-stage="Fechado">0</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="panel dashboard-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow eyebrow-soft">Acompanhamento</p>
+                    <h3>Follow-ups</h3>
+                  </div>
+                  <span class="panel-badge" id="followupTotalCount">0</span>
+                </div>
+
+                <div class="followup-summary">
+                  <div class="followup-ring">
+                    <div class="ring-inner">
+                      <span id="followupRingCount">0</span>
+                    </div>
+                  </div>
+                  <div class="followup-metrics">
+                    <div>
+                      <label>Hoje</label>
+                      <strong id="followupTodayCount">0</strong>
+                    </div>
+                    <div>
+                      <label>Atrasados</label>
+                      <strong id="followupOverdueCount">0</strong>
+                    </div>
+                    <div>
+                      <label>Futuros</label>
+                      <strong id="followupFutureCount">0</strong>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <div class="dashboard-lower-grid">
+              <article class="panel dashboard-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow eyebrow-soft">Agenda</p>
+                    <h3>Próximos follow-ups</h3>
+                  </div>
+                </div>
+
+                <ul class="upcoming-list" id="dashboardUpcomingFollowups"></ul>
+              </article>
+
+              <article class="panel dashboard-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow eyebrow-soft">Operação</p>
+                    <h3>Atividades recentes</h3>
+                  </div>
+                  <span class="panel-badge muted" id="recentActivityCount">0</span>
+                </div>
+
+                <ul class="activity-list timeline-list"></ul>
+              </article>
+
+              <article class="panel dashboard-panel">
+                <div class="panel-header">
+                  <div>
+                    <p class="eyebrow eyebrow-soft">Prioridade</p>
+                    <h3>Empresas prioritárias</h3>
+                  </div>
+                  <span id="priorityCompanyCount" class="panel-badge muted">0</span>
+                </div>
+                <div id="dashboardPriorityList" class="priority-list"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="empresas">
+          <div class="empresa-panel">
+            <div class="empresa-header">
+              <div>
+                <p class="topbar-kicker">Cadastros</p>
+                <h2>Empresas</h2>
+              </div>
+              <div class="empresa-header-actions">
+                <button id="btnAdicionarEmpresa" class="primary-btn small" type="button">+ Empresa</button>
+                <button id="btnImportarEmpresas" class="chip" type="button">Importar empresas</button>
+              </div>
+            </div>
+
+            <div class="empresa-import-summary">
+              <div class="mini-panel">
+                <strong>Empresas encontradas</strong>
+                <span id="empresasEncontradasCount">0</span>
+              </div>
+              <div class="mini-panel">
+                <strong>Empresas importadas</strong>
+                <span id="empresasImportadasCount">0</span>
+              </div>
+            </div>
+
+            <div class="empresa-toolbar">
+              <div class="search-wrap">
+                <label for="empresaBusca">Buscar</label>
+                <input id="empresaBusca" type="text" placeholder="Nome, CNPJ, telefone ou cidade" />
+              </div>
+
+              <div class="filter-wrap">
+                <label for="statusFiltro">Status</label>
+                <select id="statusFiltro">
+                  <option value="">Todos</option>
+                  <option value="Não contatada">Não contatada</option>
+                  <option value="Contato realizado">Contato realizado</option>
+                  <option value="Respondeu">Respondeu</option>
+                  <option value="Interesse demonstrado">Interesse demonstrado</option>
+                  <option value="Proposta enviada">Proposta enviada</option>
+                  <option value="Venda">Venda</option>
+                  <option value="Cliente">Cliente</option>
+                  <option value="Sem interesse">Sem interesse</option>
+                  <option value="Sem resposta">Sem resposta</option>
+                  <option value="Contato inválido">Contato inválido</option>
+                </select>
+              </div>
+
+              <div class="filter-wrap">
+                <label for="segmentoFiltro">Segmento</label>
+                <select id="segmentoFiltro">
+                  <option value="">Todos</option>
+                  <option value="Agência">Agência</option>
+                  <option value="E-commerce">E-commerce</option>
+                  <option value="Consultoria">Consultoria</option>
+                  <option value="Serviços">Serviços</option>
+                  <option value="Indústria">Indústria</option>
+                  <option value="Startup">Startup</option>
+                </select>
+              </div>
+
+              <div class="filter-wrap">
+                <label for="estadoFiltro">Estado</label>
+                <select id="estadoFiltro">
+                  <option value="">Todos</option>
+                  <option value="SP">SP</option>
+                  <option value="RJ">RJ</option>
+                  <option value="MG">MG</option>
+                  <option value="PR">PR</option>
+                  <option value="SC">SC</option>
+                  <option value="RS">RS</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="empresa-counter-row">
+              <div class="counter-box">
+                <span>Total</span>
+                <strong id="empresasCount">0</strong>
+              </div>
+            </div>
+
+            <div id="bulkCompanyActions" class="bulk-company-actions hidden">
+              <span id="bulkSelectionCount">0 selecionadas</span>
+              <button id="bulkDeleteButton" type="button" class="primary-btn danger-btn">Excluir selecionadas</button>
+            </div>
+
+            <div class="empresa-content">
+              <div class="empresa-table-wrap">
+                <table class="empresa-table">
+                  <thead>
+                    <tr>
+                      <th class="checkbox-cell"><input id="selectAllCompaniesCheckbox" type="checkbox" aria-label="Selecionar todas as empresas" /></th>
+                      <th>Empresa</th>
+                      <th>Segmento</th>
+                      <th>Local</th>
+                      <th>Status</th>
+                      <th>Responsável</th>
+                      <th>Ações</th>
+                    </tr>
+                  </thead>
+                  <tbody id="empresaTableBody"></tbody>
+                </table>
+              </div>
+
+              <aside class="empresa-details" id="empresaDetails">
+                <div class="details-empty">
+                  <strong>Selecione uma empresa</strong>
+                  <p>Veja os dados completos, histórico de contatos e detalhes do relacionamento.</p>
+                </div>
+              </aside>
+            </div>
+          </div>
+        </section>
+
+        <div id="empresaModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-modal="true"></div>
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <div class="modal-header">
+              <h3 id="modalTitle">Empresa</h3>
+              <button type="button" class="icon-close" data-close-modal="true" aria-label="Fechar">×</button>
+            </div>
+
+            <form id="empresaForm">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="empresaNome">Nome da empresa</label>
+                  <input id="empresaNome" name="nomeEmpresa" type="text" required />
+                </div>
+                <div class="field">
+                  <label for="empresaFantasia">Nome fantasia</label>
+                  <input id="empresaFantasia" name="nomeFantasia" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaCnpj">CNPJ</label>
+                  <input id="empresaCnpj" name="cnpj" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaSegmento">Segmento</label>
+                  <select id="empresaSegmento" name="segmento">
+                    <option value="Agência">Agência</option>
+                    <option value="E-commerce">E-commerce</option>
+                    <option value="Consultoria">Consultoria</option>
+                    <option value="Serviços">Serviços</option>
+                    <option value="Indústria">Indústria</option>
+                    <option value="Startup">Startup</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="empresaCidade">Cidade</label>
+                  <input id="empresaCidade" name="cidade" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaEstado">Estado</label>
+                  <select id="empresaEstado" name="estado">
+                    <option value="SP">SP</option>
+                    <option value="RJ">RJ</option>
+                    <option value="MG">MG</option>
+                    <option value="PR">PR</option>
+                    <option value="SC">SC</option>
+                    <option value="RS">RS</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="empresaTelefone">Telefone</label>
+                  <input id="empresaTelefone" name="telefone" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaWhatsapp">WhatsApp</label>
+                  <input id="empresaWhatsapp" name="whatsapp" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaEmail">E-mail</label>
+                  <input id="empresaEmail" name="email" type="email" />
+                </div>
+                <div class="field">
+                  <label for="empresaInstagram">Instagram</label>
+                  <input id="empresaInstagram" name="instagram" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaSite">Site</label>
+                  <input id="empresaSite" name="site" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaResponsavel">Nome do responsável/contato</label>
+                  <input id="empresaResponsavel" name="responsavel" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaStatus">Status</label>
+                  <select id="empresaStatus" name="status">
+                    <option value="Não contatada">Não contatada</option>
+                    <option value="Contato realizado">Contato realizado</option>
+                    <option value="Respondeu">Respondeu</option>
+                    <option value="Interesse demonstrado">Interesse demonstrado</option>
+                    <option value="Proposta enviada">Proposta enviada</option>
+                    <option value="Venda">Venda</option>
+                    <option value="Cliente">Cliente</option>
+                    <option value="Sem interesse">Sem interesse</option>
+                    <option value="Sem resposta">Sem resposta</option>
+                    <option value="Contato inválido">Contato inválido</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="empresaPrioridade">Prioridade</label>
+                  <select id="empresaPrioridade" name="prioridade">
+                    <option value="desativada">Prioridade desativada</option>
+                    <option value="ativada">Prioridade ativada</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="empresaPrimeiroContato">Data do primeiro contato</label>
+                  <input id="empresaPrimeiroContato" name="primeiroContato" type="date" />
+                </div>
+                <div class="field">
+                  <label for="empresaUltimoContato">Último contato</label>
+                  <input id="empresaUltimoContato" name="ultimoContato" type="date" />
+                </div>
+                <div class="field">
+                  <label for="empresaProximoFollow">Próximo follow-up</label>
+                  <input id="empresaProximoFollow" name="proximoFollowUp" type="date" />
+                </div>
+                <div class="field">
+                  <label for="empresaCanal">Canal utilizado</label>
+                  <input id="empresaCanal" name="canalUtilizado" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaResponsavelProspecao">Responsável pela prospecção</label>
+                  <input id="empresaResponsavelProspecao" name="responsavelProspeccao" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaOrigem">Origem da empresa</label>
+                  <input id="empresaOrigem" name="origemEmpresa" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaInteresse">Interesse</label>
+                  <input id="empresaInteresse" name="interesse" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaServico">Serviço de interesse</label>
+                  <input id="empresaServico" name="servicoInteresse" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaValorEstimado">Valor estimado</label>
+                  <input id="empresaValorEstimado" name="valorEstimado" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaValorProposta">Valor da proposta</label>
+                  <input id="empresaValorProposta" name="valorProposta" type="text" />
+                </div>
+                <div class="field">
+                  <label for="empresaEtapa">Etapa do pipeline</label>
+                  <select id="empresaEtapa" name="etapaPipeline">
+                    <option value="Descoberta">Descoberta</option>
+                    <option value="Contato">Contato</option>
+                    <option value="Proposta">Proposta</option>
+                    <option value="Negociação">Negociação</option>
+                    <option value="Fechamento">Fechamento</option>
+                  </select>
+                </div>
+                <div class="field field-full">
+                  <label for="empresaObservacoes">Observações</label>
+                  <textarea id="empresaObservacoes" name="observacoes" rows="4"></textarea>
+                </div>
+                <div class="field field-full">
+                  <label for="empresaHistorico">Histórico/resumo dos contatos</label>
+                  <textarea id="empresaHistorico" name="historico" rows="4"></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="chip" data-close-modal="true">Cancelar</button>
+                <button type="submit" class="primary-btn">Salvar empresa</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="deleteCompanyModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-delete-modal="true"></div>
+          <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="deleteCompanyTitle">
+            <div class="modal-header">
+              <h3 id="deleteCompanyTitle">Excluir empresa?</h3>
+              <button type="button" class="icon-close" data-close-delete-modal="true" aria-label="Fechar">×</button>
+            </div>
+
+            <div class="detail-notes">
+              <p><strong id="deleteEmpresaName">Empresa</strong></p>
+              <p>Essa ação removerá a empresa selecionada e todas as prospecções relacionadas a ela.</p>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="chip" data-close-delete-modal="true">Cancelar</button>
+              <button id="confirmDeleteCompanyButton" type="button" class="primary-btn danger-btn">Excluir empresa</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="bulkDeleteCompanyModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-bulk-delete-modal="true"></div>
+          <div class="modal-card bulk-delete-modal-card" role="dialog" aria-modal="true" aria-labelledby="bulkDeleteCompanyTitle">
+            <div class="modal-header">
+              <h3 id="bulkDeleteCompanyTitle">Excluir empresas selecionadas?</h3>
+              <button type="button" class="icon-close" data-close-bulk-delete-modal="true" aria-label="Fechar exclusão em massa">×</button>
+            </div>
+
+            <div class="detail-notes">
+              <p><strong id="bulkDeleteCompanyCount">Você está prestes a excluir 0 empresa(s).</strong></p>
+              <p>Essa ação não poderá ser desfeita.</p>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="chip" data-close-bulk-delete-modal="true">Cancelar</button>
+              <button id="confirmBulkDeleteCompaniesButton" type="button" class="primary-btn danger-btn">Excluir</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="page-section" id="pipeline">
+          <div class="placeholder-box">
+            <h2>Pipeline</h2>
+            <p>Visualização do processo comercial por etapa: descoberta, contato, proposta, negociação e fechamento.</p>
+            <div class="pipeline-steps">
+              <div class="step">Descoberta <strong data-pipeline-stage="Descoberta">0</strong></div>
+              <div class="step">Contato <strong data-pipeline-stage="Contato">0</strong></div>
+              <div class="step">Proposta <strong data-pipeline-stage="Proposta">0</strong></div>
+              <div class="step">Negociação <strong data-pipeline-stage="Negociação">0</strong></div>
+              <div class="step">Fechamento <strong data-pipeline-stage="Fechamento">0</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="page-section" id="followups">
+          <div class="placeholder-box">
+            <h2>Follow-ups</h2>
+            <p>Visão das pendências e próximos contatos com clientes, leads e parceiros comerciais.</p>
+            <ul class="simple-list" id="followupsList"></ul>
+          </div>
+        </section>
+
+        <section class="page-section" id="orcamentos">
+          <div class="orcamentos-panel">
+            <div class="orcamentos-header">
+              <div>
+                <p class="topbar-kicker">Comercial</p>
+                <h2>Orçamentos</h2>
+                <p class="orcamentos-subtitle">Crie, acompanhe e gerencie suas propostas comerciais.</p>
+              </div>
+              <button id="btnNovoOrcamento" class="primary-btn small" type="button">+ Novo orçamento</button>
+            </div>
+
+            <div class="orcamentos-toolbar">
+              <div class="search-wrap">
+                <label for="orcamentoBusca">Buscar</label>
+                <input id="orcamentoBusca" type="text" placeholder="Buscar orçamento..." />
+              </div>
+
+              <div class="filter-wrap">
+                <label for="orcamentoStatusFiltro">Status</label>
+                <select id="orcamentoStatusFiltro">
+                  <option value="">Todos</option>
+                  <option value="Rascunho">Rascunho</option>
+                  <option value="Enviado">Enviado</option>
+                  <option value="Em negociação">Em negociação</option>
+                  <option value="Aprovado">Aprovado</option>
+                  <option value="Recusado">Recusado</option>
+                  <option value="Expirado">Expirado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="orcamentos-summary-grid">
+              <article class="summary-card">
+                <span>Orçamentos</span>
+                <strong id="orcamentosTotalCount">0</strong>
+              </article>
+              <article class="summary-card">
+                <span>Enviados</span>
+                <strong id="orcamentosEnviadosCount">0</strong>
+              </article>
+              <article class="summary-card">
+                <span>Em negociação</span>
+                <strong id="orcamentosNegotiationCount">0</strong>
+              </article>
+              <article class="summary-card">
+                <span>Aprovados</span>
+                <strong id="orcamentosApprovedCount">0</strong>
+              </article>
+              <article class="summary-card accent-card">
+                <span>Valor aprovado</span>
+                <strong id="orcamentosApprovedValue">R$ 0,00</strong>
+              </article>
+            </div>
+
+            <div class="empresa-table-wrap orcamentos-table-wrap">
+              <table class="empresa-table orcamentos-table">
+                <thead>
+                  <tr>
+                    <th>Nº</th>
+                    <th>Empresa</th>
+                    <th>Serviço</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                    <th>Validade</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                  </tr>
+                </thead>
+                <tbody id="orcamentosTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div id="orcamentoFormModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-orcamento-form-modal="true"></div>
+          <div class="modal-card orcamento-form-card" role="dialog" aria-modal="true" aria-labelledby="orcamentoFormTitle">
+            <div class="modal-header">
+              <h3 id="orcamentoFormTitle">Novo orçamento</h3>
+              <button type="button" class="icon-close" data-close-orcamento-form-modal="true" aria-label="Fechar orçamento">×</button>
+            </div>
+
+            <form id="orcamentoForm">
+              <div class="orcamento-form-grid">
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoEmpresaSelect">Empresa</label>
+                  <select id="orcamentoEmpresaSelect" name="empresaId"></select>
+                </div>
+
+                <div id="orcamentoClienteSummary" class="orcamento-customer-card field-full"></div>
+
+                <div class="orcamento-field">
+                  <label for="orcamentoNumero">Número do orçamento</label>
+                  <input id="orcamentoNumero" name="numero" type="text" readonly />
+                </div>
+
+                <div class="orcamento-field">
+                  <label for="orcamentoData">Data</label>
+                  <input id="orcamentoData" name="data" type="date" />
+                </div>
+
+                <div class="orcamento-field">
+                  <label for="orcamentoValidade">Validade</label>
+                  <input id="orcamentoValidade" name="validade" type="date" />
+                </div>
+
+                <div class="orcamento-field">
+                  <label for="orcamentoValidadeHora">Horário de vencimento</label>
+                  <input id="orcamentoValidadeHora" name="validadeHora" type="time" />
+                </div>
+
+                <div class="orcamento-field">
+                  <label for="orcamentoStatus">Status</label>
+                  <select id="orcamentoStatus" name="status">
+                    <option value="Rascunho">Rascunho</option>
+                    <option value="Enviado">Enviado</option>
+                    <option value="Em negociação">Em negociação</option>
+                    <option value="Aprovado">Aprovado</option>
+                    <option value="Recusado">Recusado</option>
+                    <option value="Expirado">Expirado</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="orcamento-form-grid">
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoCatalogoSelect">Catálogo de serviços</label>
+                  <select id="orcamentoCatalogoSelect" name="catalogoServico">
+                    <option value="">Selecionar serviço</option>
+                  </select>
+                </div>
+
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoCondicaoModeloSelect">Condição comercial</label>
+                  <select id="orcamentoCondicaoModeloSelect" name="condicaoModelo">
+                    <option value="">Selecionar condição comercial</option>
+                  </select>
+                </div>
+
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoObservacaoModeloSelect">Modelo de observação</label>
+                  <select id="orcamentoObservacaoModeloSelect" name="observacaoModelo">
+                    <option value="">Inserir modelo de observação</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="orcamento-section-box">
+                <div class="orcamento-section-header">
+                  <h4>Serviços e itens</h4>
+                  <button id="btnAdicionarItemOrcamento" type="button" class="chip">+ Adicionar serviço</button>
+                </div>
+                <div id="orcamentoItensContainer" class="orcamento-itens-list"></div>
+              </div>
+
+              <div class="orcamento-finance-box">
+                <div class="orcamento-summary-row">
+                  <span>Subtotal</span>
+                  <strong id="orcamentoSubtotalValue">R$ 0,00</strong>
+                </div>
+                <div class="orcamento-summary-row">
+                  <span>Desconto</span>
+                  <strong id="orcamentoDescontoValue">R$ 0,00</strong>
+                </div>
+                <div class="orcamento-summary-row total-row">
+                  <span>Total</span>
+                  <strong id="orcamentoTotalValue">R$ 0,00</strong>
+                </div>
+              </div>
+
+              <div class="orcamento-form-grid">
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoCondicoes">Condições comerciais</label>
+                  <textarea id="orcamentoCondicoes" name="condicoes" rows="4" placeholder="Prazo de entrega, forma de pagamento, alterações, hospedagem, domínio, manutenção..."></textarea>
+                </div>
+
+                <div class="orcamento-field field-full">
+                  <label for="orcamentoObservacoes">Observações</label>
+                  <textarea id="orcamentoObservacoes" name="observacoes" rows="4" placeholder="Detalhes adicionais do orçamento..."></textarea>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button type="button" class="chip" data-close-orcamento-form-modal="true">Cancelar</button>
+                <button type="submit" class="primary-btn">Salvar orçamento</button>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div id="orcamentoSuccessModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-orcamento-success-modal="true"></div>
+          <div class="modal-card orcamento-success-card" role="dialog" aria-modal="true" aria-labelledby="orcamentoSuccessTitle">
+            <div class="modal-header orcamento-success-header">
+              <div class="success-header-copy">
+                <div class="success-badge" aria-hidden="true">✓</div>
+                <h3 id="orcamentoSuccessTitle">Orçamento criado!</h3>
+              </div>
+              <button type="button" class="icon-close" data-close-orcamento-success-modal="true" aria-label="Fechar sucesso do orçamento">×</button>
+            </div>
+            <div class="orcamento-success-body">
+              <p>Seu orçamento foi salvo com sucesso.</p>
+              <p id="orcamentoSuccessNumber">Orçamento ORC-0001</p>
+              <button id="btnVerOrcamento" type="button" class="primary-btn">Ver orçamento</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="orcamentoDeleteModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-orcamento-delete-modal="true"></div>
+          <div class="modal-card orcamento-delete-card" role="dialog" aria-modal="true" aria-labelledby="orcamentoDeleteTitle">
+            <div class="modal-header">
+              <h3 id="orcamentoDeleteTitle">Excluir orçamento?</h3>
+              <button type="button" class="icon-close" data-close-orcamento-delete-modal="true" aria-label="Fechar exclusão do orçamento">×</button>
+            </div>
+
+            <div class="detail-notes">
+              <p>Você deseja realmente excluir este orçamento?</p>
+              <p><strong id="orcamentoDeleteName">Orçamento ORC-0000</strong></p>
+            </div>
+
+            <div class="form-actions">
+              <button type="button" class="chip" data-close-orcamento-delete-modal="true">Cancelar</button>
+              <button id="confirmDeleteBudgetButton" type="button" class="primary-btn danger-btn">Excluir</button>
+            </div>
+          </div>
+        </div>
+
+        <div id="orcamentoDetailModal" class="modal hidden" aria-hidden="true">
+          <div class="modal-backdrop" data-close-orcamento-detail-modal="true"></div>
+          <div class="modal-card orcamento-detail-card" role="dialog" aria-modal="true" aria-labelledby="orcamentoDetailTitle">
+            <div class="modal-header">
+              <h3 id="orcamentoDetailTitle">Orçamento</h3>
+              <button type="button" class="icon-close" data-close-orcamento-detail-modal="true" aria-label="Fechar visualização do orçamento">×</button>
+            </div>
+
+            <div id="orcamentoDetailContent" class="orcamento-detail-content"></div>
+
+            <div class="form-actions orcamento-detail-actions">
+              <button type="button" class="chip" data-close-orcamento-detail-modal="true">Fechar</button>
+              <button id="detailBudgetEditButton" type="button" class="chip">Editar</button>
+              <button id="detailBudgetDuplicateButton" type="button" class="chip">Duplicar</button>
+              <button id="detailBudgetExportButton" type="button" class="primary-btn">Exportar PDF</button>
+            </div>
+          </div>
+        </div>
+
+        <section class="page-section" id="configuracoes">
+          <div class="placeholder-box">
+            <h2>Configurações</h2>
+            <p>Blocos e preferências futuras para perfil, usuários, etapas, automações e ajustes do ambiente.</p>
+            <div class="placeholder-grid">
+              <div class="mini-panel"><strong>Perfil</strong><span>Equipe</span></div>
+              <div class="mini-panel"><strong>Etapas</strong><span>5 fluxos</span></div>
+              <div class="mini-panel"><strong>Notificações</strong><span>Ativas</span></div>
+              <div class="mini-panel"><strong>Segurança</strong><span>Alta</span></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="importModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-import-modal="true"></div>
+      <div class="modal-card import-modal-card" role="dialog" aria-modal="true" aria-labelledby="importModalTitle">
+        <div class="modal-header">
+          <h3 id="importModalTitle">Importar empresas</h3>
+          <button type="button" class="icon-close" aria-label="Fechar importação" data-close-import-modal="true">×</button>
+        </div>
+
+        <div class="import-modal-body">
+          <div class="import-upload-box">
+            <label class="import-file-picker" for="importFileInput">
+              <span class="import-picker-label">Selecionar arquivo</span>
+              <input id="importFileInput" type="file" accept=".csv,.xlsx,.xls" />
+            </label>
+            <p class="import-upload-hint">CSV ou Excel (.csv, .xlsx, .xls)</p>
+          </div>
+
+          <div class="import-fields-panel">
+            <h4>Campos que serão importados</h4>
+            <ul class="import-fields-list">
+              <li>Empresa</li>
+              <li>Nome fantasia</li>
+              <li>Segmento</li>
+              <li>Cidade</li>
+              <li>Estado</li>
+              <li>Telefone</li>
+              <li>WhatsApp</li>
+              <li>Instagram</li>
+              <li>Site</li>
+              <li>Endereço</li>
+              <li>Origem</li>
+              <li>Observações</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="import-preview-block">
+          <div class="import-preview-header">
+            <h4>Prévia das empresas encontradas</h4>
+          </div>
+          <div id="importPreviewContainer" class="import-preview-container empty">
+            <p>Nenhuma empresa carregada ainda.</p>
+          </div>
+        </div>
+
+        <p id="importFeedback" class="import-feedback hidden" aria-live="polite"></p>
+
+        <div class="form-actions">
+          <button type="button" class="chip" data-close-import-modal="true">Cancelar</button>
+          <button id="confirmImportButton" type="button" class="primary-btn" disabled>Importar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="importConfirmModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-confirm-import-modal="true"></div>
+      <div class="modal-card import-confirmation-card" role="dialog" aria-modal="true" aria-labelledby="importConfirmTitle">
+        <div class="modal-header import-confirmation-header">
+          <h3 id="importConfirmTitle">Você deseja mesmo realizar a importação?</h3>
+          <button type="button" class="icon-close" aria-label="Fechar confirmação de importação" data-close-confirm-import-modal="true">×</button>
+        </div>
+
+        <div class="import-confirmation-body">
+          <div class="import-confirmation-illustration" aria-hidden="true">!</div>
+          <div class="import-confirmation-copy">
+            <p id="importConfirmationCount" class="import-confirmation-count">Serão importadas 0 empresa(s).</p>
+            <p id="importConfirmationDuplicateText" class="import-confirmation-subtext">O sistema irá ignorar empresas duplicadas.</p>
+          </div>
+        </div>
+
+        <div class="form-actions import-confirmation-actions">
+          <button type="button" class="chip" data-close-confirm-import-modal="true">Cancelar</button>
+          <button id="confirmImportActionButton" type="button" class="primary-btn">Sim, importar</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="importSuccessModal" class="modal hidden" aria-hidden="true">
+      <div class="modal-backdrop" data-close-success-import-modal="true"></div>
+      <div class="modal-card import-success-card" role="dialog" aria-modal="true" aria-labelledby="importSuccessTitle">
+        <div class="modal-header import-success-header">
+          <div class="success-header-copy">
+            <div class="success-badge" aria-hidden="true">✓</div>
+            <h3 id="importSuccessTitle">Importação concluída!</h3>
+          </div>
+          <button type="button" class="icon-close" aria-label="Fechar sucesso da importação" data-close-success-import-modal="true">×</button>
+        </div>
+
+        <div class="import-success-body">
+          <div class="import-success-copy">
+            <p id="importSuccessImportedText">0 empresa(s) importada(s) com sucesso.</p>
+            <p id="importSuccessIgnoredText">0 ignorada(s) por duplicidade.</p>
+          </div>
+          <p class="import-success-secondary">Tudo certo! Sua base de empresas já está atualizada.</p>
+          <button id="goToCompaniesButton" type="button" class="primary-btn">Ir para empresas</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="confettiLayer" class="confetti-layer" aria-hidden="true"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

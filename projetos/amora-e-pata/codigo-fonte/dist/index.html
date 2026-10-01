@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Amora &amp; Pata · Banho e Tosa em Curitiba</title>
+  <meta name="description" content="Banho, tosa e cuidados pensados para deixar cada visita mais tranquila, segura e especial. Pet shop em Curitiba com agendamento pelo WhatsApp.">
+  <meta name="theme-color" content="#f3eee5">
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="https://amoraepata.exemplo.com.br/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Amora &amp; Pata">
+  <meta property="og:title" content="Amora &amp; Pata · Banho e Tosa em Curitiba">
+  <meta property="og:description" content="Seu pet merece cuidado de verdade. Banho, tosa e cuidados com agendamento pelo WhatsApp.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=75">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2216%22%20fill%3D%22%233e4732%22%2F%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20text-anchor%3D%22middle%22%20font-family%3D%22Georgia%2C%20'Times%20New%20Roman'%2C%20serif%22%20font-style%3D%22italic%22%20font-size%3D%2238%22%20fill%3D%22%23f3eee5%22%3E%26amp%3B%3C%2Ftext%3E%3Ccircle%20cx%3D%2247%22%20cy%3D%2217%22%20r%3D%224%22%20fill%3D%22%23b0664a%22%2F%3E%3C%2Fsvg%3E%0A" type="image/svg+xml">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+/* ============================================================
+   DESIGN TOKENS — Amora & Pata
+   Paleta: natureza, cuidado e sofisticação.
+   ============================================================ */
+:root {
+  /* cores */
+  --paper: #faf7f1;
+  --cream: #f3eee5;
+  --cream-2: #e9e2d5;
+  --sand: #d9cfbd;
+  --olive: #5f6b4a;
+  --olive-deep: #3e4732;
+  --olive-soft: #a9b093;
+  --brown: #34271f;
+  --brown-2: #261d17;
+  --terra: #b0664a;
+  --terra-soft: #d8a58b;
+  --ink: #1f1d1a;
+  --ink-2: #57524a;
+  --ink-3: #8a8378;
+  --line: rgba(31, 29, 26, .12);
+  --line-light: rgba(250, 247, 241, .16);
+
+  /* mapa ilustrativo */
+  --map-bg: #ece6da;
+  --map-road: #faf7f1;
+  --map-park: #d6d9c4;
+  --map-water: #cfd8d2;
+
+  /* tipografia */
+  --f-serif: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --f-sans: "Figtree", "Avenir Next", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  /* layout */
+  --maxw: 1280px;
+  --gut: clamp(20px, 5vw, 64px);
+  --hdr: 76px;
+  --r-lg: 28px;
+  --r-md: 18px;
+  --r-sm: 12px;
+  --sec: clamp(88px, 11vw, 160px);
+
+  /* movimento */
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  --shadow: 0 1px 2px rgba(31, 29, 26, .04), 0 12px 32px -18px rgba(31, 29, 26, .18);
+
+  color-scheme: light;
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--hdr) + 12px);
+  -webkit-text-size-adjust: 100%;
+  background: var(--cream);
+}
+body {
+  margin: 0;
+  font-family: var(--f-sans);
+  font-size: clamp(16px, 1.05vw, 17.5px);
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@supports (overflow: clip) { body { overflow-x: clip; } }
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+button, input, select { font: inherit; color: inherit; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--terra); outline-offset: 3px; border-radius: 6px; }
+::selection { background: var(--olive-soft); color: var(--ink); }
+
+.wrap { width: min(var(--maxw), 100% - 2 * var(--gut)); margin-inline: auto; position: relative; }
+.sec { padding-block: var(--sec); position: relative; }
+.skip { position: absolute; left: 12px; top: -60px; z-index: 100; background: var(--ink); color: var(--paper); padding: 10px 16px; border-radius: 8px; text-decoration: none; }
+.skip:focus { top: 12px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--olive);
+}
+.eyebrow--light { color: var(--olive-soft); }
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--terra); }
+
+/* ---------- Reveal ---------- */
+.js [data-reveal] { opacity: 0; transform: translate3d(0, 26px, 0); transition: opacity .9s var(--ease), transform 1s var(--ease); transition-delay: var(--d, 0s); }
+.js [data-reveal="scale"] { transform: scale(.97); }
+.js [data-reveal].in { opacity: 1; transform: none; }
+
+/* ---------- Imagem com fallback ---------- */
+.ph { position: relative; overflow: hidden; background: linear-gradient(135deg, var(--cream-2), var(--sand)); }
+.ph img { width: 100%; height: 100%; object-fit: cover; }
+.ph--err img { opacity: 0; }
+.ph--err::after {
+  content: "Amora & Pata"; position: absolute; inset: 0; display: grid; place-items: center;
+  font-family: var(--f-serif); font-style: italic; font-size: 1.4rem; color: var(--olive);
+  background: radial-gradient(circle at 30% 20%, #f0ebe1, var(--cream-2));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
+}
+
+/* ============================================================
+   COMPONENTES
+   ============================================================ */
+
+/* ---------- Logo ---------- */
+.logo { display: inline-flex; flex-direction: column; line-height: 1; text-decoration: none; }
+.logo__word { font-family: var(--f-serif); font-size: 1.6rem; letter-spacing: -.01em; white-space: nowrap; }
+.logo__word em { font-style: italic; color: var(--terra); padding: 0 .02em; }
+.logo__sub { font-size: .6rem; letter-spacing: .26em; text-transform: uppercase; color: var(--ink-3); margin-top: 5px; }
+.logo--lg .logo__word { font-size: clamp(2.6rem, 5vw, 3.6rem); }
+.logo--lg .logo__sub { font-size: .7rem; margin-top: 10px; }
+
+/* ---------- Botões ---------- */
+.btn {
+  --bg: var(--ink); --fg: var(--paper);
+  display: inline-flex; align-items: center; justify-content: center; gap: .7em;
+  min-height: 50px; padding: .8em 1.5em; border-radius: 999px;
+  background: var(--bg); color: var(--fg); text-decoration: none;
+  font-weight: 500; font-size: .95rem; letter-spacing: .01em; white-space: nowrap;
+  border: 1px solid transparent; cursor: pointer;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .35s var(--ease), box-shadow .35s var(--ease);
+  position: relative; isolation: isolate; overflow: hidden;
+}
+.btn .ic { width: 1.15em; height: 1.15em; }
+.btn__icon { display: inline-flex; transition: transform .45s var(--ease); }
+.btn:hover .btn__icon { transform: translateX(3px); }
+.btn--primary { --bg: var(--olive-deep); }
+.btn--primary::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--olive); transform: translateY(101%); transition: transform .5s var(--ease); border-radius: inherit; }
+.btn--primary:hover::before { transform: none; }
+.btn--primary:hover { box-shadow: 0 14px 30px -16px rgba(62, 71, 50, .7); }
+.btn--ghost { --bg: transparent; --fg: var(--ink); border-color: var(--line); }
+.btn--ghost:hover { border-color: var(--ink); background: rgba(31, 29, 26, .03); }
+.btn--light { --bg: var(--paper); --fg: var(--ink); }
+.btn--light:hover { --bg: #fff; }
+.btn--sm { min-height: 42px; padding: .55em 1.1em; font-size: .88rem; }
+.btn--lg { min-height: 56px; padding: .9em 1.8em; font-size: 1rem; }
+.btn--block { width: 100%; }
+
+/* ---------- Cabeçalho de seção ---------- */
+.sh { max-width: 640px; }
+.sh--center { margin-inline: auto; text-align: center; }
+.sh__eyebrow { display: flex; align-items: center; gap: 14px; font-size: .78rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--olive); margin-bottom: 22px; }
+.sh--center .sh__eyebrow { justify-content: center; }
+.sh__idx, .eyebrow .sh__idx { font-family: var(--f-serif); font-size: 1rem; letter-spacing: 0; text-transform: none; color: var(--terra); font-style: italic; }
+.sh__title { font-family: var(--f-serif); font-size: clamp(2.4rem, 5vw, 4.2rem); line-height: 1.02; letter-spacing: -.015em; }
+.sh__text { margin-top: 20px; color: var(--ink-2); font-size: 1.05rem; max-width: 34em; }
+.sh--center .sh__text { margin-inline: auto; }
+
+/* ---------- Card de serviço ---------- */
+.svc__link { display: flex; flex-direction: column; height: 100%; text-decoration: none; color: inherit; }
+.svc__ph { border-radius: var(--r-md); aspect-ratio: 4 / 3.3; }
+.svc__ph img { transition: transform 1.1s var(--ease); }
+.svc__link:hover .svc__ph img { transform: scale(1.05); }
+.svc__body { padding: 22px 4px 0; display: flex; flex-direction: column; flex: 1; position: relative; }
+.svc__num { font-family: var(--f-serif); font-style: italic; color: var(--terra); font-size: 1rem; }
+.svc__name { font-family: var(--f-serif); font-size: clamp(1.7rem, 2.2vw, 2.1rem); line-height: 1.05; margin-top: 4px; }
+.svc__text { color: var(--ink-2); margin-top: 10px; font-size: .97rem; line-height: 1.55; }
+.svc__tags { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.svc__tags li { font-size: .74rem; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; background: var(--cream-2); color: var(--ink-2); }
+.svc__cta { margin-top: auto; padding-top: 20px; display: inline-flex; align-items: center; gap: 8px; font-weight: 500; font-size: .92rem; color: var(--olive-deep); }
+.svc__cta .ic { width: 16px; height: 16px; transition: transform .45s var(--ease); }
+.svc__cta::after { content: ""; position: absolute; left: 4px; bottom: -8px; height: 1px; width: 28px; background: var(--olive); transition: width .6s var(--ease); }
+.svc__link:hover .svc__cta .ic { transform: translateX(5px); }
+.svc__link:hover .svc__cta::after { width: calc(100% - 8px); }
+
+/* ---------- Chips (formulário) ---------- */
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip { position: relative; cursor: pointer; }
+.chip input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; min-height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--paper); font-size: .95rem; transition: all .3s var(--ease); }
+.chip:hover span { border-color: var(--ink-3); }
+.chip input:checked + span { background: var(--olive-deep); color: var(--paper); border-color: var(--olive-deep); }
+.chip input:focus-visible + span { outline: 2px solid var(--terra); outline-offset: 2px; }
+.chips--sm .chip span { min-height: 42px; padding: 0 16px; font-size: .9rem; }
+
+.field { display: flex; flex-direction: column; gap: 8px; font-size: .88rem; color: var(--ink-2); }
+.field small { color: var(--ink-3); }
+.field input, .field select {
+  min-height: 50px; padding: 0 16px; border-radius: var(--r-sm); border: 1px solid var(--line); background: var(--paper);
+  font-size: 1rem; color: var(--ink); transition: border-color .3s; width: 100%;
+  -webkit-appearance: none; appearance: none;
+}
+.field select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none' stroke='%2357524a' stroke-width='1.5'%3E%3Cpath d='M1 1.5l5 5 5-5'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+.field input:focus, .field select:focus { outline: none; border-color: var(--olive); box-shadow: 0 0 0 3px rgba(95, 107, 74, .15); }
+
+/* ============================================================
+   SEÇÕES
+   ============================================================ */
+
+/* ---------- Header ---------- */
+.hdr { position: fixed; inset: 0 0 auto; z-index: 60; padding-top: env(safe-area-inset-top, 0px); transition: background .4s var(--ease), box-shadow .4s var(--ease); }
+.hdr.is-solid { background: rgba(250, 247, 241, .86); -webkit-backdrop-filter: blur(14px) saturate(1.3); backdrop-filter: blur(14px) saturate(1.3); box-shadow: 0 1px 0 var(--line); }
+.hdr__in { height: var(--hdr); display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.hdr__logo { text-decoration: none; color: var(--ink); }
+.hdr__nav { display: flex; gap: clamp(18px, 2.4vw, 36px); }
+.hdr__nav a { position: relative; padding: 8px 0; text-decoration: none; font-size: .92rem; color: var(--ink-2); transition: color .3s; }
+.hdr__nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 3px; height: 1px; background: var(--olive); transition: right .45s var(--ease); }
+.hdr__nav a:hover, .hdr__nav a.is-on { color: var(--ink); }
+.hdr__nav a:hover::after, .hdr__nav a.is-on::after { right: 0; }
+.hdr__actions { display: flex; align-items: center; gap: 10px; }
+.burger { display: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); position: relative; cursor: pointer; }
+.burger span { position: absolute; left: 14px; right: 14px; height: 1.5px; background: var(--ink); transition: transform .45s var(--ease), top .45s var(--ease); }
+.burger span:first-child { top: 19px; } .burger span:last-child { top: 26px; }
+.menu-open .burger span:first-child { top: 22.5px; transform: rotate(45deg); }
+.menu-open .burger span:last-child { top: 22.5px; transform: rotate(-45deg); }
+
+.mnav { position: fixed; inset: 0; z-index: 55; background: var(--paper); display: flex; flex-direction: column; justify-content: space-between;
+  padding: calc(var(--hdr) + 24px + env(safe-area-inset-top, 0px)) var(--gut) calc(28px + env(safe-area-inset-bottom, 0px));
+  clip-path: circle(0% at calc(100% - 44px) 38px); visibility: hidden; transition: clip-path .7s var(--ease), visibility .7s; }
+.menu-open .mnav { clip-path: circle(150% at calc(100% - 44px) 38px); visibility: visible; }
+.mnav__links { display: flex; flex-direction: column; }
+.mnav__links a { display: flex; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); text-decoration: none; font-family: var(--f-serif); font-size: clamp(2rem, 8.5vw, 2.8rem); line-height: 1.1; opacity: 0; transform: translateY(16px); transition: opacity .5s var(--ease), transform .6s var(--ease); transition-delay: calc(.12s + var(--i) * .05s); }
+.mnav__links a span { font-family: var(--f-sans); font-size: .75rem; color: var(--terra); letter-spacing: .08em; }
+.menu-open .mnav__links a { opacity: 1; transform: none; }
+.mnav__foot { display: grid; gap: 14px; text-align: center; font-size: .85rem; color: var(--ink-3); opacity: 0; transition: opacity .5s .4s; }
+.menu-open .mnav__foot { opacity: 1; }
+
+/* ---------- Hero ---------- */
+.hero { padding-top: calc(var(--hdr) + env(safe-area-inset-top, 0px) + clamp(12px, 2vw, 28px)); padding-bottom: clamp(24px, 3vw, 40px); }
+.hero__grid { display: grid; grid-template-columns: 1fr 1.12fr; gap: clamp(32px, 5vw, 80px); align-items: center; min-height: min(calc(100svh - var(--hdr) - 60px), 860px); }
+.hero__title { font-family: var(--f-serif); font-size: clamp(3.1rem, 6.6vw, 6.6rem); line-height: .98; letter-spacing: -.025em; margin-top: 26px; }
+.hero__title .ln { display: block; overflow: hidden; padding-bottom: .08em; }
+.hero__title .ln > * { display: block; }
+.hero__title em { font-style: italic; color: var(--olive); }
+.js .hero__title .ln > * { transform: translateY(105%); transition: transform 1.1s var(--ease); transition-delay: var(--d); }
+.js.is-ready .hero__title .ln > * { transform: none; }
+.hero__sub { margin-top: 28px; font-size: clamp(1.05rem, 1.35vw, 1.22rem); color: var(--ink-2); max-width: 30em; line-height: 1.6; }
+.hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 38px; }
+.hero__meta { list-style: none; padding: 0; margin: 40px 0 0; display: flex; flex-wrap: wrap; gap: 10px 26px; font-size: .88rem; color: var(--ink-3); }
+.hero__meta li { display: inline-flex; align-items: center; gap: 8px; }
+.hero__meta .ic { width: 17px; height: 17px; color: var(--olive); }
+.js .hero__in { opacity: 0; transform: translateY(14px); transition: opacity 1s var(--ease), transform 1s var(--ease); transition-delay: var(--d); }
+.js.is-ready .hero__in { opacity: 1; transform: none; }
+
+.hero__visual { position: relative; height: 100%; min-height: 520px; }
+.hero__frame { position: absolute; inset: 0; border-radius: var(--r-lg); overflow: hidden; }
+.hero__ph { position: absolute; inset: 0; }
+.hero__ph img { transform: scale(1.06); will-change: transform; }
+.js .hero__frame { clip-path: inset(8% 0 0 0 round var(--r-lg)); transition: clip-path 1.4s var(--ease) .1s; }
+.js.is-ready .hero__frame { clip-path: inset(0 0 0 0 round var(--r-lg)); }
+.hero__frame::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(31, 29, 26, 0) 60%, rgba(31, 29, 26, .22)); pointer-events: none; }
+.hero__card { position: absolute; left: clamp(-36px, -3vw, -16px); bottom: clamp(24px, 4vw, 48px); display: flex; align-items: center; gap: 14px; padding: 14px 20px 14px 14px; border-radius: var(--r-md); background: rgba(250, 247, 241, .92); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px); box-shadow: var(--shadow); }
+.hero__card-ic { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; background: var(--cream-2); color: var(--olive-deep); flex: none; }
+.hero__card-ic .ic { width: 20px; height: 20px; }
+.hero__card b { display: block; font-weight: 500; font-size: .92rem; }
+.hero__card small { display: block; font-size: .8rem; color: var(--ink-3); }
+
+/* ---------- Confiança ---------- */
+.trust { padding-top: clamp(40px, 5vw, 72px); }
+.trust__grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: clamp(40px, 6vw, 110px); padding-top: clamp(48px, 6vw, 80px); border-top: 1px solid var(--line); }
+.trust__title { font-family: var(--f-serif); font-size: clamp(2.1rem, 3.6vw, 3.2rem); line-height: 1.05; letter-spacing: -.01em; }
+.trust__text { margin-top: 20px; color: var(--ink-2); max-width: 30em; }
+.trust__list { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 40px); }
+.trust__item { padding-top: 22px; border-top: 1px solid var(--ink); }
+.trust__ic { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--paper); color: var(--olive-deep); box-shadow: inset 0 0 0 1px var(--line); }
+.trust__ic .ic { width: 22px; height: 22px; }
+.trust__item h3 { font-family: var(--f-serif); font-size: 1.55rem; line-height: 1.1; margin-top: 22px; }
+.trust__item p { margin-top: 10px; color: var(--ink-2); font-size: .95rem; line-height: 1.55; }
+
+/* ---------- Serviços ---------- */
+.services { background: var(--paper); }
+.services__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; }
+.services__hint { display: none; }
+.services__grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: clamp(28px, 3vw, 44px) clamp(18px, 2.2vw, 32px); margin-top: clamp(48px, 6vw, 80px); }
+.svc { grid-column: span 2; }
+.svc:nth-child(4), .svc:nth-child(5) { grid-column: span 3; }
+.svc:nth-child(4) .svc__ph, .svc:nth-child(5) .svc__ph { aspect-ratio: 16 / 9.5; }
+
+/* ---------- Experiência ---------- */
+.exp { background: var(--brown); color: var(--cream); overflow: hidden; }
+.exp__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(48px, 7vw, 120px); align-items: center; }
+.exp__copy .eyebrow { display: flex; gap: 14px; }
+.exp__title { font-family: var(--f-serif); font-size: clamp(2.8rem, 5.6vw, 5rem); line-height: 1; letter-spacing: -.02em; margin-top: 22px; }
+.exp__text { margin-top: 24px; color: rgba(243, 238, 229, .78); font-size: 1.08rem; max-width: 30em; }
+.steps { list-style: none; padding: 0; margin: 44px 0 0; display: grid; grid-template-columns: 1fr 1fr; gap: 0 32px; }
+.step { display: flex; gap: 16px; padding: 22px 0; border-top: 1px solid var(--line-light); }
+.step__n { font-family: var(--f-serif); font-style: italic; color: var(--terra-soft); font-size: 1.1rem; line-height: 1.5; flex: none; }
+.step h3 { font-family: var(--f-serif); font-size: 1.45rem; line-height: 1.15; }
+.step p { margin-top: 6px; font-size: .92rem; color: rgba(243, 238, 229, .66); line-height: 1.55; }
+.exp__media { position: relative; padding: 0 0 clamp(40px, 6vw, 70px) clamp(40px, 6vw, 80px); }
+.exp__ph { border-radius: var(--r-lg); aspect-ratio: 4 / 5; }
+.exp__ph2 { position: absolute; left: 0; bottom: 0; width: 40%; aspect-ratio: 1; border-radius: var(--r-md); box-shadow: 0 0 0 8px var(--brown), 0 30px 60px -30px rgba(0, 0, 0, .6); }
+
+/* ---------- Galeria ---------- */
+.gallery__top { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; flex-wrap: wrap; }
+.filters { display: flex; gap: 6px; padding: 5px; border-radius: 999px; background: var(--paper); box-shadow: inset 0 0 0 1px var(--line); overflow-x: auto; max-width: 100%; scrollbar-width: none; }
+.filters::-webkit-scrollbar { display: none; }
+.filter { border: 0; background: none; padding: 0 18px; min-height: 42px; border-radius: 999px; cursor: pointer; font-size: .92rem; color: var(--ink-2); white-space: nowrap; transition: background .35s var(--ease), color .35s var(--ease); }
+.filter:hover { color: var(--ink); }
+.filter.is-on { background: var(--ink); color: var(--paper); }
+.gal { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: clamp(150px, 16vw, 240px); grid-auto-flow: dense; gap: clamp(10px, 1.3vw, 18px); margin-top: clamp(40px, 5vw, 64px); transition: opacity .22s ease; }
+.gal.is-switching { opacity: 0; }
+.gal__item { position: relative; padding: 0; border: 0; border-radius: var(--r-md); overflow: hidden; cursor: zoom-in; background: var(--cream-2); }
+.gal__item[hidden] { display: none; }
+.gal__item .ph { position: absolute; inset: 0; }
+.gal__item img { transition: transform 1.1s var(--ease), filter .8s; }
+.gal__item:hover img { transform: scale(1.05); }
+.gal__item--big { grid-column: span 2; grid-row: span 2; }
+.gal__item--wide { grid-column: span 2; }
+.gal__item--tall { grid-row: span 2; }
+.gal__cap { position: absolute; left: 12px; bottom: 12px; right: 12px; text-align: left; font-size: .82rem; color: var(--paper); padding: 7px 12px; border-radius: 999px; background: rgba(31, 29, 26, .45); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); width: fit-content; max-width: calc(100% - 24px); opacity: 0; transform: translateY(8px); transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.gal__item:hover .gal__cap, .gal__item:focus-visible .gal__cap { opacity: 1; transform: none; }
+
+.lb { position: fixed; inset: 0; z-index: 120; background: rgba(24, 22, 19, .94); display: grid; place-items: center; padding: calc(70px + env(safe-area-inset-top, 0px)) 16px calc(70px + env(safe-area-inset-bottom, 0px)); opacity: 0; transition: opacity .3s ease; }
+.lb[hidden] { display: none; }
+.lb.is-open { opacity: 1; }
+.lb__fig { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; max-height: 100%; max-width: min(1100px, 100%); }
+.lb__fig img { max-width: 100%; max-height: calc(100svh - 190px); width: auto; height: auto; border-radius: var(--r-sm); opacity: 0; transform: scale(.98); transition: opacity .4s var(--ease), transform .5s var(--ease); }
+.lb__fig img.is-in { opacity: 1; transform: none; }
+.lb__fig figcaption { color: rgba(243, 238, 229, .8); font-family: var(--f-serif); font-style: italic; font-size: 1.2rem; }
+.lb__btn { position: absolute; width: 48px; height: 48px; border-radius: 50%; border: 1px solid rgba(243, 238, 229, .25); background: rgba(243, 238, 229, .06); color: var(--cream); cursor: pointer; display: grid; place-items: center; transition: background .3s; }
+.lb__btn:hover { background: rgba(243, 238, 229, .16); }
+.lb__btn svg { width: 20px; height: 20px; }
+.lb__x { top: calc(14px + env(safe-area-inset-top, 0px)); right: 14px; }
+.lb__pv { left: 14px; top: 50%; transform: translateY(-50%); }
+.lb__nx { right: 14px; top: 50%; transform: translateY(-50%); }
+.lb__ct { position: absolute; top: calc(26px + env(safe-area-inset-top, 0px)); left: 50%; transform: translateX(-50%); color: rgba(243, 238, 229, .6); font-size: .82rem; letter-spacing: .12em; }
+
+/* ---------- Antes e depois ---------- */
+.ba { background: var(--cream-2); }
+.ba__fig { margin: clamp(40px, 5vw, 64px) auto 0; max-width: 1040px; }
+.ba__box { position: relative; aspect-ratio: 16 / 9.5; border-radius: var(--r-lg); overflow: hidden; touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: ew-resize; box-shadow: var(--shadow); }
+.ba__img { position: absolute; inset: 0; }
+.ba__before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba__box.is-hint .ba__before { transition: clip-path .5s var(--ease); }
+.ba__box.is-hint .ba__handle { transition: left .5s var(--ease); }
+.ba__handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; margin-left: -1px; background: var(--paper); pointer-events: none; box-shadow: 0 0 20px rgba(0, 0, 0, .25); }
+.ba__knob { position: absolute; top: 50%; left: 50%; width: 52px; height: 52px; transform: translate(-50%, -50%); border-radius: 50%; background: var(--paper); color: var(--ink); display: grid; place-items: center; box-shadow: 0 8px 24px -8px rgba(0, 0, 0, .45); }
+.ba__knob svg { width: 22px; height: 22px; }
+.ba__label { position: absolute; top: 18px; padding: 6px 14px; border-radius: 999px; font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; background: rgba(250, 247, 241, .9); pointer-events: none; }
+.ba__label--b { left: 18px; } .ba__label--a { right: 18px; }
+.ba__range { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.ba__range:focus-visible + * , .ba__box:focus-within .ba__knob { outline: 2px solid var(--terra); outline-offset: 3px; }
+.ba__cap { margin-top: 16px; text-align: center; font-size: .82rem; color: var(--ink-3); letter-spacing: .04em; }
+
+/* ---------- Depoimentos ---------- */
+.tst__top { display: flex; justify-content: space-between; align-items: baseline; gap: 20px; flex-wrap: wrap; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.tst__title { font-family: var(--f-serif); font-size: clamp(2.2rem, 4.2vw, 3.6rem); line-height: 1.05; }
+.tst__note { font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); border: 1px solid var(--line); padding: 6px 12px; border-radius: 999px; }
+.tst__grid { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: clamp(28px, 4vw, 64px); margin-top: clamp(40px, 5vw, 64px); }
+.quote { margin: 0; position: relative; display: flex; flex-direction: column; }
+.quote__mark { font-family: var(--f-serif); font-size: 5rem; line-height: .6; color: var(--terra); height: 40px; }
+.quote blockquote { margin: 18px 0 0; font-family: var(--f-serif); font-size: clamp(1.45rem, 2vw, 1.9rem); line-height: 1.25; letter-spacing: -.005em; }
+.quote:first-child blockquote { font-size: clamp(1.7rem, 2.6vw, 2.5rem); }
+.quote figcaption { margin-top: auto; padding-top: 24px; display: flex; gap: 10px; align-items: baseline; font-size: .9rem; color: var(--ink-3); }
+.quote figcaption b { color: var(--ink); font-weight: 500; }
+
+/* ---------- Agendamento ---------- */
+.book { background: var(--olive-deep); color: var(--cream); overflow: hidden; }
+.book::before { content: ""; position: absolute; right: -10vw; top: -20%; width: 55vw; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(closest-side, rgba(169, 176, 147, .22), transparent); pointer-events: none; }
+.book__grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: clamp(40px, 6vw, 100px); align-items: center; }
+.book__copy .eyebrow { display: flex; gap: 14px; }
+.book__title { font-family: var(--f-serif); font-size: clamp(2.7rem, 5.4vw, 4.8rem); line-height: 1; letter-spacing: -.02em; margin-top: 22px; }
+.book__text { margin-top: 24px; color: rgba(243, 238, 229, .8); max-width: 28em; font-size: 1.06rem; }
+.book__perks { list-style: none; padding: 0; margin: 32px 0 0; display: grid; gap: 12px; }
+.book__perks li { display: flex; align-items: center; gap: 12px; font-size: .96rem; }
+.book__perks .ic { width: 20px; height: 20px; color: var(--terra-soft); }
+.book__form { background: var(--paper); color: var(--ink); border-radius: var(--r-lg); padding: clamp(24px, 3.2vw, 44px); display: grid; gap: 24px; box-shadow: 0 40px 80px -40px rgba(0, 0, 0, .5); }
+.book__form fieldset { border: 0; padding: 0; margin: 0; min-width: 0; }
+.book__form legend { font-size: .88rem; color: var(--ink-2); margin-bottom: 12px; padding: 0; }
+.book__row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.book__preview { background: var(--cream); border-radius: var(--r-sm); padding: 14px 16px; font-size: .88rem; color: var(--ink-2); line-height: 1.55; border: 1px dashed var(--sand); }
+.book__preview-lbl { display: block; font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 6px; }
+.book__fine { text-align: center; font-size: .8rem; color: var(--ink-3); margin-top: -8px; }
+
+/* ---------- Localização ---------- */
+.loc__grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(20px, 3vw, 40px); margin-top: clamp(40px, 5vw, 64px); align-items: stretch; }
+.map { position: relative; border-radius: var(--r-lg); overflow: hidden; min-height: 420px; background: var(--map-bg); box-shadow: inset 0 0 0 1px var(--line); }
+.map__svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.map__card { position: absolute; left: 20px; bottom: 20px; right: 20px; max-width: 330px; background: var(--paper); border-radius: var(--r-md); padding: 16px 18px; box-shadow: var(--shadow); display: grid; gap: 2px; font-size: .88rem; color: var(--ink-2); }
+.map__card b { font-family: var(--f-serif); font-weight: 400; font-size: 1.35rem; color: var(--ink); }
+.map__demo { position: absolute; top: 16px; right: 16px; font-size: .72rem; letter-spacing: .08em; color: var(--ink-3); background: rgba(250, 247, 241, .85); padding: 5px 10px; border-radius: 999px; }
+.loc__info { display: grid; gap: 14px; align-content: start; }
+.info { background: var(--paper); border-radius: var(--r-md); padding: 24px; box-shadow: inset 0 0 0 1px var(--line); }
+.info h3 { display: flex; align-items: center; gap: 10px; font-family: var(--f-serif); font-size: 1.4rem; margin-bottom: 14px; }
+.info h3 .ic { width: 20px; height: 20px; color: var(--olive); }
+.info p { color: var(--ink-2); }
+.hours { margin: 0; display: grid; gap: 8px; }
+.hours div { display: flex; justify-content: space-between; gap: 16px; padding-bottom: 8px; border-bottom: 1px dotted var(--line); font-size: .95rem; }
+.hours div:last-child { border: 0; padding: 0; }
+.hours dt { color: var(--ink-2); } .hours dd { margin: 0; font-weight: 500; }
+.info--links { display: grid; gap: 10px; }
+.info__pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* ---------- Rodapé ---------- */
+.ftr { background: var(--ink); color: var(--cream); padding: clamp(72px, 9vw, 120px) 0 calc(32px + env(safe-area-inset-bottom, 0px)); }
+.ftr .logo__sub { color: rgba(243, 238, 229, .5); }
+.ftr__top { display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 48px; }
+.ftr__tag { margin-top: 26px; font-family: var(--f-serif); font-style: italic; font-size: 1.35rem; color: rgba(243, 238, 229, .75); max-width: 20em; }
+.ftr__col h4 { font-size: .78rem; letter-spacing: .14em; text-transform: uppercase; color: rgba(243, 238, 229, .5); font-weight: 500; margin-bottom: 18px; }
+.ftr__col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+.ftr__col a { text-decoration: none; color: rgba(243, 238, 229, .86); transition: color .3s; }
+.ftr__col a:hover { color: var(--terra-soft); }
+.ftr__bot { margin-top: 72px; padding-top: 24px; border-top: 1px solid var(--line-light); display: flex; justify-content: space-between; gap: 16px 40px; flex-wrap: wrap; font-size: .8rem; color: rgba(243, 238, 229, .5); }
+.ftr__demo b { font-weight: 500; color: rgba(243, 238, 229, .72); }
+
+/* ---------- CTA fixo ---------- */
+.fcta { position: fixed; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 50; opacity: 0; transform: translateY(16px); pointer-events: none; transition: opacity .45s var(--ease), transform .45s var(--ease); }
+.fcta.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.fcta__btn { box-shadow: 0 18px 40px -16px rgba(31, 29, 26, .55); }
+.menu-open .fcta, .lb-open .fcta { opacity: 0; pointer-events: none; }
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 1100px) {
+  .trust__grid { grid-template-columns: 1fr; }
+  .services__grid { grid-template-columns: repeat(2, 1fr); }
+  .svc, .svc:nth-child(4) { grid-column: span 1; }
+  .svc:nth-child(5) { grid-column: span 2; }
+  .svc:nth-child(4) .svc__ph { aspect-ratio: 4 / 3.3; }
+  .tst__grid { grid-template-columns: 1fr 1fr; }
+  .quote:first-child { grid-column: 1 / -1; }
+}
+@media (max-width: 960px) {
+  :root { --hdr: 68px; }
+  .hdr__nav { display: none; }
+  .burger { display: block; }
+  .hero__grid { grid-template-columns: 1fr; min-height: 0; gap: 36px; }
+  .hero__visual { min-height: 0; height: auto; aspect-ratio: 4 / 3.6; }
+  .hero__card { left: 16px; bottom: 16px; }
+  .exp__grid, .book__grid { grid-template-columns: 1fr; }
+  .exp__media { max-width: 640px; }
+  .loc__grid { grid-template-columns: 1fr; }
+  .map { min-height: 360px; }
+  .ftr__top { grid-template-columns: 1fr 1fr; }
+  .ftr__brand { grid-column: 1 / -1; }
+}
+@media (max-width: 700px) {
+  .sec { padding-block: clamp(72px, 18vw, 96px); }
+  .hero__title { font-size: clamp(2.75rem, 12.4vw, 3.6rem); margin-top: 20px; }
+  .hdr .logo__sub { display: none; }
+  .hero__sub { margin-top: 20px; }
+  .hero__ctas { flex-direction: column; margin-top: 30px; }
+  .hero__ctas .btn { width: 100%; }
+  .hero__meta { margin-top: 26px; }
+  .hero__visual { aspect-ratio: 4 / 4.6; margin-inline: calc(var(--gut) * -1 + 10px); }
+  .hero__card { right: 16px; left: 16px; bottom: 14px; }
+  .trust__list { grid-template-columns: 1fr; gap: 28px; }
+  .trust__item { display: grid; grid-template-columns: 48px 1fr; gap: 0 18px; }
+  .trust__item h3 { margin-top: 0; align-self: center; font-size: 1.4rem; }
+  .trust__item p { grid-column: 2; margin-top: 4px; }
+
+  /* serviços: carrossel horizontal com "espiada" do próximo card */
+  .services__hint { display: block; font-size: .8rem; color: var(--ink-3); white-space: nowrap; }
+  .services__top { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .services__track { overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; scrollbar-width: none; overscroll-behavior-x: contain; }
+  .services__track::-webkit-scrollbar { display: none; }
+  .services__grid { display: flex; gap: 14px; width: max-content; margin-inline: 0; padding-inline: var(--gut); margin-top: 36px; }
+  .svc, .svc:nth-child(4), .svc:nth-child(5) { width: min(78vw, 340px); scroll-snap-align: start; scroll-margin-left: var(--gut); }
+  .svc:nth-child(4) .svc__ph, .svc:nth-child(5) .svc__ph { aspect-ratio: 4 / 3.3; }
+  .svc__ph { aspect-ratio: 4 / 3.5; }
+
+  .steps { grid-template-columns: 1fr; }
+  .exp__media { padding-left: 28px; padding-bottom: 44px; }
+  .exp__ph2 { width: 42%; }
+
+  .gallery__top { flex-direction: column; align-items: stretch; gap: 26px; }
+  .filters { align-self: flex-start; }
+  .gal { grid-template-columns: repeat(2, 1fr); grid-auto-rows: clamp(130px, 40vw, 190px); gap: 10px; }
+  .gal__cap { display: none; }
+
+  .ba__box { aspect-ratio: 4 / 4.6; border-radius: var(--r-md); }
+  .ba__knob { width: 46px; height: 46px; }
+
+  .tst__grid { grid-template-columns: 1fr; gap: 44px; }
+  .quote figcaption { padding-top: 16px; }
+
+  .book__row { grid-template-columns: 1fr; }
+  .book__form { border-radius: var(--r-md); gap: 22px; }
+  .chips .chip { flex: 1 1 calc(50% - 8px); }
+  .chips .chip span { width: 100%; justify-content: center; white-space: nowrap; padding: 0 10px; font-size: .92rem; }
+  .chips--sm .chip { flex: 1 1 0; }
+
+  .map { min-height: 320px; border-radius: var(--r-md); }
+  .map__card { left: 12px; right: 12px; bottom: 12px; }
+  .info { padding: 20px; }
+  .info__pair { grid-template-columns: 1fr; }
+
+  .ftr__top { grid-template-columns: 1fr 1fr; gap: 36px 20px; }
+  .ftr__bot { margin-top: 48px; flex-direction: column; }
+  .ftr { padding-bottom: calc(100px + env(safe-area-inset-bottom, 0px)); }
+
+  /* CTA fixo vira barra inferior no celular */
+  .fcta { left: 0; right: 0; bottom: 0; padding: 12px var(--gut) calc(12px + env(safe-area-inset-bottom, 0px)); background: linear-gradient(180deg, rgba(243, 238, 229, 0), rgba(243, 238, 229, .92) 40%); }
+  .fcta__btn { min-height: 54px; }
+}
+@media (max-width: 380px) {
+  .hdr__cta { display: none; }
+  .logo__word { font-size: 1.45rem; }
+  .chips .chip { flex-basis: 100%; }
+  .chips--sm .chip { flex: 1 1 0; }
+  .ftr__top { grid-template-columns: 1fr; }
+}
+
+</style>
+  <script>
+    // Ativa animações de entrada; se o JS falhar, o conteúdo aparece mesmo assim.
+    // Aberto com dois cliques? Módulos não rodam em file://, então usa a versão em arquivo único.
+    document.documentElement.classList.add('js');
+    setTimeout(function () { if (!document.documentElement.classList.contains('is-ready')) document.documentElement.classList.remove('js'); }, 4000);
+  </script>
+  <script type="application/ld+json" id="ld-business">{"@context":"https://schema.org","@type":"PetStore","name":"Amora & Pata","description":"Banho, tosa e cuidados pensados para deixar cada visita mais tranquila, segura e especial. Pet shop em Curitiba com agendamento pelo WhatsApp.","url":"https://amoraepata.exemplo.com.br","image":"https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=1200&q=72","telephone":"+5541900000000","email":"contato@amoraepata.exemplo.com.br","priceRange":"$","address":{"@type":"PostalAddress","streetAddress":"Rua das Amoreiras, 000","addressLocality":"Curitiba","addressRegion":"PR","postalCode":"80000-000","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-25.4284,"longitude":-49.2733},"openingHours":["Mo-Fr 08:00-18:00","Sa 08:00-14:00"],"sameAs":["https://www.instagram.com/"]}</script>
+</head>
+<body>
+  <div id="app" data-prerendered="1">
+<a class="skip" href="#main">Pular para o conteúdo</a>
+<header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a class="hdr__logo" href="#inicio" aria-label="Amora &amp; Pata, início"><span class="logo logo--sm">
+    <span class="logo__word">Amora <em>&amp;</em> Pata</span>
+    <span class="logo__sub">banho · tosa · cuidado</span>
+  </span></a>
+      <nav class="hdr__nav" aria-label="Principal">
+        <a href="#servicos">Serviços</a><a href="#cuidados">Cuidados</a><a href="#galeria">Galeria</a><a href="#agendamento">Agendamento</a><a href="#contato">Contato</a>
+      </nav>
+      <div class="hdr__actions">
+        <a class="btn btn--primary btn--sm hdr__cta" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa><span class="btn__label">Agendar</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a>
+        <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mnav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav class="mnav__links" aria-label="Menu">
+      <a href="#inicio" style="--i:0"><span>01</span>Início</a><a href="#servicos" style="--i:1"><span>02</span>Serviços</a><a href="#cuidados" style="--i:2"><span>03</span>Cuidados</a><a href="#galeria" style="--i:3"><span>04</span>Galeria</a><a href="#agendamento" style="--i:4"><span>05</span>Agendamento</a><a href="#contato" style="--i:5"><span>06</span>Contato</a>
+    </nav>
+    <div class="mnav__foot">
+      <a class="btn btn--primary btn--block btn--lg" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa><span class="btn__label">Agendar pelo WhatsApp</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a>
+      <p>Curitiba, PR · Segunda a sexta, 8h às 18h</p>
+    </div>
+  </div>
+<main id="main">
+<section class="hero" id="inicio">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow hero__in" style="--d:.05s"><span class="dot"></span>Banho e tosa em Curitiba</p>
+        <h1 class="hero__title">
+          <span class="ln"><span style="--d:.12s">Seu pet merece</span></span>
+          <span class="ln"><em style="--d:.24s">cuidado de verdade.</em></span>
+        </h1>
+        <p class="hero__sub hero__in" style="--d:.42s">Banho, tosa e cuidados pensados para deixar cada visita mais tranquila, segura e especial.</p>
+        <div class="hero__ctas hero__in" style="--d:.55s">
+          <a class="btn btn--primary btn--lg" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa><span class="btn__label">Agendar atendimento</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a>
+          <a class="btn btn--ghost btn--lg" href="#servicos" ><span class="btn__label">Conhecer nossos cuidados</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M12 5v14M6 13l6 6 6-6"/></svg></span></a>
+        </div>
+        <ul class="hero__meta hero__in" style="--d:.7s">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg><span>Atendimento com hora marcada</span></li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg><span>Curitiba, PR</span></li>
+        </ul>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__frame" id="heroFrame">
+          <div class="ph hero__ph"><img src="https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=1200&q=72 1200w, https://images.unsplash.com/photo-1581887936036-3f4f7f0b6679?auto=format&fit=crop&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 56vw" alt="Cachorro de pelo longo marrom enrolado em uma toalha depois do banho" style="object-position:50% 40%" fetchpriority="high" loading="eager" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+        </div>
+        <div class="hero__card hero__in" style="--d:.9s">
+          <span class="hero__card-ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg></span>
+          <span><b>Segunda a sexta</b><small>8h às 18h · sábados até 14h</small></span>
+        </div>
+      </div>
+    </div>
+  </section>
+<section class="sec trust" aria-labelledby="trust-t">
+    <div class="wrap trust__grid">
+      <div class="trust__head" data-reveal>
+        <h2 class="trust__title" id="trust-t">Cuidado que começa antes do banho.</h2>
+        <p class="trust__text">Cada animal tem seu jeito, seu ritmo e suas sensibilidades. Antes de qualquer procedimento, conversamos com o tutor, observamos o pet e ajustamos o atendimento a ele, e não o contrário.</p>
+      </div>
+      <ul class="trust__list">
+        <li class="trust__item" data-reveal style="--d:0s">
+          <span class="trust__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/></svg></span>
+          <h3>Atendimento individual</h3>
+          <p>Um pet por vez na mesa, com tempo para ele se acostumar ao ambiente e às mãos de quem cuida.</p>
+        </li><li class="trust__item" data-reveal style="--d:0.08s">
+          <span class="trust__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M4 11l8-6.5 8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/></svg></span>
+          <h3>Ambiente acolhedor</h3>
+          <p>Espaço limpo, silencioso e organizado, pensado para reduzir o estresse da visita.</p>
+        </li><li class="trust__item" data-reveal style="--d:0.16s">
+          <span class="trust__ic"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M7 12.5V7.8a1.3 1.3 0 0 1 2.6 0V11"/><path d="M9.6 11V5.8a1.3 1.3 0 0 1 2.6 0V11"/><path d="M12.2 11V6.8a1.3 1.3 0 0 1 2.6 0V11.5"/><path d="M14.8 11.5V9a1.3 1.3 0 0 1 2.6 0v4.5c0 3.8-2.4 6.5-5.8 6.5-2.4 0-3.9-1-5.1-2.8L4.6 14.4a1.3 1.3 0 0 1 2-1.6L7 13.3"/></svg></span>
+          <h3>Profissionais cuidadosos</h3>
+          <p>Manuseio gentil, atenção a sinais de desconforto e respeito aos limites de cada animal.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+<section class="sec services" id="servicos" aria-label="Serviços">
+    <div class="wrap">
+      <div class="services__top">
+        <header class="sh sh--left " data-reveal>
+    <p class="sh__eyebrow"><span class="sh__idx">01</span>Serviços</p>
+    <h2 class="sh__title">Cuidados para cada momento</h2>
+    <p class="sh__text">Do banho da semana a cuidados específicos para pele, pelagem e idade, cada serviço é adaptado ao porte e ao temperamento do seu pet.</p>
+  </header>
+        <p class="services__hint" aria-hidden="true">Deslize para ver todos</p>
+      </div>
+    </div>
+    <div class="services__track" data-track>
+      <div class="wrap services__grid">
+        <article class="svc" data-reveal style="--d:0s">
+    <a class="svc__link" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20saber%20mais%20sobre%20banho." target="_blank" rel="noopener" data-wa aria-label="Quero saber mais: Banho">
+      <div class="ph svc__ph"><img src="https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw" alt="Cachorro pequeno de pelo longo recebendo banho com espuma" style="object-position:50% 45%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      <div class="svc__body">
+        <p class="svc__num">01</p>
+        <h3 class="svc__name">Banho</h3>
+        <p class="svc__text">Produtos adequados ao tipo de pele e pelagem, secagem cuidadosa e escovação.</p>
+        <ul class="svc__tags"><li>Todos os portes</li><li>Cães e gatos</li></ul>
+        <span class="svc__cta">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </article><article class="svc" data-reveal style="--d:0.06s">
+    <a class="svc__link" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20saber%20mais%20sobre%20tosa." target="_blank" rel="noopener" data-wa aria-label="Quero saber mais: Tosa">
+      <div class="ph svc__ph"><img src="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw" alt="Cachorro pequeno branco tendo o pelo aparado com tesoura" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      <div class="svc__body">
+        <p class="svc__num">02</p>
+        <h3 class="svc__name">Tosa</h3>
+        <p class="svc__text">Tosa higiênica, na tesoura ou na máquina, respeitando o padrão e o conforto do pet.</p>
+        <ul class="svc__tags"><li>Tesoura</li><li>Máquina</li></ul>
+        <span class="svc__cta">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </article><article class="svc" data-reveal style="--d:0.12s">
+    <a class="svc__link" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20saber%20mais%20sobre%20banho%20%2B%20tosa." target="_blank" rel="noopener" data-wa aria-label="Quero saber mais: Banho + Tosa">
+      <div class="ph svc__ph"><img src="https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw" alt="Profissional escovando com cuidado o pelo de um cachorro" style="object-position:50% 50%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      <div class="svc__body">
+        <p class="svc__num">03</p>
+        <h3 class="svc__name">Banho + Tosa</h3>
+        <p class="svc__text">O cuidado completo em uma única visita, do banho ao acabamento final.</p>
+        <ul class="svc__tags"><li>Mais pedido</li></ul>
+        <span class="svc__cta">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </article><article class="svc" data-reveal style="--d:0.18s">
+    <a class="svc__link" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20saber%20mais%20sobre%20higiene." target="_blank" rel="noopener" data-wa aria-label="Quero saber mais: Higiene">
+      <div class="ph svc__ph"><img src="https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1625321171045-1fea4ac688e9?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw" alt="Profissional com secador preparando a finalização do atendimento" style="object-position:50% 35%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      <div class="svc__body">
+        <p class="svc__num">04</p>
+        <h3 class="svc__name">Higiene</h3>
+        <p class="svc__text">Corte de unhas, limpeza de ouvidos e higiene das áreas sensíveis.</p>
+        <ul class="svc__tags"><li>Rápido</li></ul>
+        <span class="svc__cta">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </article><article class="svc" data-reveal style="--d:0.24s">
+    <a class="svc__link" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20saber%20mais%20sobre%20cuidados%20especiais." target="_blank" rel="noopener" data-wa aria-label="Quero saber mais: Cuidados especiais">
+      <div class="ph svc__ph"><img src="https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=1100&q=72 1100w" sizes="(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw" alt="Gato de pelo longo branco e marrom no colo de uma pessoa" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      <div class="svc__body">
+        <p class="svc__num">05</p>
+        <h3 class="svc__name">Cuidados especiais</h3>
+        <p class="svc__text">Atenção extra para gatos, filhotes, idosos e pets mais sensíveis.</p>
+        <ul class="svc__tags"><li>Sob consulta</li></ul>
+        <span class="svc__cta">Quero saber mais <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+  </article>
+      </div>
+    </div>
+  </section>
+<section class="sec exp" id="cuidados" aria-labelledby="exp-t">
+    <div class="wrap exp__grid">
+      <div class="exp__copy">
+        <p class="eyebrow eyebrow--light" data-reveal><span class="sh__idx">02</span>Como cuidamos</p>
+        <h2 class="exp__title" id="exp-t" data-reveal>Mais do que estética.</h2>
+        <p class="exp__text" data-reveal>Nosso trabalho é cuidar do seu pet com atenção aos detalhes. Da chegada ao momento em que ele volta para casa, cada etapa foi pensada para tornar a experiência mais tranquila.</p>
+        <ol class="steps">
+          <li class="step" data-reveal style="--d:0s">
+            <span class="step__n">01</span>
+            <div><h3>Recepção</h3><p>Conversa com o tutor e um momento para o pet reconhecer o espaço.</p></div>
+          </li><li class="step" data-reveal style="--d:0.08s">
+            <span class="step__n">02</span>
+            <div><h3>Higiene</h3><p>Banho com produtos adequados e água na temperatura certa.</p></div>
+          </li><li class="step" data-reveal style="--d:0.16s">
+            <span class="step__n">03</span>
+            <div><h3>Cuidado</h3><p>Escovação, tosa e detalhes feitos com calma, no tempo do pet.</p></div>
+          </li><li class="step" data-reveal style="--d:0.24s">
+            <span class="step__n">04</span>
+            <div><h3>Finalização</h3><p>Secagem, acabamento e um aviso para o tutor quando estiver pronto.</p></div>
+          </li>
+        </ol>
+      </div>
+      <div class="exp__media" data-reveal>
+        <div class="ph exp__ph"><img src="https://images.unsplash.com/photo-1675430426271-d74b542f21e4?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1675430426271-d74b542f21e4?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1675430426271-d74b542f21e4?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1675430426271-d74b542f21e4?auto=format&fit=crop&w=1200&q=72 1200w, https://images.unsplash.com/photo-1675430426271-d74b542f21e4?auto=format&fit=crop&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 46vw" alt="Mulher segurando com carinho um cachorro pequeno branco enrolado em uma manta" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+        <div class="ph exp__ph2"><img src="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=320&q=72 320w, https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=800&q=72 800w" sizes="(max-width: 900px) 40vw, 18vw" alt="Lulu da Pomerânia marrom enrolado em uma toalha após o banho" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+      </div>
+    </div>
+  </section>
+<section class="sec gallery" id="galeria" aria-label="Galeria">
+    <div class="wrap">
+      <div class="gallery__top">
+        <header class="sh sh--left " data-reveal>
+    <p class="sh__eyebrow"><span class="sh__idx">03</span>Galeria</p>
+    <h2 class="sh__title">Momentos de cuidado</h2>
+    <p class="sh__text">Uma seleção de registros que traduzem o dia a dia de banho, tosa e carinho.</p>
+  </header>
+        <div class="filters" role="tablist" aria-label="Filtrar galeria" data-reveal>
+          <button class="filter is-on" type="button" role="tab" aria-selected="true" data-filter="todos">Todos</button><button class="filter" type="button" role="tab" aria-selected="false" data-filter="banho">Banho</button><button class="filter" type="button" role="tab" aria-selected="false" data-filter="tosa">Tosa</button><button class="filter" type="button" role="tab" aria-selected="false" data-filter="momentos">Momentos</button>
+        </div>
+      </div>
+      <div class="gal" id="gal">
+        <button class="gal__item gal__item--tall" type="button" data-tag="banho" data-i="0" aria-label="Ampliar foto: Depois do banho">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1611173622933-91942d394b04?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Lulu da Pomerânia marrom enrolado em uma toalha após o banho" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Depois do banho</span>
+        </button><button class="gal__item gal__item--big" type="button" data-tag="tosa" data-i="1" aria-label="Ampliar foto: Acabamento na tesoura">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1719464454959-9cf304ef4774?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 100vw, 50vw" alt="Cachorro pequeno branco tendo o pelo aparado com tesoura" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Acabamento na tesoura</span>
+        </button><button class="gal__item gal__item--square" type="button" data-tag="momentos" data-i="2" aria-label="Ampliar foto: Pronto para voltar pra casa">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1678153188688-0dc45722708a?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1678153188688-0dc45722708a?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1678153188688-0dc45722708a?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1678153188688-0dc45722708a?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1678153188688-0dc45722708a?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Cachorro pequeno marrom e branco usando uma bandana verde" style="object-position:50% 35%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Pronto para voltar pra casa</span>
+        </button><button class="gal__item gal__item--wide" type="button" data-tag="banho" data-i="3" aria-label="Ampliar foto: Hora do banho">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 100vw, 50vw" alt="Dachshund marrom sentado em uma banheira branca" style="object-position:50% 50%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Hora do banho</span>
+        </button><button class="gal__item gal__item--tall" type="button" data-tag="momentos" data-i="4" aria-label="Ampliar foto: Gatos também são bem-vindos">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1625279138876-8910c2af9a30?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Gato de pelo longo branco e marrom no colo de uma pessoa" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Gatos também são bem-vindos</span>
+        </button><button class="gal__item gal__item--square" type="button" data-tag="tosa" data-i="5" aria-label="Ampliar foto: Tosa no padrão da raça">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1625277743460-43716b93507a?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1625277743460-43716b93507a?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1625277743460-43716b93507a?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1625277743460-43716b93507a?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1625277743460-43716b93507a?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Poodle preto com pelo bem aparado" style="object-position:50% 35%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Tosa no padrão da raça</span>
+        </button><button class="gal__item gal__item--wide" type="button" data-tag="tosa" data-i="6" aria-label="Ampliar foto: Escovação com calma">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1528846104175-4fd300ee59da?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 100vw, 50vw" alt="Profissional escovando com cuidado o pelo de um cachorro" style="object-position:50% 50%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Escovação com calma</span>
+        </button><button class="gal__item gal__item--square" type="button" data-tag="momentos" data-i="7" aria-label="Ampliar foto: Primeira visita">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Filhote de golden retriever em retrato de perto" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Primeira visita</span>
+        </button><button class="gal__item gal__item--square" type="button" data-tag="banho" data-i="8" aria-label="Ampliar foto: Toalha quentinha">
+          <div class="ph "><img src="https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0?auto=format&fit=crop&w=400&q=72 400w, https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0?auto=format&fit=crop&w=700&q=72 700w, https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0?auto=format&fit=crop&w=1000&q=72 1000w, https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0?auto=format&fit=crop&w=1400&q=72 1400w" sizes="(max-width: 700px) 50vw, 25vw" alt="Cachorro sentado em uma banheira ao lado de uma toalha" style="object-position:50% 50%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="gal__cap">Toalha quentinha</span>
+        </button>
+      </div>
+    </div>
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+      <figure class="lb__fig"><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+      <button class="lb__btn lb__x" type="button" aria-label="Fechar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <button class="lb__btn lb__pv" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="lb__btn lb__nx" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+      <p class="lb__ct" id="lbCt"></p>
+    </div>
+    <script type="application/json" id="galData">[{"src":"https://images.unsplash.com/photo-1611173622933-91942d394b04","alt":"Lulu da Pomerânia marrom enrolado em uma toalha após o banho","caption":"Depois do banho","tag":"banho"},{"src":"https://images.unsplash.com/photo-1719464454959-9cf304ef4774","alt":"Cachorro pequeno branco tendo o pelo aparado com tesoura","caption":"Acabamento na tesoura","tag":"tosa"},{"src":"https://images.unsplash.com/photo-1678153188688-0dc45722708a","alt":"Cachorro pequeno marrom e branco usando uma bandana verde","caption":"Pronto para voltar pra casa","tag":"momentos"},{"src":"https://images.unsplash.com/photo-1583534778255-5d67d3dcf95d","alt":"Dachshund marrom sentado em uma banheira branca","caption":"Hora do banho","tag":"banho"},{"src":"https://images.unsplash.com/photo-1625279138876-8910c2af9a30","alt":"Gato de pelo longo branco e marrom no colo de uma pessoa","caption":"Gatos também são bem-vindos","tag":"momentos"},{"src":"https://images.unsplash.com/photo-1625277743460-43716b93507a","alt":"Poodle preto com pelo bem aparado","caption":"Tosa no padrão da raça","tag":"tosa"},{"src":"https://images.unsplash.com/photo-1528846104175-4fd300ee59da","alt":"Profissional escovando com cuidado o pelo de um cachorro","caption":"Escovação com calma","tag":"tosa"},{"src":"https://images.unsplash.com/photo-1608138498574-e5dab4c0ca52","alt":"Filhote de golden retriever em retrato de perto","caption":"Primeira visita","tag":"momentos"},{"src":"https://images.unsplash.com/photo-1647002380358-fc70ed2f04e0","alt":"Cachorro sentado em uma banheira ao lado de uma toalha","caption":"Toalha quentinha","tag":"banho"}]</script>
+  </section>
+<section class="sec ba" aria-label="Antes e depois">
+    <div class="wrap">
+      <header class="sh sh--center " data-reveal>
+    <p class="sh__eyebrow"><span class="sh__idx">04</span>Resultado</p>
+    <h2 class="sh__title">Um cuidado que você consegue ver.</h2>
+    <p class="sh__text">Arraste para comparar o durante e o resultado final de um atendimento.</p>
+  </header>
+      <figure class="ba__fig" data-reveal="scale">
+        <div class="ba__box" id="ba" style="--pos:50%">
+          <div class="ph ba__img ba__after"><img src="https://images.unsplash.com/photo-1592887302112-b87aca16ad2c?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1592887302112-b87aca16ad2c?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1592887302112-b87aca16ad2c?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1592887302112-b87aca16ad2c?auto=format&fit=crop&w=1200&q=72 1200w, https://images.unsplash.com/photo-1592887302112-b87aca16ad2c?auto=format&fit=crop&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 1000px" alt="Demonstração: cachorro finalizado e seco após o atendimento" style="object-position:50% 40%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <div class="ph ba__img ba__before"><img src="https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=1200&q=72" srcset="https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=480&q=72 480w, https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=800&q=72 800w, https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=1200&q=72 1200w, https://images.unsplash.com/photo-1597603413826-cd1c06b05222?auto=format&fit=crop&w=1600&q=72 1600w" sizes="(max-width: 900px) 100vw, 1000px" alt="Demonstração: cachorro durante o banho, antes da finalização" style="object-position:50% 45%" loading="lazy" decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>
+          <span class="ba__label ba__label--b">Antes</span>
+          <span class="ba__label ba__label--a">Depois</span>
+          <span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span></span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <figcaption class="ba__cap">Imagens demonstrativas.</figcaption>
+      </figure>
+    </div>
+  </section>
+<section class="sec tst" aria-labelledby="tst-t">
+    <div class="wrap">
+      <div class="tst__top" data-reveal>
+        <h2 class="tst__title" id="tst-t">O que os tutores sentem</h2>
+        <p class="tst__note">Depoimentos demonstrativos</p>
+      </div>
+      <div class="tst__grid">
+        <figure class="quote" data-reveal style="--d:0s">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote>Meu cachorro sempre volta tranquilo e muito bem cuidado. Dá para perceber o carinho em cada detalhe.</blockquote>
+          <figcaption><b>M. S.</b><span>tutora do Theo</span></figcaption>
+        </figure><figure class="quote" data-reveal style="--d:0.1s">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote>Finalmente encontrei um lugar onde consigo deixar meu pet sem preocupação.</blockquote>
+          <figcaption><b>R. A.</b><span>tutor da Nina</span></figcaption>
+        </figure><figure class="quote" data-reveal style="--d:0.2s">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote>O atendimento é próximo, cuidadoso e muito organizado.</blockquote>
+          <figcaption><b>C. L.</b><span>tutora do Pipoca</span></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+<section class="sec book" id="agendamento" aria-labelledby="book-t">
+    <div class="wrap book__grid">
+      <div class="book__copy" data-reveal>
+        <p class="eyebrow eyebrow--light"><span class="sh__idx">05</span>Agendamento</p>
+        <h2 class="book__title" id="book-t">Vamos cuidar do próximo banho?</h2>
+        <p class="book__text">Escolha o serviço, conte um pouco sobre o seu pet e nós respondemos pelo WhatsApp para combinar o melhor horário.</p>
+        <ul class="book__perks">
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Resposta pelo WhatsApp</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Horário combinado com você</li>
+          <li><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Sem cadastro</li>
+        </ul>
+      </div>
+      <form class="book__form" id="bookForm" data-reveal="scale" novalidate>
+        <fieldset>
+          <legend>Qual atendimento?</legend>
+          <div class="chips"><label class="chip"><input type="radio" name="service" value="Banho" checked><span>Banho</span></label><label class="chip"><input type="radio" name="service" value="Tosa"><span>Tosa</span></label><label class="chip"><input type="radio" name="service" value="Banho + Tosa"><span>Banho + Tosa</span></label><label class="chip"><input type="radio" name="service" value="Outro atendimento"><span>Outro atendimento</span></label></div>
+        </fieldset>
+        <div class="book__row">
+          <label class="field"><span>Nome do pet <small>(opcional)</small></span><input name="petName" type="text" autocomplete="off" maxlength="40" placeholder="Ex.: Amora"></label>
+          <label class="field"><span>Melhor período</span>
+            <select name="period"><option value="">Sem preferência</option><option>Manhã</option><option>Tarde</option><option>Sábado</option></select>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Porte</legend>
+          <div class="chips chips--sm"><label class="chip"><input type="radio" name="size" value="Pequeno"><span>Pequeno</span></label><label class="chip"><input type="radio" name="size" value="Médio"><span>Médio</span></label><label class="chip"><input type="radio" name="size" value="Grande"><span>Grande</span></label></div>
+        </fieldset>
+        <div class="book__preview" aria-live="polite">
+          <span class="book__preview-lbl">Mensagem que será enviada</span>
+          <p id="bookPreview">Olá, Amora &amp; Pata! Gostaria de agendar um atendimento.<br>• Serviço: Banho<br>Quais horários vocês têm disponíveis?</p>
+        </div>
+        <a class="btn btn--primary btn--lg btn--block" id="bookBtn" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento.%0A%E2%80%A2%20Servi%C3%A7o%3A%20Banho%0AQuais%20hor%C3%A1rios%20voc%C3%AAs%20t%C3%AAm%20dispon%C3%ADveis%3F" target="_blank" rel="noopener" data-wa><span class="btn__label">Agendar pelo WhatsApp</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a>
+        <p class="book__fine">WhatsApp (41) 90000-0000 · número fictício de demonstração</p>
+      </form>
+    </div>
+  </section>
+<section class="sec loc" id="contato" aria-label="Localização e contato">
+    <div class="wrap">
+      <header class="sh sh--left " data-reveal>
+    <p class="sh__eyebrow"><span class="sh__idx">06</span>Localização</p>
+    <h2 class="sh__title">Estamos perto de você.</h2>
+    <p class="sh__text">Um espaço de bairro, fácil de chegar, com atendimento por hora marcada.</p>
+  </header>
+      <div class="loc__grid">
+        <div class="map" data-reveal="scale">
+          <svg class="map__svg" viewBox="0 0 600 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <rect width="600" height="460" fill="var(--map-bg)"/>
+  <path d="M-20 330 C 120 300, 180 360, 300 330 S 520 250, 640 290" stroke="var(--map-water)" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <g fill="var(--map-park)"><rect x="60" y="60" width="130" height="90" rx="14"/><circle cx="470" cy="380" r="60"/></g>
+  <g stroke="var(--map-road)" stroke-linecap="round" fill="none">
+    <path d="M0 200 H600" stroke-width="14"/><path d="M250 0 V460" stroke-width="14"/>
+    <path d="M0 110 L600 60" stroke-width="7"/><path d="M420 0 L360 460" stroke-width="7"/>
+    <path d="M0 400 L260 200" stroke-width="7"/><path d="M120 0 V460" stroke-width="4"/>
+    <path d="M0 270 H600" stroke-width="4"/><path d="M520 0 V460" stroke-width="4"/><path d="M0 30 H600" stroke-width="4"/>
+  </g>
+  <g class="map__pin" transform="translate(300 200)">
+    <circle r="38" fill="var(--terra)" opacity=".14"><animate attributeName="r" values="18;44;18" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".3;0;.3" dur="3.2s" repeatCount="indefinite"/></circle>
+    <path d="M0 6 C -14 -10 -16 -18 -16 -24 A16 16 0 0 1 16 -24 C 16 -18 14 -10 0 6Z" fill="var(--ink)"/>
+    <circle cy="-24" r="5.5" fill="var(--cream)"/>
+  </g>
+</svg>
+          <div class="map__card">
+            <b>Amora &amp; Pata</b>
+            <span>Rua das Amoreiras, 000 · Bairro Demonstração</span>
+            <span>Curitiba, PR · 80000-000</span>
+          </div>
+          <span class="map__demo">Mapa ilustrativo · endereço fictício</span>
+        </div>
+        <div class="loc__info">
+          <div class="info" data-reveal>
+            <h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Horários</h3>
+            <dl class="hours"><div><dt>Segunda a sexta</dt><dd>8h às 18h</dd></div><div><dt>Sábado</dt><dd>8h às 14h</dd></div><div><dt>Domingo e feriados</dt><dd>Fechado</dd></div></dl>
+          </div>
+          <div class="info" data-reveal style="--d:.08s">
+            <h3><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/></svg>Endereço</h3>
+            <p>Rua das Amoreiras, 000<br>Bairro Demonstração · Curitiba, PR</p>
+          </div>
+          <div class="info info--links" data-reveal style="--d:.16s">
+            <a class="btn btn--primary btn--block" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa><span class="btn__label">WhatsApp (41) 90000-0000</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a>
+            <div class="info__pair">
+              <a class="btn btn--ghost " href="https://www.instagram.com/" target="_blank" rel="noopener" ><span class="btn__label">Instagram</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="currentColor"/></svg></span></a>
+              <a class="btn btn--ghost " href="https://www.google.com/maps/search/?api=1&amp;query=Curitiba%2C+PR" target="_blank" rel="noopener" ><span class="btn__label">Google Maps</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ><path d="M9 5L3.5 7v12L9 17l6 2 5.5-2V5L15 7 9 5z"/><path d="M9 5v12M15 7v12"/></svg></span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer class="ftr">
+    <div class="wrap">
+      <div class="ftr__top">
+        <div class="ftr__brand">
+          <span class="logo logo--lg">
+    <span class="logo__word">Amora <em>&amp;</em> Pata</span>
+    <span class="logo__sub">banho · tosa · cuidado</span>
+  </span>
+          <p class="ftr__tag">Feito com cuidado para quem cuida de quem ama.</p>
+        </div>
+        <nav class="ftr__col" aria-label="Rodapé">
+          <h4>Navegue</h4>
+          <ul><li><a href="#inicio">Início</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#cuidados">Cuidados</a></li><li><a href="#galeria">Galeria</a></li><li><a href="#agendamento">Agendamento</a></li><li><a href="#contato">Contato</a></li></ul>
+        </nav>
+        <div class="ftr__col">
+          <h4>Fale com a gente</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa>WhatsApp</a></li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Curitiba%2C+PR" target="_blank" rel="noopener">Google Maps</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ftr__bot">
+        <span>© 2026 Amora &amp; Pata · Curitiba, PR</span>
+        <span class="ftr__demo">Projeto demonstrativo. Amora &amp; Pata é uma marca fictícia criada para portfólio. Desenvolvido por <b>Chrysxxz Digital</b>.</span>
+      </div>
+    </div>
+  </footer>
+<div class="fcta" id="fcta"><a class="btn btn--primary btn--block fcta__btn" href="https://wa.me/5541900000000?text=Ol%C3%A1%2C%20Amora%20%26%20Pata!%20Gostaria%20de%20agendar%20um%20atendimento%20para%20o%20meu%20pet." target="_blank" rel="noopener" data-wa><span class="btn__label">Agendar pelo WhatsApp</span><span class="btn__icon"><svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg></span></a></div>
+</div>
+  <noscript><p style="padding:24px;font-family:sans-serif">Ative o JavaScript para ver o site completo da Amora &amp; Pata.</p></noscript>
+  <script>
+(function(){
+"use strict";
+// src/data/content.js
+/**
+ * CONTEÚDO DO SITE
+ * Textos, serviços, galeria e depoimentos. Nenhum dado de contato aqui:
+ * contatos ficam em config.js.
+ */
+const nav = [
+  { id: 'inicio', label: 'Início' },
+  { id: 'servicos', label: 'Serviços' },
+  { id: 'cuidados', label: 'Cuidados' },
+  { id: 'galeria', label: 'Galeria' },
+  { id: 'agendamento', label: 'Agendamento' },
+  { id: 'contato', label: 'Contato' },
+];
+
+const hero = {
+  eyebrow: 'Banho e tosa em Curitiba',
+  title: ['Seu pet merece', 'cuidado de verdade.'],
+  subtitle:
+    'Banho, tosa e cuidados pensados para deixar cada visita mais tranquila, segura e especial.',
+  primary: 'Agendar atendimento',
+  secondary: 'Conhecer nossos cuidados',
+  note: 'Atendimento com hora marcada',
+};
+
+const trust = {
+  title: 'Cuidado que começa antes do banho.',
+  text:
+    'Cada animal tem seu jeito, seu ritmo e suas sensibilidades. Antes de qualquer procedimento, conversamos com o tutor, observamos o pet e ajustamos o atendimento a ele, e não o contrário.',
+  items: [
+    {
+      icon: 'person',
+      title: 'Atendimento individual',
+      text: 'Um pet por vez na mesa, com tempo para ele se acostumar ao ambiente e às mãos de quem cuida.',
+    },
+    {
+      icon: 'home',
+      title: 'Ambiente acolhedor',
+      text: 'Espaço limpo, silencioso e organizado, pensado para reduzir o estresse da visita.',
+    },
+    {
+      icon: 'hand',
+      title: 'Profissionais cuidadosos',
+      text: 'Manuseio gentil, atenção a sinais de desconforto e respeito aos limites de cada animal.',
+    },
+  ],
+};
+
+const services = {
+  title: 'Cuidados para cada momento',
+  intro:
+    'Do banho da semana a cuidados específicos para pele, pelagem e idade, cada serviço é adaptado ao porte e ao temperamento do seu pet.',
+  cta: 'Quero saber mais',
+  items: [
+    {
+      id: 'banho',
+      name: 'Banho',
+      image: 'bath',
+      text: 'Produtos adequados ao tipo de pele e pelagem, secagem cuidadosa e escovação.',
+      tags: ['Todos os portes', 'Cães e gatos'],
+    },
+    {
+      id: 'tosa',
+      name: 'Tosa',
+      image: 'grooming',
+      text: 'Tosa higiênica, na tesoura ou na máquina, respeitando o padrão e o conforto do pet.',
+      tags: ['Tesoura', 'Máquina'],
+    },
+    {
+      id: 'banho-tosa',
+      name: 'Banho + Tosa',
+      image: 'brushing',
+      text: 'O cuidado completo em uma única visita, do banho ao acabamento final.',
+      tags: ['Mais pedido'],
+    },
+    {
+      id: 'higiene',
+      name: 'Higiene',
+      image: 'drying',
+      text: 'Corte de unhas, limpeza de ouvidos e higiene das áreas sensíveis.',
+      tags: ['Rápido'],
+    },
+    {
+      id: 'especiais',
+      name: 'Cuidados especiais',
+      image: 'cat',
+      text: 'Atenção extra para gatos, filhotes, idosos e pets mais sensíveis.',
+      tags: ['Sob consulta'],
+    },
+  ],
+};
+
+const experience = {
+  eyebrow: 'Como cuidamos',
+  title: 'Mais do que estética.',
+  text:
+    'Nosso trabalho é cuidar do seu pet com atenção aos detalhes. Da chegada ao momento em que ele volta para casa, cada etapa foi pensada para tornar a experiência mais tranquila.',
+  image: 'cuddle',
+  imageSecondary: 'towel',
+  steps: [
+    { title: 'Recepção', text: 'Conversa com o tutor e um momento para o pet reconhecer o espaço.' },
+    { title: 'Higiene', text: 'Banho com produtos adequados e água na temperatura certa.' },
+    { title: 'Cuidado', text: 'Escovação, tosa e detalhes feitos com calma, no tempo do pet.' },
+    { title: 'Finalização', text: 'Secagem, acabamento e um aviso para o tutor quando estiver pronto.' },
+  ],
+};
+
+const gallery = {
+  title: 'Momentos de cuidado',
+  intro: 'Uma seleção de registros que traduzem o dia a dia de banho, tosa e carinho.',
+  filters: [
+    { id: 'todos', label: 'Todos' },
+    { id: 'banho', label: 'Banho' },
+    { id: 'tosa', label: 'Tosa' },
+    { id: 'momentos', label: 'Momentos' },
+  ],
+  // shape: tall | wide | square | big  → proporções diferentes na composição
+  items: [
+    { image: 'towel', tag: 'banho', shape: 'tall', caption: 'Depois do banho' },
+    { image: 'grooming', tag: 'tosa', shape: 'big', caption: 'Acabamento na tesoura' },
+    { image: 'bandana', tag: 'momentos', shape: 'square', caption: 'Pronto para voltar pra casa' },
+    { image: 'tub', tag: 'banho', shape: 'wide', caption: 'Hora do banho' },
+    { image: 'cat', tag: 'momentos', shape: 'tall', caption: 'Gatos também são bem-vindos' },
+    { image: 'poodle', tag: 'tosa', shape: 'square', caption: 'Tosa no padrão da raça' },
+    { image: 'brushing', tag: 'tosa', shape: 'wide', caption: 'Escovação com calma' },
+    { image: 'puppy', tag: 'momentos', shape: 'square', caption: 'Primeira visita' },
+    { image: 'tubTowel', tag: 'banho', shape: 'square', caption: 'Toalha quentinha' },
+  ],
+};
+
+const beforeAfter = {
+  title: 'Um cuidado que você consegue ver.',
+  text: 'Arraste para comparar o durante e o resultado final de um atendimento.',
+  labels: { before: 'Antes', after: 'Depois' },
+  caption: 'Imagens demonstrativas.',
+};
+
+const testimonials = {
+  title: 'O que os tutores sentem',
+  note: 'Depoimentos demonstrativos',
+  items: [
+    { text: 'Meu cachorro sempre volta tranquilo e muito bem cuidado. Dá para perceber o carinho em cada detalhe.', author: 'M. S.', pet: 'tutora do Theo' },
+    { text: 'Finalmente encontrei um lugar onde consigo deixar meu pet sem preocupação.', author: 'R. A.', pet: 'tutor da Nina' },
+    { text: 'O atendimento é próximo, cuidadoso e muito organizado.', author: 'C. L.', pet: 'tutora do Pipoca' },
+  ],
+};
+
+const booking = {
+  title: 'Vamos cuidar do próximo banho?',
+  text: 'Escolha o serviço, conte um pouco sobre o seu pet e nós respondemos pelo WhatsApp para combinar o melhor horário.',
+  options: ['Banho', 'Tosa', 'Banho + Tosa', 'Outro atendimento'],
+  sizes: ['Pequeno', 'Médio', 'Grande'],
+  cta: 'Agendar pelo WhatsApp',
+};
+
+const location = {
+  title: 'Estamos perto de você.',
+  text: 'Um espaço de bairro, fácil de chegar, com atendimento por hora marcada.',
+};
+
+// src/data/config.js
+/**
+ * CONFIGURAÇÃO DA EMPRESA
+ * ------------------------------------------------------------
+ * Todos os dados de contato, endereço, horários e links ficam
+ * aqui. Para transformar este projeto em um site real para outro
+ * cliente, altere apenas este arquivo (e as imagens em images.js).
+ *
+ * ATENÇÃO: todos os dados abaixo são FICTÍCIOS (demonstração).
+ */
+const config = {
+  brand: {
+    name: 'Amora & Pata',
+    nameParts: ['Amora', 'Pata'],          // usado no logotipo textual
+    segment: 'Pet Shop · Banho e Tosa',
+    tagline: 'Feito com cuidado para quem cuida de quem ama.',
+    foundedNote: 'Pet shop de bairro em Curitiba',
+  },
+
+  site: {
+    url: 'https://amoraepata.exemplo.com.br', // domínio fictício — troque ao publicar
+    locale: 'pt_BR',
+    title: 'Amora & Pata · Banho e Tosa em Curitiba',
+    description:
+      'Banho, tosa e cuidados pensados para deixar cada visita mais tranquila, segura e especial. Pet shop em Curitiba com agendamento pelo WhatsApp.',
+  },
+
+  contact: {
+    // Número FICTÍCIO de demonstração. Formato internacional, só dígitos.
+    whatsapp: '5541900000000',
+    whatsappDisplay: '(41) 90000-0000',
+    phoneIsDemo: true,
+    instagram: 'amoraepata.demo',
+    instagramUrl: 'https://www.instagram.com/',
+    email: 'contato@amoraepata.exemplo.com.br',
+  },
+
+  address: {
+    street: 'Rua das Amoreiras, 000',          // endereço FICTÍCIO
+    district: 'Bairro Demonstração',
+    city: 'Curitiba',
+    state: 'PR',
+    zip: '80000-000',
+    country: 'BR',
+    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=Curitiba%2C+PR',
+    // ponto aproximado apenas para o schema (centro de Curitiba)
+    geo: { lat: -25.4284, lng: -49.2733 },
+  },
+
+  hours: [
+    { days: 'Segunda a sexta', time: '8h às 18h', schema: 'Mo-Fr 08:00-18:00' },
+    { days: 'Sábado', time: '8h às 14h', schema: 'Sa 08:00-14:00' },
+    { days: 'Domingo e feriados', time: 'Fechado', schema: null },
+  ],
+
+  whatsappMessages: {
+    default: 'Olá, Amora & Pata! Gostaria de agendar um atendimento para o meu pet.',
+    service: (service) => `Olá, Amora & Pata! Gostaria de saber mais sobre ${service}.`,
+  },
+
+  demo: {
+    enabled: true,
+    credit: 'Chrysxxz Digital',
+    note: 'Projeto demonstrativo. Amora & Pata é uma marca fictícia criada para portfólio.',
+  },
+};
+
+// src/lib/html.js
+/** Pequenos utilitários para montar HTML a partir de dados (funcionam no navegador e no Node). */
+const ESC = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+const esc = (s = '') => String(s).replace(/[&<>"']/g, (c) => ESC[c]);
+
+/** Template tag: `html\`...\`` junta arrays e ignora null/false. */
+function html(strings, ...values) {
+  return strings.reduce((out, str, i) => {
+    let v = values[i - 1];
+    if (Array.isArray(v)) v = v.join('');
+    if (v === null || v === undefined || v === false) v = '';
+    return out + v + str;
+  });
+}
+
+// src/components/Logo.js
+
+
+
+/** Logotipo textual: "Amora & Pata" com o "&" em itálico terracota. */
+function Logo({ size = 'md', sub = true } = {}) {
+  const [a, b] = config.brand.nameParts;
+  return `<span class="logo logo--${size}">
+    <span class="logo__word">${esc(a)} <em>&amp;</em> ${esc(b)}</span>
+    ${sub ? `<span class="logo__sub">banho · tosa · cuidado</span>` : ''}
+  </span>`;
+}
+
+// src/components/icons.js
+/** Ícones em linha fina (SVG inline, herdam currentColor). */
+const S = (d, extra = '') =>
+  `<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" ${extra}>${d}</svg>`;
+
+const icons = {
+  arrow: S('<path d="M5 12h14M13 6l6 6-6 6"/>'),
+  arrowDown: S('<path d="M12 5v14M6 13l6 6 6-6"/>'),
+  close: S('<path d="M6 6l12 12M18 6L6 18"/>'),
+  prev: S('<path d="M15 5l-7 7 7 7"/>'),
+  next: S('<path d="M9 5l7 7-7 7"/>'),
+  person: S('<circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.2-3.6 3.8-5.5 7-5.5s5.8 1.9 7 5.5"/>'),
+  home: S('<path d="M4 11l8-6.5 8 6.5"/><path d="M6 9.5V20h12V9.5"/><path d="M10 20v-5h4v5"/>'),
+  hand: S('<path d="M7 12.5V7.8a1.3 1.3 0 0 1 2.6 0V11"/><path d="M9.6 11V5.8a1.3 1.3 0 0 1 2.6 0V11"/><path d="M12.2 11V6.8a1.3 1.3 0 0 1 2.6 0V11.5"/><path d="M14.8 11.5V9a1.3 1.3 0 0 1 2.6 0v4.5c0 3.8-2.4 6.5-5.8 6.5-2.4 0-3.9-1-5.1-2.8L4.6 14.4a1.3 1.3 0 0 1 2-1.6L7 13.3"/>'),
+  clock: S('<circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/>'),
+  pin: S('<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10" r="2.3"/>'),
+  instagram: S('<rect x="4" y="4" width="16" height="16" rx="4.5"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6" fill="currentColor"/>'),
+  map: S('<path d="M9 5L3.5 7v12L9 17l6 2 5.5-2V5L15 7 9 5z"/><path d="M9 5v12M15 7v12"/>'),
+  check: S('<path d="M5 12.5l4.5 4.5L19 7.5"/>'),
+  whatsapp:
+    '<svg class="ic" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.55-3.7 8.24-8.24 8.24zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28z"/></svg>',
+};
+
+// src/lib/whatsapp.js
+
+
+/** Link do WhatsApp da empresa com mensagem pronta. */
+function waLink(message = config.whatsappMessages.default) {
+  return `https://wa.me/${config.contact.whatsapp}?text=${encodeURIComponent(message)}`;
+}
+
+/** Mensagem do formulário de agendamento. */
+function bookingMessage({ service, petName, size, period }) {
+  const lines = [`Olá, ${config.brand.name}! Gostaria de agendar um atendimento.`];
+  if (service) lines.push(`• Serviço: ${service}`);
+  if (petName) lines.push(`• Nome do pet: ${petName}`);
+  if (size) lines.push(`• Porte: ${size}`);
+  if (period) lines.push(`• Melhor período: ${period}`);
+  lines.push('Quais horários vocês têm disponíveis?');
+  return lines.join('\n');
+}
+
+// src/components/Button.js
+
+
+
+
+/** Botão/link padrão. variant: primary | ghost | light | text */
+function Button({ label, href, variant = 'primary', icon, cls = '', attrs = '' }) {
+  const ext = /^https?:/.test(href) ? ' target="_blank" rel="noopener"' : '';
+  const ic = icon ? icons[icon] : '';
+  return `<a class="btn btn--${variant} ${cls}" href="${esc(href)}"${ext} ${attrs}><span class="btn__label">${esc(label)}</span>${ic ? `<span class="btn__icon">${ic}</span>` : ''}</a>`;
+}
+
+/** Botão de WhatsApp com mensagem pronta. */
+const WhatsAppButton = ({ label, message, variant = 'primary', cls = '' }) =>
+  Button({ label, href: waLink(message), variant, icon: 'whatsapp', cls, attrs: 'data-wa' });
+
+// src/sections/Header.js
+
+
+
+
+
+
+function Header() {
+  const links = nav.filter((n) => n.id !== 'inicio');
+  return `<header class="hdr" id="hdr">
+    <div class="wrap hdr__in">
+      <a class="hdr__logo" href="#inicio" aria-label="${esc(config.brand.name)}, início">${Logo({ size: 'sm' })}</a>
+      <nav class="hdr__nav" aria-label="Principal">
+        ${links.map((n) => `<a href="#${n.id}">${esc(n.label)}</a>`).join('')}
+      </nav>
+      <div class="hdr__actions">
+        ${WhatsAppButton({ label: 'Agendar', variant: 'primary', cls: 'btn--sm hdr__cta' })}
+        <button class="burger" id="burger" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="mnav">
+          <span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+  <div class="mnav" id="mnav" aria-hidden="true">
+    <nav class="mnav__links" aria-label="Menu">
+      ${nav.map((n, i) => `<a href="#${n.id}" style="--i:${i}"><span>${String(i + 1).padStart(2, '0')}</span>${esc(n.label)}</a>`).join('')}
+    </nav>
+    <div class="mnav__foot">
+      ${WhatsAppButton({ label: 'Agendar pelo WhatsApp', cls: 'btn--block btn--lg' })}
+      <p>${esc(config.address.city)}, ${esc(config.address.state)} · ${esc(config.hours[0].days)}, ${esc(config.hours[0].time)}</p>
+    </div>
+  </div>`;
+}
+
+// src/data/images.js
+/**
+ * IMAGENS
+ * ------------------------------------------------------------
+ * Todas as fotografias do site ficam centralizadas aqui.
+ * Fonte: Unsplash (licença Unsplash — uso livre, crédito opcional).
+ * Para substituir por fotos reais do cliente, troque apenas `src`
+ * (pode ser uma URL externa ou um caminho local, ex: 'assets/banho.jpg').
+ *
+ * `pos` define o enquadramento (object-position) de cada foto.
+ */
+const U = (id) => `https://images.unsplash.com/${id}`;
+
+const images = {
+  hero: {
+    src: U('photo-1581887936036-3f4f7f0b6679'),
+    alt: 'Cachorro de pelo longo marrom enrolado em uma toalha depois do banho',
+    pos: '50% 40%',
+    credit: 'Jamie Street / Unsplash',
+  },
+  bath: {
+    src: U('photo-1597603413826-cd1c06b05222'),
+    alt: 'Cachorro pequeno de pelo longo recebendo banho com espuma',
+    pos: '50% 45%',
+    credit: 'benjamin lehman / Unsplash',
+  },
+  grooming: {
+    src: U('photo-1719464454959-9cf304ef4774'),
+    alt: 'Cachorro pequeno branco tendo o pelo aparado com tesoura',
+    pos: '50% 40%',
+    credit: 'Buddy AN / Unsplash',
+  },
+  brushing: {
+    src: U('photo-1528846104175-4fd300ee59da'),
+    alt: 'Profissional escovando com cuidado o pelo de um cachorro',
+    pos: '50% 50%',
+    credit: 'Александр Гросс / Unsplash',
+  },
+  drying: {
+    src: U('photo-1625321171045-1fea4ac688e9'),
+    alt: 'Profissional com secador preparando a finalização do atendimento',
+    pos: '50% 35%',
+    credit: 'J. Balla Photography / Unsplash',
+  },
+  cat: {
+    src: U('photo-1625279138876-8910c2af9a30'),
+    alt: 'Gato de pelo longo branco e marrom no colo de uma pessoa',
+    pos: '50% 40%',
+    credit: 'Reba Spike / Unsplash',
+  },
+  cuddle: {
+    src: U('photo-1675430426271-d74b542f21e4'),
+    alt: 'Mulher segurando com carinho um cachorro pequeno branco enrolado em uma manta',
+    pos: '50% 40%',
+    credit: 'benjamin lehman / Unsplash',
+  },
+  bandana: {
+    src: U('photo-1678153188688-0dc45722708a'),
+    alt: 'Cachorro pequeno marrom e branco usando uma bandana verde',
+    pos: '50% 35%',
+    credit: 'Karsten Winegeart / Unsplash',
+  },
+  towel: {
+    src: U('photo-1611173622933-91942d394b04'),
+    alt: 'Lulu da Pomerânia marrom enrolado em uma toalha após o banho',
+    pos: '50% 40%',
+    credit: 'Hayffield L / Unsplash',
+  },
+  tub: {
+    src: U('photo-1583534778255-5d67d3dcf95d'),
+    alt: 'Dachshund marrom sentado em uma banheira branca',
+    pos: '50% 50%',
+    credit: 'Zak Neilson / Unsplash',
+  },
+  tubTowel: {
+    src: U('photo-1647002380358-fc70ed2f04e0'),
+    alt: 'Cachorro sentado em uma banheira ao lado de uma toalha',
+    pos: '50% 50%',
+    credit: 'Ayla Verschueren / Unsplash',
+  },
+  poodle: {
+    src: U('photo-1625277743460-43716b93507a'),
+    alt: 'Poodle preto com pelo bem aparado',
+    pos: '50% 35%',
+    credit: 'Reba Spike / Unsplash',
+  },
+  puppy: {
+    src: U('photo-1608138498574-e5dab4c0ca52'),
+    alt: 'Filhote de golden retriever em retrato de perto',
+    pos: '50% 40%',
+    credit: 'Linoleum Creative Collective / Unsplash',
+  },
+  smallTowel: {
+    src: U('photo-1592887302112-b87aca16ad2c'),
+    alt: 'Cachorro pequeno de pelo longo branco e marrom enrolado em uma toalha',
+    pos: '50% 40%',
+    credit: 'Fernando Andrade / Unsplash',
+  },
+  portrait: {
+    src: U('photo-1576033008321-bc748ab54838'),
+    alt: 'Cachorro marrom de pelagem média em retrato',
+    pos: '50% 35%',
+    credit: 'Kristin Brown / Unsplash',
+  },
+  // Antes e depois (imagens demonstrativas)
+  before: {
+    src: U('photo-1597603413826-cd1c06b05222'),
+    alt: 'Demonstração: cachorro durante o banho, antes da finalização',
+    pos: '50% 45%',
+    credit: 'benjamin lehman / Unsplash',
+  },
+  after: {
+    src: U('photo-1592887302112-b87aca16ad2c'),
+    alt: 'Demonstração: cachorro finalizado e seco após o atendimento',
+    pos: '50% 40%',
+    credit: 'Fernando Andrade / Unsplash',
+  },
+};
+
+/** Monta a URL otimizada (Unsplash CDN aceita w/q/fm/fit). Caminhos locais são mantidos. */
+function imgUrl(src, w = 1200, q = 72) {
+  if (!/^https:\/\/images\.unsplash\.com\//.test(src)) return src;
+  return `${src}?auto=format&fit=crop&w=${w}&q=${q}`;
+}
+
+// src/components/Picture.js
+
+
+
+/**
+ * Imagem responsiva com srcset, lazy loading e fallback elegante.
+ * Se a foto falhar ao carregar, o container mostra um placeholder da marca.
+ */
+function Picture(key, { sizes = '100vw', eager = false, cls = '', widths = [480, 800, 1200, 1600], alt } = {}) {
+  const img = images[key];
+  if (!img) return '';
+  const srcset = widths.map((w) => `${imgUrl(img.src, w)} ${w}w`).join(', ');
+  return `<div class="ph ${cls}"><img src="${imgUrl(img.src, 1200)}" srcset="${srcset}" sizes="${sizes}" alt="${esc(alt ?? img.alt)}" style="object-position:${img.pos || '50% 50%'}" ${eager ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"'} decoding="async" onerror="this.parentNode.classList.add('ph--err')"></div>`;
+}
+
+// src/sections/Hero.js
+
+
+
+
+
+
+
+function Hero() {
+  const h = config.hours[0];
+  return `<section class="hero" id="inicio">
+    <div class="wrap hero__grid">
+      <div class="hero__copy">
+        <p class="eyebrow hero__in" style="--d:.05s"><span class="dot"></span>${esc(hero.eyebrow)}</p>
+        <h1 class="hero__title">
+          <span class="ln"><span style="--d:.12s">${esc(hero.title[0])}</span></span>
+          <span class="ln"><em style="--d:.24s">${esc(hero.title[1])}</em></span>
+        </h1>
+        <p class="hero__sub hero__in" style="--d:.42s">${esc(hero.subtitle)}</p>
+        <div class="hero__ctas hero__in" style="--d:.55s">
+          ${WhatsAppButton({ label: hero.primary, cls: 'btn--lg' })}
+          ${Button({ label: hero.secondary, href: '#servicos', variant: 'ghost', icon: 'arrowDown', cls: 'btn--lg' })}
+        </div>
+        <ul class="hero__meta hero__in" style="--d:.7s">
+          <li>${icons.clock}<span>${esc(hero.note)}</span></li>
+          <li>${icons.pin}<span>${esc(config.address.city)}, ${esc(config.address.state)}</span></li>
+        </ul>
+      </div>
+      <div class="hero__visual">
+        <div class="hero__frame" id="heroFrame">
+          ${Picture('hero', { eager: true, cls: 'hero__ph', sizes: '(max-width: 900px) 100vw, 56vw' })}
+        </div>
+        <div class="hero__card hero__in" style="--d:.9s">
+          <span class="hero__card-ic">${icons.clock}</span>
+          <span><b>${esc(h.days)}</b><small>${esc(h.time)} · sábados até ${esc(config.hours[1].time.split(' às ')[1] || '')}</small></span>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// src/sections/Trust.js
+
+
+
+
+function Trust() {
+  return `<section class="sec trust" aria-labelledby="trust-t">
+    <div class="wrap trust__grid">
+      <div class="trust__head" data-reveal>
+        <h2 class="trust__title" id="trust-t">${esc(trust.title)}</h2>
+        <p class="trust__text">${esc(trust.text)}</p>
+      </div>
+      <ul class="trust__list">
+        ${trust.items.map((it, i) => `<li class="trust__item" data-reveal style="--d:${0.08 * i}s">
+          <span class="trust__ic">${icons[it.icon]}</span>
+          <h3>${esc(it.title)}</h3>
+          <p>${esc(it.text)}</p>
+        </li>`).join('')}
+      </ul>
+    </div>
+  </section>`;
+}
+
+// src/components/SectionHeading.js
+
+
+/** Cabeçalho editorial padrão das seções. */
+function SectionHeading({ index, eyebrow, title, text, align = 'left', cls = '' }) {
+  return `<header class="sh sh--${align} ${cls}" data-reveal>
+    ${index || eyebrow ? `<p class="sh__eyebrow">${index ? `<span class="sh__idx">${esc(index)}</span>` : ''}${eyebrow ? esc(eyebrow) : ''}</p>` : ''}
+    <h2 class="sh__title">${esc(title)}</h2>
+    ${text ? `<p class="sh__text">${esc(text)}</p>` : ''}
+  </header>`;
+}
+
+// src/components/ServiceCard.js
+
+
+
+
+
+
+function ServiceCard(s, i, cta) {
+  const msg = config.whatsappMessages.service(s.name.toLowerCase());
+  return `<article class="svc" data-reveal style="--d:${i * 0.06}s">
+    <a class="svc__link" href="${waLink(msg)}" target="_blank" rel="noopener" data-wa aria-label="${esc(cta)}: ${esc(s.name)}">
+      ${Picture(s.image, { cls: 'svc__ph', sizes: '(max-width: 700px) 86vw, (max-width: 1100px) 45vw, 30vw', widths: [480, 800, 1100] })}
+      <div class="svc__body">
+        <p class="svc__num">${String(i + 1).padStart(2, '0')}</p>
+        <h3 class="svc__name">${esc(s.name)}</h3>
+        <p class="svc__text">${esc(s.text)}</p>
+        <ul class="svc__tags">${s.tags.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>
+        <span class="svc__cta">${esc(cta)} ${icons.arrow}</span>
+      </div>
+    </a>
+  </article>`;
+}
+
+// src/sections/Services.js
+
+
+
+
+function Services() {
+  return `<section class="sec services" id="servicos" aria-label="Serviços">
+    <div class="wrap">
+      <div class="services__top">
+        ${SectionHeading({ index: '01', eyebrow: 'Serviços', title: services.title, text: services.intro })}
+        <p class="services__hint" aria-hidden="true">Deslize para ver todos</p>
+      </div>
+    </div>
+    <div class="services__track" data-track>
+      <div class="wrap services__grid">
+        ${services.items.map((s, i) => ServiceCard(s, i, services.cta)).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+// src/sections/Experience.js
+
+
+
+
+function Experience() {
+  return `<section class="sec exp" id="cuidados" aria-labelledby="exp-t">
+    <div class="wrap exp__grid">
+      <div class="exp__copy">
+        <p class="eyebrow eyebrow--light" data-reveal><span class="sh__idx">02</span>${esc(experience.eyebrow)}</p>
+        <h2 class="exp__title" id="exp-t" data-reveal>${esc(experience.title)}</h2>
+        <p class="exp__text" data-reveal>${esc(experience.text)}</p>
+        <ol class="steps">
+          ${experience.steps.map((s, i) => `<li class="step" data-reveal style="--d:${0.08 * i}s">
+            <span class="step__n">${String(i + 1).padStart(2, '0')}</span>
+            <div><h3>${esc(s.title)}</h3><p>${esc(s.text)}</p></div>
+          </li>`).join('')}
+        </ol>
+      </div>
+      <div class="exp__media" data-reveal>
+        ${Picture(experience.image, { cls: 'exp__ph', sizes: '(max-width: 900px) 100vw, 46vw' })}
+        ${Picture(experience.imageSecondary, { cls: 'exp__ph2', sizes: '(max-width: 900px) 40vw, 18vw', widths: [320, 480, 800] })}
+      </div>
+    </div>
+  </section>`;
+}
+
+// src/sections/Gallery.js
+
+
+
+
+
+
+function Gallery() {
+  return `<section class="sec gallery" id="galeria" aria-label="Galeria">
+    <div class="wrap">
+      <div class="gallery__top">
+        ${SectionHeading({ index: '03', eyebrow: 'Galeria', title: gallery.title, text: gallery.intro })}
+        <div class="filters" role="tablist" aria-label="Filtrar galeria" data-reveal>
+          ${gallery.filters.map((f, i) => `<button class="filter${i === 0 ? ' is-on' : ''}" type="button" role="tab" aria-selected="${i === 0}" data-filter="${f.id}">${esc(f.label)}</button>`).join('')}
+        </div>
+      </div>
+      <div class="gal" id="gal">
+        ${gallery.items.map((it, i) => `<button class="gal__item gal__item--${it.shape}" type="button" data-tag="${it.tag}" data-i="${i}" aria-label="Ampliar foto: ${esc(it.caption)}">
+          ${Picture(it.image, { sizes: it.shape === 'big' || it.shape === 'wide' ? '(max-width: 700px) 100vw, 50vw' : '(max-width: 700px) 50vw, 25vw', widths: [400, 700, 1000, 1400] })}
+          <span class="gal__cap">${esc(it.caption)}</span>
+        </button>`).join('')}
+      </div>
+    </div>
+    <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Foto ampliada" hidden>
+      <figure class="lb__fig"><img id="lbImg" alt=""><figcaption id="lbCap"></figcaption></figure>
+      <button class="lb__btn lb__x" type="button" aria-label="Fechar">${'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18"/></svg>'}</button>
+      <button class="lb__btn lb__pv" type="button" aria-label="Foto anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="lb__btn lb__nx" type="button" aria-label="Próxima foto"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7"/></svg></button>
+      <p class="lb__ct" id="lbCt"></p>
+    </div>
+    <script type="application/json" id="galData">${JSON.stringify(gallery.items.map((it) => ({ src: images[it.image].src, alt: images[it.image].alt, caption: it.caption, tag: it.tag }))).replace(/</g, '\\u003c')}<\/script>
+  </section>`;
+}
+
+// src/sections/BeforeAfter.js
+
+
+
+
+
+function BeforeAfter() {
+  return `<section class="sec ba" aria-label="Antes e depois">
+    <div class="wrap">
+      ${SectionHeading({ index: '04', eyebrow: 'Resultado', title: beforeAfter.title, text: beforeAfter.text, align: 'center' })}
+      <figure class="ba__fig" data-reveal="scale">
+        <div class="ba__box" id="ba" style="--pos:50%">
+          ${Picture('after', { cls: 'ba__img ba__after', sizes: '(max-width: 900px) 100vw, 1000px' })}
+          ${Picture('before', { cls: 'ba__img ba__before', sizes: '(max-width: 900px) 100vw, 1000px' })}
+          <span class="ba__label ba__label--b">${esc(beforeAfter.labels.before)}</span>
+          <span class="ba__label ba__label--a">${esc(beforeAfter.labels.after)}</span>
+          <span class="ba__handle" aria-hidden="true"><span class="ba__knob"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 7l-5 5 5 5M15 7l5 5-5 5"/></svg></span></span>
+          <input class="ba__range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois">
+        </div>
+        <figcaption class="ba__cap">${esc(beforeAfter.caption)}</figcaption>
+      </figure>
+    </div>
+  </section>`;
+}
+
+// src/sections/Testimonials.js
+
+
+
+function Testimonials() {
+  return `<section class="sec tst" aria-labelledby="tst-t">
+    <div class="wrap">
+      <div class="tst__top" data-reveal>
+        <h2 class="tst__title" id="tst-t">${esc(testimonials.title)}</h2>
+        <p class="tst__note">${esc(testimonials.note)}</p>
+      </div>
+      <div class="tst__grid">
+        ${testimonials.items.map((t, i) => `<figure class="quote" data-reveal style="--d:${0.1 * i}s">
+          <span class="quote__mark" aria-hidden="true">“</span>
+          <blockquote>${esc(t.text)}</blockquote>
+          <figcaption><b>${esc(t.author)}</b><span>${esc(t.pet)}</span></figcaption>
+        </figure>`).join('')}
+      </div>
+    </div>
+  </section>`;
+}
+
+// src/sections/Booking.js
+
+
+
+
+
+
+const chips = (name, list, checkedIdx = -1) =>
+  list.map((o, i) => `<label class="chip"><input type="radio" name="${name}" value="${esc(o)}"${i === checkedIdx ? ' checked' : ''}><span>${esc(o)}</span></label>`).join('');
+
+function Booking() {
+  const initial = bookingMessage({ service: booking.options[0] });
+  return `<section class="sec book" id="agendamento" aria-labelledby="book-t">
+    <div class="wrap book__grid">
+      <div class="book__copy" data-reveal>
+        <p class="eyebrow eyebrow--light"><span class="sh__idx">05</span>Agendamento</p>
+        <h2 class="book__title" id="book-t">${esc(booking.title)}</h2>
+        <p class="book__text">${esc(booking.text)}</p>
+        <ul class="book__perks">
+          <li>${icons.check}Resposta pelo WhatsApp</li>
+          <li>${icons.check}Horário combinado com você</li>
+          <li>${icons.check}Sem cadastro</li>
+        </ul>
+      </div>
+      <form class="book__form" id="bookForm" data-reveal="scale" novalidate>
+        <fieldset>
+          <legend>Qual atendimento?</legend>
+          <div class="chips">${chips('service', booking.options, 0)}</div>
+        </fieldset>
+        <div class="book__row">
+          <label class="field"><span>Nome do pet <small>(opcional)</small></span><input name="petName" type="text" autocomplete="off" maxlength="40" placeholder="Ex.: Amora"></label>
+          <label class="field"><span>Melhor período</span>
+            <select name="period"><option value="">Sem preferência</option><option>Manhã</option><option>Tarde</option><option>Sábado</option></select>
+          </label>
+        </div>
+        <fieldset>
+          <legend>Porte</legend>
+          <div class="chips chips--sm">${chips('size', booking.sizes)}</div>
+        </fieldset>
+        <div class="book__preview" aria-live="polite">
+          <span class="book__preview-lbl">Mensagem que será enviada</span>
+          <p id="bookPreview">${esc(initial).replace(/\n/g, '<br>')}</p>
+        </div>
+        <a class="btn btn--primary btn--lg btn--block" id="bookBtn" href="${waLink(initial)}" target="_blank" rel="noopener" data-wa><span class="btn__label">${esc(booking.cta)}</span><span class="btn__icon">${icons.whatsapp}</span></a>
+        <p class="book__fine">WhatsApp ${esc(config.contact.whatsappDisplay)}${config.contact.phoneIsDemo ? ' · número fictício de demonstração' : ''}</p>
+      </form>
+    </div>
+  </section>`;
+}
+
+// src/sections/Location.js
+
+
+
+
+
+
+
+/** Mapa estilizado (SVG ilustrativo). Troque por um iframe do Google Maps no projeto real. */
+const StylizedMap = () => `<svg class="map__svg" viewBox="0 0 600 460" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+  <rect width="600" height="460" fill="var(--map-bg)"/>
+  <path d="M-20 330 C 120 300, 180 360, 300 330 S 520 250, 640 290" stroke="var(--map-water)" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <g fill="var(--map-park)"><rect x="60" y="60" width="130" height="90" rx="14"/><circle cx="470" cy="380" r="60"/></g>
+  <g stroke="var(--map-road)" stroke-linecap="round" fill="none">
+    <path d="M0 200 H600" stroke-width="14"/><path d="M250 0 V460" stroke-width="14"/>
+    <path d="M0 110 L600 60" stroke-width="7"/><path d="M420 0 L360 460" stroke-width="7"/>
+    <path d="M0 400 L260 200" stroke-width="7"/><path d="M120 0 V460" stroke-width="4"/>
+    <path d="M0 270 H600" stroke-width="4"/><path d="M520 0 V460" stroke-width="4"/><path d="M0 30 H600" stroke-width="4"/>
+  </g>
+  <g class="map__pin" transform="translate(300 200)">
+    <circle r="38" fill="var(--terra)" opacity=".14"><animate attributeName="r" values="18;44;18" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".3;0;.3" dur="3.2s" repeatCount="indefinite"/></circle>
+    <path d="M0 6 C -14 -10 -16 -18 -16 -24 A16 16 0 0 1 16 -24 C 16 -18 14 -10 0 6Z" fill="var(--ink)"/>
+    <circle cy="-24" r="5.5" fill="var(--cream)"/>
+  </g>
+</svg>`;
+
+function Location() {
+  const a = config.address;
+  return `<section class="sec loc" id="contato" aria-label="Localização e contato">
+    <div class="wrap">
+      ${SectionHeading({ index: '06', eyebrow: 'Localização', title: location.title, text: location.text })}
+      <div class="loc__grid">
+        <div class="map" data-reveal="scale">
+          ${StylizedMap()}
+          <div class="map__card">
+            <b>${esc(config.brand.name)}</b>
+            <span>${esc(a.street)} · ${esc(a.district)}</span>
+            <span>${esc(a.city)}, ${esc(a.state)} · ${esc(a.zip)}</span>
+          </div>
+          <span class="map__demo">Mapa ilustrativo · endereço fictício</span>
+        </div>
+        <div class="loc__info">
+          <div class="info" data-reveal>
+            <h3>${icons.clock}Horários</h3>
+            <dl class="hours">${config.hours.map((h) => `<div><dt>${esc(h.days)}</dt><dd>${esc(h.time)}</dd></div>`).join('')}</dl>
+          </div>
+          <div class="info" data-reveal style="--d:.08s">
+            <h3>${icons.pin}Endereço</h3>
+            <p>${esc(a.street)}<br>${esc(a.district)} · ${esc(a.city)}, ${esc(a.state)}</p>
+          </div>
+          <div class="info info--links" data-reveal style="--d:.16s">
+            ${WhatsAppButton({ label: `WhatsApp ${config.contact.whatsappDisplay}`, cls: 'btn--block' })}
+            <div class="info__pair">
+              ${Button({ label: 'Instagram', href: config.contact.instagramUrl, variant: 'ghost', icon: 'instagram' })}
+              ${Button({ label: 'Google Maps', href: a.mapsUrl, variant: 'ghost', icon: 'map' })}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>`;
+}
+
+// src/sections/Footer.js
+
+
+
+
+
+
+function Footer() {
+  const c = config.contact;
+  const year = new Date().getFullYear();
+  return `<footer class="ftr">
+    <div class="wrap">
+      <div class="ftr__top">
+        <div class="ftr__brand">
+          ${Logo({ size: 'lg' })}
+          <p class="ftr__tag">${esc(config.brand.tagline)}</p>
+        </div>
+        <nav class="ftr__col" aria-label="Rodapé">
+          <h4>Navegue</h4>
+          <ul>${nav.map((n) => `<li><a href="#${n.id}">${esc(n.label)}</a></li>`).join('')}</ul>
+        </nav>
+        <div class="ftr__col">
+          <h4>Fale com a gente</h4>
+          <ul>
+            <li><a href="${c.instagramUrl}" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="${waLink()}" target="_blank" rel="noopener" data-wa>WhatsApp</a></li>
+            <li><a href="${config.address.mapsUrl}" target="_blank" rel="noopener">Google Maps</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="ftr__bot">
+        <span>© ${year} ${esc(config.brand.name)} · ${esc(config.address.city)}, ${esc(config.address.state)}</span>
+        ${config.demo.enabled ? `<span class="ftr__demo">${esc(config.demo.note)} Desenvolvido por <b>${esc(config.demo.credit)}</b>.</span>` : ''}
+      </div>
+    </div>
+  </footer>`;
+}
+
+// src/sections/MobileCta.js
+
+
+/** CTA fixo: barra inferior no celular, botão flutuante no desktop. */
+function MobileCta() {
+  return `<div class="fcta" id="fcta">${WhatsAppButton({ label: 'Agendar pelo WhatsApp', cls: 'btn--block fcta__btn' })}</div>`;
+}
+
+// src/app.js
+/** Composição da página (função pura: roda no navegador e no build com Node). */
+
+
+
+
+
+
+
+
+
+
+
+
+
+function renderApp() {
+  return [
+    '<a class="skip" href="#main">Pular para o conteúdo</a>',
+    Header(),
+    '<main id="main">',
+    Hero(), Trust(), Services(), Experience(), Gallery(), BeforeAfter(), Testimonials(), Booking(), Location(),
+    '</main>',
+    Footer(),
+    MobileCta(),
+  ].join('\n');
+}
+
+// src/lib/seo.js
+
+
+
+/** Schema.org PetStore (subtipo de LocalBusiness) gerado a partir da configuração. */
+function localBusinessSchema() {
+  const { brand, site, contact, address, hours } = config;
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'PetStore',
+    name: brand.name,
+    description: site.description,
+    url: site.url,
+    image: imgUrl(images.hero.src, 1200),
+    telephone: `+${contact.whatsapp}`,
+    email: contact.email,
+    priceRange: '$',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: address.street,
+      addressLocality: address.city,
+      addressRegion: address.state,
+      postalCode: address.zip,
+      addressCountry: address.country,
+    },
+    geo: { '@type': 'GeoCoordinates', latitude: address.geo.lat, longitude: address.geo.lng },
+    openingHours: hours.map((h) => h.schema).filter(Boolean),
+    sameAs: [contact.instagramUrl],
+  };
+}
+
+// src/behaviors/reveal.js
+/** Fade-up ao entrar na viewport. Cada elemento é revelado uma única vez. */
+function initReveal(root = document) {
+  const els = [...root.querySelectorAll('[data-reveal]')];
+  if (!('IntersectionObserver' in window)) { els.forEach((e) => e.classList.add('in')); return; }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+  els.forEach((e) => io.observe(e));
+  // segurança para rolagem muito rápida
+  let t;
+  const sweep = () => els.forEach((e) => { if (!e.classList.contains('in') && e.getBoundingClientRect().top < innerHeight) e.classList.add('in'); });
+  addEventListener('scroll', () => { clearTimeout(t); t = setTimeout(sweep, 150); }, { passive: true });
+}
+
+// src/behaviors/header.js
+/** Header sólido ao rolar, menu mobile animado e link ativo. */
+function initHeader() {
+  const root = document.documentElement;
+  const hdr = document.getElementById('hdr');
+  const burger = document.getElementById('burger');
+  const mnav = document.getElementById('mnav');
+  const onScroll = () => hdr.classList.toggle('is-solid', scrollY > 24);
+  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+  const setMenu = (open) => {
+    root.classList.toggle('menu-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+    mnav.setAttribute('aria-hidden', String(!open));
+    document.body.style.overflow = open ? 'hidden' : '';
+  };
+  burger.addEventListener('click', () => setMenu(!root.classList.contains('menu-open')));
+  mnav.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && root.classList.contains('menu-open')) setMenu(false); });
+  addEventListener('resize', () => { if (innerWidth > 960 && root.classList.contains('menu-open')) setMenu(false); });
+
+  const links = [...document.querySelectorAll('.hdr__nav a')];
+  if ('IntersectionObserver' in window) {
+    const io = new IntersectionObserver((ents) => ents.forEach((en) => {
+      if (en.isIntersecting) links.forEach((a) => a.classList.toggle('is-on', a.hash === '#' + en.target.id));
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    links.forEach((a) => { const s = document.querySelector(a.hash); if (s) io.observe(s); });
+  }
+}
+
+// src/behaviors/gallery.js
+
+
+/** Filtros da galeria + lightbox (teclado, toque e foco acessíveis). */
+function initGallery() {
+  const gal = document.getElementById('gal');
+  if (!gal) return;
+  const data = JSON.parse(document.getElementById('galData').textContent);
+  const items = [...gal.querySelectorAll('.gal__item')];
+  const filters = [...document.querySelectorAll('.filter')];
+
+  filters.forEach((btn) => btn.addEventListener('click', () => {
+    const f = btn.dataset.filter;
+    filters.forEach((b) => { const on = b === btn; b.classList.toggle('is-on', on); b.setAttribute('aria-selected', String(on)); });
+    gal.classList.add('is-switching');
+    setTimeout(() => {
+      items.forEach((it) => { it.hidden = !(f === 'todos' || it.dataset.tag === f); });
+      gal.dataset.filter = f;
+      requestAnimationFrame(() => gal.classList.remove('is-switching'));
+    }, 220);
+  }));
+
+  // Lightbox
+  const lb = document.getElementById('lb');
+  const img = document.getElementById('lbImg');
+  const cap = document.getElementById('lbCap');
+  const ct = document.getElementById('lbCt');
+  let list = [], cur = 0, lastFocus = null;
+  const show = (i) => {
+    cur = (i + list.length) % list.length;
+    const d = data[list[cur]];
+    img.classList.remove('is-in');
+    img.onload = () => img.classList.add('is-in');
+    img.src = imgUrl(d.src, Math.min(1800, Math.round(innerWidth * devicePixelRatio)));
+    img.alt = d.alt; cap.textContent = d.caption; ct.textContent = `${cur + 1} / ${list.length}`;
+  };
+  const open = (idx) => {
+    list = items.filter((it) => !it.hidden).map((it) => +it.dataset.i);
+    lastFocus = document.activeElement;
+    lb.hidden = false; requestAnimationFrame(() => lb.classList.add('is-open'));
+    document.documentElement.classList.add('lb-open'); document.body.style.overflow = 'hidden';
+    show(list.indexOf(idx)); lb.querySelector('.lb__x').focus();
+  };
+  const close = () => {
+    lb.classList.remove('is-open'); document.documentElement.classList.remove('lb-open'); document.body.style.overflow = '';
+    setTimeout(() => { lb.hidden = true; }, 300); lastFocus?.focus();
+  };
+  items.forEach((it) => it.addEventListener('click', () => open(+it.dataset.i)));
+  lb.querySelector('.lb__x').addEventListener('click', close);
+  lb.querySelector('.lb__pv').addEventListener('click', () => show(cur - 1));
+  lb.querySelector('.lb__nx').addEventListener('click', () => show(cur + 1));
+  lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+  addEventListener('keydown', (e) => {
+    if (lb.hidden) return;
+    if (e.key === 'Escape') close();
+    if (e.key === 'ArrowLeft') show(cur - 1);
+    if (e.key === 'ArrowRight') show(cur + 1);
+    if (e.key === 'Tab') { // mantém o foco dentro do lightbox
+      const f = [...lb.querySelectorAll('button')]; const i = f.indexOf(document.activeElement);
+      e.preventDefault(); f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
+  });
+  let x0 = null;
+  lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+  lb.addEventListener('touchend', (e) => { if (x0 === null) return; const dx = e.changedTouches[0].clientX - x0; if (Math.abs(dx) > 50) show(cur + (dx < 0 ? 1 : -1)); x0 = null; });
+}
+
+// src/behaviors/beforeAfter.js
+/** Comparador antes/depois: input range acessível + arraste em toda a área. */
+function initBeforeAfter() {
+  const box = document.getElementById('ba');
+  if (!box) return;
+  const range = box.querySelector('.ba__range');
+  const set = (v) => { v = Math.max(0, Math.min(100, v)); box.style.setProperty('--pos', v + '%'); range.value = v; };
+  range.addEventListener('input', () => set(+range.value));
+  let drag = false;
+  const fromEvent = (e) => { const r = box.getBoundingClientRect(); set(((e.clientX - r.left) / r.width) * 100); };
+  box.addEventListener('pointerdown', (e) => { drag = true; box.setPointerCapture(e.pointerId); fromEvent(e); });
+  box.addEventListener('pointermove', (e) => { if (drag) fromEvent(e); });
+  box.addEventListener('pointerup', () => { drag = false; });
+  box.addEventListener('pointercancel', () => { drag = false; });
+  // pequena "dica" de movimento quando aparece na tela
+  if ('IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const io = new IntersectionObserver(([en]) => {
+      if (!en.isIntersecting) return; io.disconnect();
+      box.classList.add('is-hint'); set(62);
+      setTimeout(() => set(40), 550); setTimeout(() => { set(50); box.classList.remove('is-hint'); }, 1100);
+    }, { threshold: 0.6 });
+    io.observe(box);
+  }
+}
+
+// src/behaviors/booking.js
+
+
+/** Monta a mensagem do WhatsApp em tempo real a partir das escolhas. */
+function initBooking() {
+  const form = document.getElementById('bookForm');
+  if (!form) return;
+  const btn = document.getElementById('bookBtn');
+  const preview = document.getElementById('bookPreview');
+  const update = () => {
+    const fd = new FormData(form);
+    const msg = bookingMessage({
+      service: fd.get('service'),
+      petName: (fd.get('petName') || '').trim(),
+      size: fd.get('size'),
+      period: fd.get('period'),
+    });
+    btn.href = waLink(msg);
+    preview.textContent = '';
+    msg.split('\n').forEach((line, i) => { if (i) preview.appendChild(document.createElement('br')); preview.appendChild(document.createTextNode(line)); });
+  };
+  form.addEventListener('input', update);
+  form.addEventListener('change', update);
+  form.addEventListener('submit', (e) => { e.preventDefault(); window.open(btn.href, '_blank', 'noopener'); });
+  update();
+}
+
+// src/behaviors/motion.js
+/** Parallax discreto no hero e visibilidade do CTA fixo. */
+function initMotion() {
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const frame = document.querySelector('.hero__ph img');
+  if (frame && !reduce) {
+    let tick = false;
+    addEventListener('scroll', () => {
+      if (tick) return; tick = true;
+      requestAnimationFrame(() => {
+        tick = false;
+        const y = Math.min(scrollY, innerHeight);
+        frame.style.transform = `translate3d(0, ${(y * 0.08).toFixed(1)}px, 0) scale(1.06)`;
+      });
+    }, { passive: true });
+  }
+
+  // CTA fixo: aparece depois do hero, some na seção de agendamento e no rodapé
+  const fcta = document.getElementById('fcta');
+  const heroCtas = document.querySelector('.hero__ctas');
+  const book = document.getElementById('agendamento');
+  const footer = document.querySelector('.ftr');
+  if (!fcta || !('IntersectionObserver' in window)) return;
+  const state = { hero: true, book: false, foot: false };
+  const apply = () => fcta.classList.toggle('is-on', !state.hero && !state.book && !state.foot);
+  const watch = (el, key) => el && new IntersectionObserver(([en]) => { state[key] = en.isIntersecting; apply(); }).observe(el);
+  watch(heroCtas, 'hero'); watch(book, 'book'); watch(footer, 'foot');
+}
+
+// src/main.js
+/**
+ * Amora & Pata — ponto de entrada.
+ * Em desenvolvimento, a página é montada aqui a partir de /src/data.
+ * No build (npm run build), o HTML já vem pré-renderizado (melhor SEO)
+ * e este arquivo apenas liga as interações.
+ */
+
+
+
+
+
+
+
+
+
+const app = document.getElementById('app');
+if (!app.dataset.prerendered) app.innerHTML = renderApp();
+
+if (!document.getElementById('ld-business')) {
+  const s = document.createElement('script');
+  s.type = 'application/ld+json'; s.id = 'ld-business';
+  s.textContent = JSON.stringify(localBusinessSchema());
+  document.head.appendChild(s);
+}
+
+initHeader();
+initReveal();
+initGallery();
+initBeforeAfter();
+initBooking();
+initMotion();
+requestAnimationFrame(() => document.documentElement.classList.add('is-ready'));
+
+})();
+</script>
+</body>
+</html>
