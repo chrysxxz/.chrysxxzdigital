@@ -1,0 +1,8 @@
+{
+  "name": "casa-nero",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Casa Nero — site institucional + experiência digital de restaurante. PROJETO DEMONSTRATIVO FICTÍCIO (portfólio Chrysxxz Digital).",
+  "scripts": { "build": "node scripts/build.mjs" }
+}

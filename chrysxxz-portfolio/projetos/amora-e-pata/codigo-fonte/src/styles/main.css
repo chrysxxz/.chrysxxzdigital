@@ -1,0 +1,5 @@
+/* Ponto de entrada dos estilos (em produção, o build junta tudo em um único arquivo). */
+@import url("./tokens.css");
+@import url("./base.css");
+@import url("./components.css");
+@import url("./sections.css");

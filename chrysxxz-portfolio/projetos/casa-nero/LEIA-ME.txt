@@ -1,0 +1,17 @@
+CASA NERO - projeto demonstrativo (portfólio Chrysxxz Digital)
+Restaurante fictício: nome, endereço, telefone, cardápio e preços são inventados.
+
+COMO ABRIR
+Dê dois cliques em "index.html". O site abre direto no navegador, sem instalar nada.
+(As fontes vêm do Google Fonts e precisam de internet.)
+
+PUBLICAR
+Envie apenas o "index.html" para qualquer hospedagem (Netlify Drop, Vercel,
+Hostinger...). É um arquivo único com CSS e JavaScript embutidos.
+
+CÓDIGO-FONTE
+A pasta "codigo-fonte" tem o projeto organizado:
+  src/data/restaurant.js  -> dados do restaurante (contato, horários, reservas)
+  src/data/menu.js        -> cardápio e ilustrações dos pratos
+Para gerar um novo index.html depois de editar: dentro de "codigo-fonte",
+rode "npm run build" (Node 18+). O resultado sai em codigo-fonte/dist/index.html.

@@ -1,0 +1,8 @@
+{
+  "name": "bravo-barber-club",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BRAVO Barber Club — ecossistema de agendamento (site, cliente e painel). Projeto conceitual Chrysxxz Digital.",
+  "scripts": { "build": "node scripts/build.mjs" }
+}
